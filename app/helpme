@@ -1,0 +1,3 @@
+#!/bin/sh
+cat /app/helpme.md |
+  sed -e "s|\$PANDOC_PRETTY_PDF|$PANDOC_PRETTY_PDF|"

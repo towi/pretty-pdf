@@ -1,0 +1,8 @@
+#!/bin/sh
+# PlantUML Launcher
+
+JAVA=/usr/bin/java
+
+# Did you know that "System.getProperty("user.home"))" can return "?" inside a container?
+# And did you know that if you find a stray directory with an fcinfo file in it, its because of that?
+$JAVA -jar -Duser.home=$HOME -Djava.net.useSystemProxies=true /app/plantuml.jar ${@}

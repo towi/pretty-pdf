@@ -1,0 +1,5 @@
+#!/bin/bash
+set -u  # undef is error
+set -e  # stop at error
+
+fc-list :outline -f "%{family}\n" | sort | uniq

@@ -1,0 +1,19 @@
+#!/bin/bash
+set -u  # undef is error
+set -e  # stop at error
+
+# added at version 1.5.5 but didnt work?
+#    --from markdown+auto_identifiers+backtick_code_blocks+bracketed_spans+definition_lists+emoji+example_lists+fenced_code_blocks+fenced_code_attributes+fenced_divs+footnotes+header_attributes+inline_code_attributes+inline_notes+link_attributes+pipe_tables+strikeout+subscript+superscript+table_captions+tex_math_dollars+yaml_metadata_block \
+#
+
+pandoc \
+    --from markdown+definition_lists+table_captions \
+    --template eisvogel \
+    --pdf-engine xelatex \
+    --listings \
+    --filter pandoc-plantuml \
+    -V 'mainfont=Droid Serif' \
+    -V 'code-block-font-size:\scriptsize' \
+    -V 'table-use-row-colors:true' \
+    -V 'footer-center:confidential' \
+  "$@"
