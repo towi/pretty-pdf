@@ -12,6 +12,15 @@ All-in-one documentation conversion solution:
 See [helpme](app/helpme.md) for a manpage like doc.
 
 
+## TL;DR: How to use?
+
+To convert `FILE.md` to a pretty `FILE.pdf`:
+
+    docker run --rm -v $(pwd):/data \
+        ghcr.io/towi/pandoc-pretty-pdf \
+        pandoc-pretty-pdf -o FILE.pdf FILE.md
+
+
 ## Creating Docker Image
 
 Process `Dockerfile` and create `:latest` image:
@@ -22,11 +31,11 @@ Run some simple tests with the local `:latest` docker image:
 
     make docker-check
 
-Add version tags for local and remote wiqregistry:
+Add version tags for local registry:
 
     make docker-tag
 
-Push local `:latest` and tagged version to remote wiqregistry:
+Add version tags for remote registry and push `:latest` and tagged version there:
 
     make docker-push
 
@@ -35,7 +44,7 @@ Push local `:latest` and tagged version to remote wiqregistry:
 
 I have painfully experienced both of the following issues.
 
- * `docker run towi/pandoc-pretty-pdf` requires `--user ...` to be able to write the output file into the hosts directory
+ * `docker run towi/pandoc-pretty-pdf` requires `--user ...` to be able to write the output file into the hosts directory on some systems (Windows?).
  * `docker build` fails because TeX finds `tlmgr` incompatible with the current *TeX Live* release.
 
 If I read the page https://hub.docker.com/r/pandoc/latex carefully, I would have know what to do.
@@ -48,7 +57,7 @@ So here are the most important excerpts:
 > user and group IDs to use via the --user flag.
 > ...
 > 
->       `docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/latex'`
+>       docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/latex'
 
 FYI, I tried to solve this with `su-exec` in `entrypoint.sh` as well as `gosu`, but it did not work.
 
@@ -87,7 +96,7 @@ a `*.md` file into a `*.pdf` file.
     PANDOC_EISVOGEL_ARGS:=--template eisvogel --pdf-engine xelatex --listings --filter pandoc-plantuml -V "code-block-font-size:\scriptsize" -V "table-use-row-colors:true" -V "footer-center:confidential"
     
     %.pdf: %.md
-        $(PANDOC) --from $(PANDOC_FROM) $(PANDOC_EISVOGEL_ARGS) $< -o $@
+        $(PANDOC) --from $(PANDOC_FROM) $(PANDOC_EISVOGEL_ARGS) pandoc-pretty-pdf $< -o $@
      
     clean:
         $(RM) *.cf *.xhtml *.pdf *.log
