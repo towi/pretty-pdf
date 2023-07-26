@@ -12,8 +12,10 @@ pandoc \
     --pdf-engine xelatex \
     --listings \
     --filter pandoc-plantuml \
-    -V 'mainfont=Droid Serif' \
+    -V colorlinks=true \
+    -V linkcolor=blue \
+    -V urlcolor=NavyBlue \
+    -V toccolor=gray \
     -V 'code-block-font-size:\scriptsize' \
     -V 'table-use-row-colors:true' \
-    -V 'footer-center:confidential' \
   "$@"

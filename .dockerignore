@@ -1,1 +1,7 @@
-tests
+*.pdf
+*~
+*.bak
+*.swp
+*.py[co]
+__pycache__
+*-secret.*
