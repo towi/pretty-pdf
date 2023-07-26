@@ -74,5 +74,21 @@ eisvogel_test: eisvogel_test.pdf
 		@echo "___ result file: ___"
 		ls -l $@
 
+# check with image from hub
+hub-check: eisvogel_test-hub.pdf
+eisvogel_test-hub.pdf: eisvogel_test.md
+	docker run \
+			--rm \
+			--volume $(shell pwd):/data \
+			--user $(shell id -u):$(shell id -g) \
+		$(LATEST) \
+			pandoc-pretty-pdf \
+		-o $@ \
+		$<
+		@echo "___ result file: ___"
+		ls -l $@
+
+#####
+
 clean:
-	$(RM) eisvogel_test.pdf
+	$(RM) eisvogel_test.pdf eisvogel_test-hub.pdf

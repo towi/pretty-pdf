@@ -4,7 +4,7 @@
 FROM pandoc/latex:3.1.1.0
 
 LABEL org.opencontainers.image.source=https://github.com/towi/pandoc-pretty-pdf
-LABEL org.opencontainers.image.description="pandoc-pretty-pdf concerts Markdown to _pretty_ PDFs with pandoc and Wandmalfarbe Eisvogel LaTeX template."
+LABEL org.opencontainers.image.description="pandoc-pretty-pdf converts Markdown to _pretty_ PDFs with pandoc and Wandmalfarbe Eisvogel LaTeX template."
 LABEL org.opencontainers.image.licenses=MIT
 
 
