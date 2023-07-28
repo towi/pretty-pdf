@@ -1,0 +1,8 @@
+---
+header-includes: |
+    \usepackage{fontspec}
+...
+
+`\small`{=latex}
+`\fontspec[Path=/usr/share/texmf-dist/fonts/truetype/paratype/ptsans/,BoldFont=PTN77F.ttf]{PTN57F.ttf}`{=latex}
+

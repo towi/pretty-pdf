@@ -6,11 +6,8 @@ PDFS=\
 	mdtest-markdown_id-basic.pdf \
 	mdtest-mxstbr-basic.pdf \
 	mdtest-typemill-basic.pdf \
-	report_grype_0016-long.pdf \
-	report_grype_testj-long.pdf \
-	report_grype_testj-landscape.pdf \
-	report_syft_demo01-long.pdf \
-	report_syft_test-long.pdf \
+	cluster-grype-report-prelong.pdf \
+	cluster-grype-report-basic.pdf \
 	vorwort-basic.pdf \
 	vorwort-long.pdf
 
@@ -50,6 +47,14 @@ PANDOC_PRETTY_PDF=\
 		-V fontsize=7pt \
 		-o $@ \
 		$<
+
+%-prelong.pdf: %.md %.md.pre
+	$(PANDOC_PRETTY_PDF) \
+		-V 'footer-center:confidential' \
+		-V geometry:margin=1.5cm \
+		-V fontsize=7pt \
+		-o $@ \
+		$<.pre $<
 
 
 %-landscape.pdf: %.md
