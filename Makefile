@@ -3,7 +3,7 @@ all: docker-build
 # docker name to create
 IMAGE_NAME:=pandoc-pretty-pdf
 VERSION:=0.9
-PATCH:=0
+PATCH:=1
 
 NAMESPACE:=towi
 LOCAL:=$(NAMESPACE)/$(IMAGE_NAME)

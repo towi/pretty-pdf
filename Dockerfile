@@ -75,10 +75,15 @@ RUN fc-cache -fsv
 # Python stuff
 
 RUN pip install \
-    pandoc-plantuml-filter
+    pandoc-plantuml-filter \
+    pandoc-include
 ### -> mkdocs needs Pillow needs zopfli needs gcc/python3-dev/musl-dev/g++. Kaboom!
 #RUN pip install mkdocs \
 #  mkdocs-with-pdf mkdocs-build-plantuml-plugin
+
+### HACK: patch pandoc-include. see https://github.com/DCsunset/pandoc-include/issues/37
+COPY pandoc_include-main.py /usr/lib/python3.10/site-packages/pandoc_include/main.py
+
 
 ### PlantUML needs java
 RUN apk --no-cache add openjdk17 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
