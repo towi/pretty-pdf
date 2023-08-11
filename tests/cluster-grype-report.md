@@ -25,10 +25,10 @@
 
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
-| libcrypto3@3.1.1-r1 (fixed 3.1.1-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.1.1-r1 (fixed 3.1.1-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libssl3@3.1.1-r1 (fixed 3.1.1-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.1.1-r1 (fixed 3.1.1-r3)                  | Unknown/?       | CVE-2023-3446                  |
+| libcrypto3@3.1.1-r1 (fixed 3.1.1-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.1.1-r1 (fixed 3.1.1-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libssl3@3.1.1-r1 (fixed 3.1.1-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.1.1-r1 (fixed 3.1.1-r3)                  | Unknown/?       | CVE-2099-4643                  |
 
 ## grafana/grafana
 
@@ -45,13 +45,13 @@
 
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
-| glibc@2.35-r0 (unknown)                            | Critical/480.0  | CVE-2019-1010022               |
-| glibc@2.35-r0 (unknown)                            | High/374.3      | CVE-2019-1010023               |
-| libcrypto3@3.0.9-r1 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.0.9-r1 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libssl3@3.0.9-r1 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.0.9-r1 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2023-3446                  |
-| nghttp2-libs@1.51.0-r0 (fixed 1.51.0-r1)           | High/?          | CVE-2023-35945                 |
+| glibc@2.35-r0 (unknown)                            | Critical/480.0  | CVE-2099-1001022               |
+| glibc@2.35-r0 (unknown)                            | High/374.3      | CVE-2099-1001023               |
+| libcrypto3@3.0.9-r1 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.0.9-r1 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libssl3@3.0.9-r1 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.0.9-r1 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2099-4643                  |
+| nghttp2-libs@1.51.0-r0 (fixed 1.51.0-r1)           | High/?          | CVE-2099-94535                 |
 
 ## keelhq/keel
 
@@ -69,12 +69,12 @@
 |----------------------------------------------------|-----------------|--------------------------------|
 | github.com/docker/distribution@v2.8.1+incompatible (fixed 2.8.2-beta.1) | High/105.3      | GHSA-hqxw-f8mx-cpmw            |
 | github.com/docker/docker@v20.10.21+incompatible (fixed 20.10.24) | High/77.5       | GHSA-232p-vwff-86mp            |
-| libcrypto3@3.0.8-r3 (fixed 3.0.9-r0)               | High/?          | CVE-2023-2650                  |
-| libcrypto3@3.0.8-r3 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.0.8-r3 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libssl3@3.0.8-r3 (fixed 3.0.9-r0)                  | High/?          | CVE-2023-2650                  |
-| libssl3@3.0.8-r3 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.0.8-r3 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2023-3446                  |
+| libcrypto3@3.0.8-r3 (fixed 3.0.9-r0)               | High/?          | CVE-2099-5062                  |
+| libcrypto3@3.0.8-r3 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.0.8-r3 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libssl3@3.0.8-r3 (fixed 3.0.9-r0)                  | High/?          | CVE-2099-5062                  |
+| libssl3@3.0.8-r3 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.0.8-r3 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2099-4643                  |
 
 ## rancher/klipper-helm
 
@@ -91,23 +91,23 @@
 
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
-| git@2.38.5-r0 (unknown)                            | High/56.0       | CVE-2023-22743                 |
+| git@2.38.5-r0 (unknown)                            | High/56.0       | CVE-2099-74223                 |
 | github.com/docker/distribution@v2.8.1+incompatible (fixed 2.8.2-beta.1) | High/105.3      | GHSA-hqxw-f8mx-cpmw            |
 | github.com/docker/distribution@v2.8.1+incompatible (fixed 2.8.2-beta.1) | High/105.3      | GHSA-hqxw-f8mx-cpmw            |
 | github.com/docker/distribution@v2.8.1+incompatible (fixed 2.8.2-beta.1) | High/105.3      | GHSA-hqxw-f8mx-cpmw            |
 | github.com/docker/docker@v20.10.17+incompatible (fixed 20.10.24) | High/77.5       | GHSA-232p-vwff-86mp            |
 | github.com/docker/docker@v20.10.21+incompatible (fixed 20.10.24) | High/77.5       | GHSA-232p-vwff-86mp            |
 | golang.org/x/net@v0.5.0 (fixed 0.7.0)              | High/105.3      | GHSA-vvpx-j8f3-3w6h            |
-| libcrypto3@3.0.8-r4 (fixed 3.0.9-r0)               | High/?          | CVE-2023-2650                  |
-| libcrypto3@3.0.8-r4 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.0.8-r4 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libcurl@8.0.1-r0 (fixed 8.1.0-r0)                  | High/?          | CVE-2023-28319                 |
-| libssl3@3.0.8-r4 (fixed 3.0.9-r0)                  | High/?          | CVE-2023-2650                  |
-| libssl3@3.0.8-r4 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.0.8-r4 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2023-3446                  |
-| ncurses-libs@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2023-29491                 |
-| ncurses-terminfo-base@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2023-29491                 |
-| nghttp2-libs@1.51.0-r0 (fixed 1.51.0-r1)           | High/?          | CVE-2023-35945                 |
+| libcrypto3@3.0.8-r4 (fixed 3.0.9-r0)               | High/?          | CVE-2099-5062                  |
+| libcrypto3@3.0.8-r4 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.0.8-r4 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libcurl@8.0.1-r0 (fixed 8.1.0-r0)                  | High/?          | CVE-2099-31829                 |
+| libssl3@3.0.8-r4 (fixed 3.0.9-r0)                  | High/?          | CVE-2099-5062                  |
+| libssl3@3.0.8-r4 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.0.8-r4 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2099-4643                  |
+| ncurses-libs@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2099-49921                 |
+| ncurses-terminfo-base@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2099-49921                 |
+| nghttp2-libs@1.51.0-r0 (fixed 1.51.0-r1)           | High/?          | CVE-2099-94535                 |
 
 ## rancher/local-path-provisioner
 
@@ -124,14 +124,14 @@
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
 | github.com/gogo/protobuf@v1.3.1 (fixed 1.3.2)      | High/157.6      | GHSA-c3h9-896r-86jm            |
-| libcrypto3@3.0.8-r0 (fixed 3.0.8-r1)               | High/?          | CVE-2023-0464                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r0)               | High/?          | CVE-2023-2650                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libssl3@3.0.8-r0 (fixed 3.0.8-r1)                  | High/?          | CVE-2023-0464                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r0)                  | High/?          | CVE-2023-2650                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2023-3446                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.8-r1)               | High/?          | CVE-2099-6440                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r0)               | High/?          | CVE-2099-5062                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libssl3@3.0.8-r0 (fixed 3.0.8-r1)                  | High/?          | CVE-2099-6440                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r0)                  | High/?          | CVE-2099-5062                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2099-4643                  |
 
 ## rancher/mirrored-coredns-coredns
 
@@ -245,17 +245,17 @@
 
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
-| github.com/cilium/cilium@v1.13.0 (unknown)         | High/96.8       | CVE-2023-27594                 |
-| github.com/cilium/cilium@v1.13.0 (unknown)         | Critical/225.5  | CVE-2023-27595                 |
+| github.com/cilium/cilium@v1.13.0 (unknown)         | High/96.8       | CVE-2099-59724                 |
+| github.com/cilium/cilium@v1.13.0 (unknown)         | Critical/225.5  | CVE-2099-59725                 |
 | github.com/cilium/cilium@v1.13.0 (fixed 1.13.2)    | High/33.4       | GHSA-pg5p-wwp8-97g8            |
-| libcrypto3@3.0.8-r0 (fixed 3.0.8-r1)               | High/?          | CVE-2023-0464                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r0)               | High/?          | CVE-2023-2650                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libssl3@3.0.8-r0 (fixed 3.0.8-r1)                  | High/?          | CVE-2023-0464                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r0)                  | High/?          | CVE-2023-2650                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2023-3446                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.8-r1)               | High/?          | CVE-2099-6440                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r0)               | High/?          | CVE-2099-5062                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libssl3@3.0.8-r0 (fixed 3.0.8-r1)                  | High/?          | CVE-2099-6440                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r0)                  | High/?          | CVE-2099-5062                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2099-4643                  |
 
 ## cilium/hubble-ui
 
@@ -273,28 +273,28 @@
 
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
-| curl@7.87.0-r1 (fixed 7.87.0-r2)                   | Critical/?      | CVE-2023-23914                 |
-| curl@7.87.0-r1 (fixed 7.88.1-r1)                   | High/?          | CVE-2023-27533                 |
-| curl@7.87.0-r1 (fixed 7.88.1-r1)                   | High/?          | CVE-2023-27534                 |
-| curl@7.87.0-r1 (fixed 8.1.0-r0)                    | High/?          | CVE-2023-28319                 |
-| libcrypto3@3.0.8-r0 (fixed 3.0.8-r1)               | High/?          | CVE-2023-0464                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r0)               | High/?          | CVE-2023-2650                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.0.8-r0 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libcurl@7.87.0-r1 (fixed 7.87.0-r2)                | Critical/?      | CVE-2023-23914                 |
-| libcurl@7.87.0-r1 (fixed 7.88.1-r1)                | High/?          | CVE-2023-27533                 |
-| libcurl@7.87.0-r1 (fixed 7.88.1-r1)                | High/?          | CVE-2023-27534                 |
-| libcurl@7.87.0-r1 (fixed 8.1.0-r0)                 | High/?          | CVE-2023-28319                 |
-| libssl3@3.0.8-r0 (fixed 3.0.8-r1)                  | High/?          | CVE-2023-0464                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r0)                  | High/?          | CVE-2023-2650                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.0.8-r0 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2023-3446                  |
-| libwebp@1.2.4-r1 (fixed 1.2.4-r2)                  | High/?          | CVE-2023-1999                  |
-| libx11@1.8.4-r0 (fixed 1.8.4-r1)                   | High/?          | CVE-2023-3138                  |
-| ncurses-libs@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2023-29491                 |
-| ncurses-terminfo-base@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2023-29491                 |
-| nghttp2-libs@1.51.0-r0 (fixed 1.51.0-r1)           | High/?          | CVE-2023-35945                 |
-| tiff@4.4.0-r1 (fixed 4.4.0-r2)                     | High/?          | CVE-2022-3970                  |
+| curl@7.87.0-r1 (fixed 7.87.0-r2)                   | Critical/?      | CVE-2099-91324                 |
+| curl@7.87.0-r1 (fixed 7.88.1-r1)                   | High/?          | CVE-2099-53723                 |
+| curl@7.87.0-r1 (fixed 7.88.1-r1)                   | High/?          | CVE-2099-53724                 |
+| curl@7.87.0-r1 (fixed 8.1.0-r0)                    | High/?          | CVE-2099-31829                 |
+| libcrypto3@3.0.8-r0 (fixed 3.0.8-r1)               | High/?          | CVE-2099-6440                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r0)               | High/?          | CVE-2099-5062                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.0.8-r0 (fixed 3.0.9-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libcurl@7.87.0-r1 (fixed 7.87.0-r2)                | Critical/?      | CVE-2099-91324                 |
+| libcurl@7.87.0-r1 (fixed 7.88.1-r1)                | High/?          | CVE-2099-53723                 |
+| libcurl@7.87.0-r1 (fixed 7.88.1-r1)                | High/?          | CVE-2099-53724                 |
+| libcurl@7.87.0-r1 (fixed 8.1.0-r0)                 | High/?          | CVE-2099-31829                 |
+| libssl3@3.0.8-r0 (fixed 3.0.8-r1)                  | High/?          | CVE-2099-6440                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r0)                  | High/?          | CVE-2099-5062                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.0.8-r0 (fixed 3.0.9-r3)                  | Unknown/?       | CVE-2099-4643                  |
+| libwebp@1.2.4-r1 (fixed 1.2.4-r2)                  | High/?          | CVE-2099-9991                  |
+| libx11@1.8.4-r0 (fixed 1.8.4-r1)                   | High/?          | CVE-2099-3813                  |
+| ncurses-libs@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2099-49921                 |
+| ncurses-terminfo-base@6.3_p20221119-r0 (fixed 6.3_p20221119-r1) | High/?          | CVE-2099-49921                 |
+| nghttp2-libs@1.51.0-r0 (fixed 1.51.0-r1)           | High/?          | CVE-2099-94535                 |
+| tiff@4.4.0-r1 (fixed 4.4.0-r2)                     | High/?          | CVE-2099-7093                  |
 
 ## cilium/operator-generic
 
@@ -351,14 +351,14 @@
 
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
-| libcrypto3@3.1.1-r1 (fixed 3.1.1-r2)               | Unknown/?       | CVE-2023-2975                  |
-| libcrypto3@3.1.1-r1 (fixed 3.1.1-r3)               | Unknown/?       | CVE-2023-3446                  |
-| libssl3@3.1.1-r1 (fixed 3.1.1-r2)                  | Unknown/?       | CVE-2023-2975                  |
-| libssl3@3.1.1-r1 (fixed 3.1.1-r3)                  | Unknown/?       | CVE-2023-3446                  |
-| pip@23.1.2 (unknown)                               | High/374.3      | CVE-2018-20225                 |
-| pip@23.1.2 (unknown)                               | High/374.3      | CVE-2018-20225                 |
-| python@3.11.4 (unknown)                            | High/105.3      | CVE-2023-24329                 |
-| python@3.11.4 (unknown)                            | High/105.3      | CVE-2023-36632                 |
+| libcrypto3@3.1.1-r1 (fixed 3.1.1-r2)               | Unknown/?       | CVE-2099-7592                  |
+| libcrypto3@3.1.1-r1 (fixed 3.1.1-r3)               | Unknown/?       | CVE-2099-4643                  |
+| libssl3@3.1.1-r1 (fixed 3.1.1-r2)                  | Unknown/?       | CVE-2099-7592                  |
+| libssl3@3.1.1-r1 (fixed 3.1.1-r3)                  | Unknown/?       | CVE-2099-4643                  |
+| pip@23.1.2 (unknown)                               | High/374.3      | CVE-2099-22025                 |
+| pip@23.1.2 (unknown)                               | High/374.3      | CVE-2099-22025                 |
+| python@3.11.4 (unknown)                            | High/105.3      | CVE-2099-32429                 |
+| python@3.11.4 (unknown)                            | High/105.3      | CVE-2099-63632                 |
 
 ## prometheus/alertmanager
 
@@ -372,7 +372,7 @@
 
 | Artifact@Version (fixes available)                 | Severity/Score  | Vulnerability                  |
 |----------------------------------------------------|-----------------|--------------------------------|
-| busybox@1.34.1 (unknown)                           | High/374.3      | CVE-2022-28391                 |
+| busybox@1.34.1 (unknown)                           | High/374.3      | CVE-2099-39821                 |
 | golang.org/x/net@v0.4.0 (fixed 0.7.0)              | High/105.3      | GHSA-vvpx-j8f3-3w6h            |
 | golang.org/x/net@v0.4.0 (fixed 0.7.0)              | High/105.3      | GHSA-vvpx-j8f3-3w6h            |
 
@@ -439,9 +439,9 @@
 |----------------------------------------------------|-----------------|--------------------------------|
 | no relevant vulnerability found | / | / |
 
-## docker/example/service/cluster-run-test-01
+## docker/example/service/example-01
 
- * **target**: registry.example.net/docker/example/service/cluster-run-test-01@sha256:0133cdf0bc9334fd58c61f3ee6abef9f8edefd56126b7968a163eb90b17c13af
+ * **target**: registry.example.net/docker/example/service/example-01@sha256:0133cdf0bc9334fd58c61f3ee6abef9f8edefd56126b7968a163eb90b17c13af
  * **Vuln-DB from**: 2023-07-27T01:32:25Z
  * **os/arch/distro**: linux/amd64 / ubuntu@18.04
 
@@ -457,95 +457,95 @@
 |----------------------------------------------------|-----------------|--------------------------------|
 | Flask@1.0.2 (fixed 2.2.5)                          | High/105.3      | GHSA-m2qf-hxjv-5gpq            |
 | Jinja2@2.10 (fixed 2.10.1)                         | High/134.2      | GHSA-462w-v97r-4m45            |
-| PyYAML@3.13 (unknown)                              | Critical/480.0  | CVE-2017-18342                 |
+| PyYAML@3.13 (unknown)                              | Critical/480.0  | CVE-2099-34812                 |
 | PyYAML@3.13 (fixed 5.3.1)                          | Critical/225.5  | GHSA-6757-jp84-gxfx            |
 | PyYAML@3.13 (fixed 5.4)                            | Critical/225.5  | GHSA-8q59-q68h-6hv4            |
 | PyYAML@3.13 (fixed 4.1)                            | Critical/225.5  | GHSA-rprw-h62v-c2w7            |
 | Werkzeug@0.14.1 (fixed 0.15.3)                     | High/105.3      | GHSA-gq9m-qvpx-68hc            |
 | Werkzeug@0.14.1 (fixed 0.15.5)                     | High/105.3      | GHSA-j544-7q9p-6xp8            |
 | Werkzeug@0.14.1 (fixed 2.2.3)                      | High/105.3      | GHSA-xg9f-g7g7-2323            |
-| apt@1.6.3ubuntu0.1 (fixed 1.6.6ubuntu0.1)          | High/?          | CVE-2019-3462                  |
-| cryptography@2.1.4 (unknown)                       | High/145.0      | CVE-2018-10903                 |
+| apt@1.6.3ubuntu0.1 (fixed 1.6.6ubuntu0.1)          | High/?          | CVE-2099-6243                  |
+| cryptography@2.1.4 (unknown)                       | High/145.0      | CVE-2099-90013                 |
 | cryptography@2.1.4 (fixed 2.3)                     | High/105.3      | GHSA-fcf9-3qw3-gxmj            |
 | cryptography@2.1.4 (fixed 39.0.1)                  | High/84.7       | GHSA-x4qr-2fvf-3mr5            |
-| libapt-pkg5.0@1.6.3ubuntu0.1 (fixed 1.6.6ubuntu0.1) | High/?          | CVE-2019-3462                  |
-| libexpat1@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)         | High/?          | CVE-2022-25235                 |
-| libexpat1@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)         | High/?          | CVE-2022-25236                 |
-| libexpat1-dev@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)     | High/?          | CVE-2022-25235                 |
-| libexpat1-dev@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)     | High/?          | CVE-2022-25236                 |
-| libksba8@1.3.5-2 (fixed 1.3.5-2ubuntu0.18.04.1)    | High/?          | CVE-2022-3515                  |
-| libsasl2-2@2.1.27~101-g0780600+dfsg-3ubuntu2 (fixed 2.1.27~101-g0780600+dfsg-3ubuntu2.4) | High/?          | CVE-2022-24407                 |
-| libsasl2-modules@2.1.27~101-g0780600+dfsg-3ubuntu2 (fixed 2.1.27~101-g0780600+dfsg-3ubuntu2.4) | High/?          | CVE-2022-24407                 |
-| libsasl2-modules-db@2.1.27~101-g0780600+dfsg-3ubuntu2 (fixed 2.1.27~101-g0780600+dfsg-3ubuntu2.4) | High/?          | CVE-2022-24407                 |
-| libsystemd0@237-3ubuntu10.3 (fixed 237-3ubuntu10.11) | High/?          | CVE-2018-16864                 |
-| libsystemd0@237-3ubuntu10.3 (fixed 237-3ubuntu10.11) | High/?          | CVE-2018-16865                 |
-| libsystemd0@237-3ubuntu10.3 (fixed 237-3ubuntu10.49) | High/?          | CVE-2021-33910                 |
-| libudev1@237-3ubuntu10.3 (fixed 237-3ubuntu10.11)  | High/?          | CVE-2018-16864                 |
-| libudev1@237-3ubuntu10.3 (fixed 237-3ubuntu10.11)  | High/?          | CVE-2018-16865                 |
-| libudev1@237-3ubuntu10.3 (fixed 237-3ubuntu10.49)  | High/?          | CVE-2021-33910                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-50.54)   | High/?          | CVE-2018-12126                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-50.54)   | High/?          | CVE-2018-12127                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-50.54)   | High/?          | CVE-2018-12130                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-69.78)   | High/?          | CVE-2018-12207                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-39.42)   | High/?          | CVE-2018-15471                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-70.79)   | High/?          | CVE-2019-0155                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-69.78)   | High/?          | CVE-2019-11135                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-52.56)   | High/?          | CVE-2019-11477                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-52.56)   | High/?          | CVE-2019-11478                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-64.73)   | High/?          | CVE-2019-14835                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-99.100)  | High/?          | CVE-2020-11884                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-122.124) | High/?          | CVE-2020-12351                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-96.97)   | High/?          | CVE-2020-12654                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-117.118) | High/?          | CVE-2020-14386                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-121.123) | High/?          | CVE-2020-16119                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-140.144) | High/?          | CVE-2020-27170                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-140.144) | High/?          | CVE-2020-27171                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-132.136) | High/?          | CVE-2020-28374                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-136.140) | High/?          | CVE-2020-29661                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-144.148) | High/?          | CVE-2021-22555                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-139.143) | High/?          | CVE-2021-27365                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-142.146) | High/?          | CVE-2021-29154                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-151.157) | High/?          | CVE-2021-33909                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-142.146) | High/?          | CVE-2021-3493                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-147.151) | High/?          | CVE-2021-3600                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-147.151) | High/?          | CVE-2021-3609                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-156.163) | High/?          | CVE-2021-3653                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-156.163) | High/?          | CVE-2021-3656                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-99.100)  | High/?          | CVE-2021-3715                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-166.174) | High/?          | CVE-2021-4002                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-171.180) | High/?          | CVE-2022-0001                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-171.180) | High/?          | CVE-2022-0002                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-173.182) | High/?          | CVE-2022-0492                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-184.194) | High/?          | CVE-2022-21499                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-184.194) | High/?          | CVE-2022-23960                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-191.202) | High/?          | CVE-2022-2586                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-191.202) | High/?          | CVE-2022-2588                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-180.189) | High/?          | CVE-2022-29581                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-184.194) | High/?          | CVE-2022-32250                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-191.202) | High/?          | CVE-2022-34918                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-200.211) | High/?          | CVE-2022-42703                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-202.213) | High/?          | CVE-2022-42896                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-202.213) | High/?          | CVE-2022-43945                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-206.217) | High/?          | CVE-2023-0461                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-209.220) | High/?          | CVE-2023-1281                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2023-1380                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-210.221) | High/?          | CVE-2023-1829                  |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2023-30456                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2023-31436                 |
-| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2023-32233                 |
-| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.7) | High/?          | CVE-2020-1971                  |
-| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.9) | High/?          | CVE-2021-3449                  |
-| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.13) | High/?          | CVE-2021-3711                  |
-| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.15) | High/?          | CVE-2022-0778                  |
-| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.21) | High/?          | CVE-2023-0286                  |
-| pip@9.0.1 (unknown)                                | High/374.3      | CVE-2018-20225                 |
-| pip@9.0.1 (unknown)                                | High/145.0      | CVE-2019-20916                 |
+| libapt-pkg5.0@1.6.3ubuntu0.1 (fixed 1.6.6ubuntu0.1) | High/?          | CVE-2099-6243                  |
+| libexpat1@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)         | High/?          | CVE-2099-23525                 |
+| libexpat1@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)         | High/?          | CVE-2099-23526                 |
+| libexpat1-dev@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)     | High/?          | CVE-2099-23525                 |
+| libexpat1-dev@2.2.5-3 (fixed 2.2.5-3ubuntu0.4)     | High/?          | CVE-2099-23526                 |
+| libksba8@1.3.5-2 (fixed 1.3.5-2ubuntu0.18.04.1)    | High/?          | CVE-2099-1553                  |
+| libsasl2-2@2.1.27~101-g0780600+dfsg-3ubuntu2 (fixed 2.1.27~101-g0780600+dfsg-3ubuntu2.4) | High/?          | CVE-2099-40427                 |
+| libsasl2-modules@2.1.27~101-g0780600+dfsg-3ubuntu2 (fixed 2.1.27~101-g0780600+dfsg-3ubuntu2.4) | High/?          | CVE-2099-40427                 |
+| libsasl2-modules-db@2.1.27~101-g0780600+dfsg-3ubuntu2 (fixed 2.1.27~101-g0780600+dfsg-3ubuntu2.4) | High/?          | CVE-2099-40427                 |
+| libsystemd0@237-3ubuntu10.3 (fixed 237-3ubuntu10.11) | High/?          | CVE-2099-86614                 |
+| libsystemd0@237-3ubuntu10.3 (fixed 237-3ubuntu10.11) | High/?          | CVE-2099-86615                 |
+| libsystemd0@237-3ubuntu10.3 (fixed 237-3ubuntu10.49) | High/?          | CVE-2099-91330                 |
+| libudev1@237-3ubuntu10.3 (fixed 237-3ubuntu10.11)  | High/?          | CVE-2099-86614                 |
+| libudev1@237-3ubuntu10.3 (fixed 237-3ubuntu10.11)  | High/?          | CVE-2099-86615                 |
+| libudev1@237-3ubuntu10.3 (fixed 237-3ubuntu10.49)  | High/?          | CVE-2099-91330                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-50.54)   | High/?          | CVE-2099-12216                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-50.54)   | High/?          | CVE-2099-12217                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-50.54)   | High/?          | CVE-2099-13210                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-69.78)   | High/?          | CVE-2099-20217                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-39.42)   | High/?          | CVE-2099-47511                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-70.79)   | High/?          | CVE-2099-5510                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-69.78)   | High/?          | CVE-2099-13115                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-52.56)   | High/?          | CVE-2099-47117                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-52.56)   | High/?          | CVE-2099-47118                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-64.73)   | High/?          | CVE-2099-83415                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-99.100)  | High/?          | CVE-2099-88114                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-122.124) | High/?          | CVE-2099-35211                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-96.97)   | High/?          | CVE-2099-65214                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-117.118) | High/?          | CVE-2099-38416                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-121.123) | High/?          | CVE-2099-11619                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-140.144) | High/?          | CVE-2099-17720                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-140.144) | High/?          | CVE-2099-17721                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-132.136) | High/?          | CVE-2099-37824                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-136.140) | High/?          | CVE-2099-66921                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-144.148) | High/?          | CVE-2099-55225                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-139.143) | High/?          | CVE-2099-36725                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-142.146) | High/?          | CVE-2099-15924                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-151.157) | High/?          | CVE-2099-90339                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-142.146) | High/?          | CVE-2099-9343                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-147.151) | High/?          | CVE-2099-0063                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-147.151) | High/?          | CVE-2099-0963                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-156.163) | High/?          | CVE-2099-5363                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-156.163) | High/?          | CVE-2099-5663                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-99.100)  | High/?          | CVE-2099-1573                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-166.174) | High/?          | CVE-2099-0204                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-171.180) | High/?          | CVE-2099-0100                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-171.180) | High/?          | CVE-2099-0200                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-173.182) | High/?          | CVE-2099-9240                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-184.194) | High/?          | CVE-2099-49129                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-184.194) | High/?          | CVE-2099-96320                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-191.202) | High/?          | CVE-2099-8652                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-191.202) | High/?          | CVE-2099-8852                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-180.189) | High/?          | CVE-2099-58921                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-184.194) | High/?          | CVE-2099-25230                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-191.202) | High/?          | CVE-2099-91438                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-200.211) | High/?          | CVE-2099-70243                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-202.213) | High/?          | CVE-2099-89246                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-202.213) | High/?          | CVE-2099-94345                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-206.217) | High/?          | CVE-2099-6140                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-209.220) | High/?          | CVE-2099-8121                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2099-8031                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-210.221) | High/?          | CVE-2099-2981                  |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2099-45036                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2099-43136                 |
+| linux-libc-dev@4.15.0-38.41 (fixed 4.15.0-212.223) | High/?          | CVE-2099-23233                 |
+| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.7) | High/?          | CVE-2099-7191                  |
+| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.9) | High/?          | CVE-2099-4943                  |
+| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.13) | High/?          | CVE-2099-1173                  |
+| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.15) | High/?          | CVE-2099-7870                  |
+| openssl@1.1.0g-2ubuntu4.1 (fixed 1.1.1-1ubuntu2.1~18.04.21) | High/?          | CVE-2099-8620                  |
+| pip@9.0.1 (unknown)                                | High/374.3      | CVE-2099-22025                 |
+| pip@9.0.1 (unknown)                                | High/145.0      | CVE-2099-91026                 |
 | pip@9.0.1 (fixed 19.2)                             | High/105.3      | GHSA-gpvv-69j7-gwj8            |
-| pycrypto@2.6.1 (unknown)                           | Critical/480.0  | CVE-2013-7459                  |
-| pycrypto@2.6.1 (unknown)                           | High/145.0      | CVE-2018-6594                  |
+| pycrypto@2.6.1 (unknown)                           | Critical/480.0  | CVE-2099-5947                  |
+| pycrypto@2.6.1 (unknown)                           | High/145.0      | CVE-2099-9456                  |
 | pycrypto@2.6.1 (not-fixed)                         | High/105.3      | GHSA-6528-wvf6-f6qg            |
 | pycrypto@2.6.1 (not-fixed)                         | Critical/225.5  | GHSA-cq27-v7xp-c356            |
-| pyxdg@0.25 (unknown)                               | High/159.9      | CVE-2019-12761                 |
+| pyxdg@0.25 (unknown)                               | High/159.9      | CVE-2099-76211                 |
 | pyxdg@0.25 (fixed 0.26)                            | High/70.8       | GHSA-r6v3-hpxj-r8rv            |
 | setuptools@39.0.1 (fixed 65.5.1)                   | High/105.3      | GHSA-r9hx-vwmv-q579            |
 | wheel@0.30.0 (fixed 0.38.1)                        | High/105.3      | GHSA-qwmp-2cf2-g9g6            |
@@ -565,92 +565,92 @@
 
 | Vulnerability        | Severity   | Artifact@Version                                   |
 |----------------------|------------|----------------------------------------------------|
-| CVE-2013-7459        | Critical   | pycrypto@2.6.1                                     |
-| CVE-2017-18342       | Critical   | PyYAML@3.13                                        |
-| CVE-2018-10903       | High       | cryptography@2.1.4                                 |
-| CVE-2018-12126       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2018-12127       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2018-12130       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2018-12207       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2018-15471       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2018-16864       | High       | libsystemd0@237-3ubuntu10.3, libudev1@237-3ubuntu10.3 |
-| CVE-2018-16865       | High       | libsystemd0@237-3ubuntu10.3, libudev1@237-3ubuntu10.3 |
-| CVE-2018-20225       | High       | pip@23.1.2, pip@9.0.1                              |
-| CVE-2018-6594        | High       | pycrypto@2.6.1                                     |
-| CVE-2019-0155        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2019-1010022     | Critical   | glibc@2.35-r0                                      |
-| CVE-2019-1010023     | High       | glibc@2.35-r0                                      |
-| CVE-2019-11135       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2019-11477       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2019-11478       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2019-12761       | High       | python3-xdg@0.25-4ubuntu1, pyxdg@0.25              |
-| CVE-2019-14835       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2019-3462        | High       | apt@1.6.3ubuntu0.1, libapt-pkg5.0@1.6.3ubuntu0.1   |
-| CVE-2020-11884       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-12351       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-12654       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-14386       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-16119       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-1971        | High       | openssl@1.1.0g-2ubuntu4.1                          |
-| CVE-2020-27170       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-27171       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-28374       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2020-29661       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-22555       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-27365       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-29154       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-33909       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-33910       | High       | libsystemd0@237-3ubuntu10.3, libudev1@237-3ubuntu10.3 |
-| CVE-2021-3449        | High       | openssl@1.1.0g-2ubuntu4.1                          |
-| CVE-2021-3493        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-3600        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-3609        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-3653        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-3656        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-3711        | High       | openssl@1.1.0g-2ubuntu4.1                          |
-| CVE-2021-3715        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2021-4002        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-0001        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-0002        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-0492        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-0778        | High       | openssl@1.1.0g-2ubuntu4.1                          |
-| CVE-2022-21499       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-23960       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-24407       | High       | libsasl2-2@2.1.27~101-g0780600+dfsg-3ubuntu2, libsasl2-modules-db@2.1.27~101-g0780600+dfsg-3ubuntu2, libsasl2-modules@2.1.27~101-g0780600+dfsg-3ubuntu2 |
-| CVE-2022-25235       | High       | libexpat1-dev@2.2.5-3, libexpat1@2.2.5-3           |
-| CVE-2022-25236       | High       | libexpat1-dev@2.2.5-3, libexpat1@2.2.5-3           |
-| CVE-2022-2586        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-2588        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-28391       | High       | busybox@1.34.1                                     |
-| CVE-2022-29581       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-32250       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-34918       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-3515        | High       | libksba8@1.3.5-2                                   |
-| CVE-2022-3970        | High       | tiff@4.4.0-r1                                      |
-| CVE-2022-42703       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-42896       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2022-43945       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-0286        | High       | openssl@1.1.0g-2ubuntu4.1                          |
-| CVE-2023-0461        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-1281        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-1380        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-1829        | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-1999        | High       | libwebp@1.2.4-r1                                   |
-| CVE-2023-22743       | High       | git@2.38.5-r0                                      |
-| CVE-2023-23914       | Critical   | curl@7.87.0-r1, libcurl@7.87.0-r1                  |
-| CVE-2023-27533       | High       | curl@7.87.0-r1, libcurl@7.87.0-r1                  |
-| CVE-2023-27534       | High       | curl@7.87.0-r1, libcurl@7.87.0-r1                  |
-| CVE-2023-27594       | High       | github.com/cilium/cilium@v1.13.0                   |
-| CVE-2023-27595       | Critical   | github.com/cilium/cilium@v1.13.0                   |
-| CVE-2023-28319       | High       | curl@7.87.0-r1, libcurl@7.87.0-r1, libcurl@8.0.1-r0 |
-| CVE-2023-2975        | Unknown    | libcrypto3@3.0.8-r0, libcrypto3@3.0.8-r3, libcrypto3@3.0.8-r4, libcrypto3@3.0.9-r1, libcrypto3@3.1.1-r1, libssl3@3.0.2-0ubuntu1.10, libssl3@3.0.8-1ubuntu1.2, libssl3@3.0.8-r0, libssl3@3.0.8-r3, libssl3@3.0.8-r4, libssl3@3.0.9-r1, libssl3@3.1.1-r1, openssl@3.0.2-0ubuntu1.10, openssl@3.0.8-1ubuntu1.2 |
-| CVE-2023-30456       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-3138        | High       | libx11@1.8.4-r0                                    |
-| CVE-2023-31436       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-32233       | High       | linux-libc-dev@4.15.0-38.41                        |
-| CVE-2023-3446        | Unknown    | libcrypto3@3.0.8-r0, libcrypto3@3.0.8-r3, libcrypto3@3.0.8-r4, libcrypto3@3.0.9-r1, libcrypto3@3.1.1-r1, libssl3@3.0.8-r0, libssl3@3.0.8-r3, libssl3@3.0.8-r4, libssl3@3.0.9-r1, libssl3@3.1.1-r1 |
-| CVE-2023-35945       | High       | nghttp2-libs@1.51.0-r0                             |
-| CVE-2023-36632       | High       | python@3.11.4                                      |
+| CVE-2099-5947        | Critical   | pycrypto@2.6.1                                     |
+| CVE-2099-34812       | Critical   | PyYAML@3.13                                        |
+| CVE-2099-90013       | High       | cryptography@2.1.4                                 |
+| CVE-2099-12216       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-12217       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-13210       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-20217       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-47511       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-86614       | High       | libsystemd0@237-3ubuntu10.3, libudev1@237-3ubuntu10.3 |
+| CVE-2099-86615       | High       | libsystemd0@237-3ubuntu10.3, libudev1@237-3ubuntu10.3 |
+| CVE-2099-22025       | High       | pip@23.1.2, pip@9.0.1                              |
+| CVE-2099-9456        | High       | pycrypto@2.6.1                                     |
+| CVE-2099-5510        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-1001022     | Critical   | glibc@2.35-r0                                      |
+| CVE-2099-1001023     | High       | glibc@2.35-r0                                      |
+| CVE-2099-13115       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-47117       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-47118       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-76211       | High       | python3-xdg@0.25-4ubuntu1, pyxdg@0.25              |
+| CVE-2099-83415       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-6243        | High       | apt@1.6.3ubuntu0.1, libapt-pkg5.0@1.6.3ubuntu0.1   |
+| CVE-2099-88114       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-35211       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-65214       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-38416       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-11619       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-7191        | High       | openssl@1.1.0g-2ubuntu4.1                          |
+| CVE-2099-17720       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-17721       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-37824       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-66921       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-55225       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-36725       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-15924       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-90339       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-91330       | High       | libsystemd0@237-3ubuntu10.3, libudev1@237-3ubuntu10.3 |
+| CVE-2099-4943        | High       | openssl@1.1.0g-2ubuntu4.1                          |
+| CVE-2099-9343        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-0063        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-0963        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-5363        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-5663        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-1173        | High       | openssl@1.1.0g-2ubuntu4.1                          |
+| CVE-2099-1573        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-0204        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-0100        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-0200        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-9240        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-7870        | High       | openssl@1.1.0g-2ubuntu4.1                          |
+| CVE-2099-49129       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-96320       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-40427       | High       | libsasl2-2@2.1.27~101-g0780600+dfsg-3ubuntu2, libsasl2-modules-db@2.1.27~101-g0780600+dfsg-3ubuntu2, libsasl2-modules@2.1.27~101-g0780600+dfsg-3ubuntu2 |
+| CVE-2099-23525       | High       | libexpat1-dev@2.2.5-3, libexpat1@2.2.5-3           |
+| CVE-2099-23526       | High       | libexpat1-dev@2.2.5-3, libexpat1@2.2.5-3           |
+| CVE-2099-8652        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-8852        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-39821       | High       | busybox@1.34.1                                     |
+| CVE-2099-58921       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-25230       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-91438       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-1553        | High       | libksba8@1.3.5-2                                   |
+| CVE-2099-7093        | High       | tiff@4.4.0-r1                                      |
+| CVE-2099-70243       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-89246       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-94345       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-8620        | High       | openssl@1.1.0g-2ubuntu4.1                          |
+| CVE-2099-6140        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-8121        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-8031        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-2981        | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-9991        | High       | libwebp@1.2.4-r1                                   |
+| CVE-2099-74223       | High       | git@2.38.5-r0                                      |
+| CVE-2099-91324       | Critical   | curl@7.87.0-r1, libcurl@7.87.0-r1                  |
+| CVE-2099-53723       | High       | curl@7.87.0-r1, libcurl@7.87.0-r1                  |
+| CVE-2099-53724       | High       | curl@7.87.0-r1, libcurl@7.87.0-r1                  |
+| CVE-2099-59724       | High       | github.com/cilium/cilium@v1.13.0                   |
+| CVE-2099-59725       | Critical   | github.com/cilium/cilium@v1.13.0                   |
+| CVE-2099-31829       | High       | curl@7.87.0-r1, libcurl@7.87.0-r1, libcurl@8.0.1-r0 |
+| CVE-2099-7592        | Unknown    | libcrypto3@3.0.8-r0, libcrypto3@3.0.8-r3, libcrypto3@3.0.8-r4, libcrypto3@3.0.9-r1, libcrypto3@3.1.1-r1, libssl3@3.0.2-0ubuntu1.10, libssl3@3.0.8-1ubuntu1.2, libssl3@3.0.8-r0, libssl3@3.0.8-r3, libssl3@3.0.8-r4, libssl3@3.0.9-r1, libssl3@3.1.1-r1, openssl@3.0.2-0ubuntu1.10, openssl@3.0.8-1ubuntu1.2 |
+| CVE-2099-45036       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-3813        | High       | libx11@1.8.4-r0                                    |
+| CVE-2099-43136       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-23233       | High       | linux-libc-dev@4.15.0-38.41                        |
+| CVE-2099-4643        | Unknown    | libcrypto3@3.0.8-r0, libcrypto3@3.0.8-r3, libcrypto3@3.0.8-r4, libcrypto3@3.0.9-r1, libcrypto3@3.1.1-r1, libssl3@3.0.8-r0, libssl3@3.0.8-r3, libssl3@3.0.8-r4, libssl3@3.0.9-r1, libssl3@3.1.1-r1 |
+| CVE-2099-94535       | High       | nghttp2-libs@1.51.0-r0                             |
+| CVE-2099-63632       | High       | python@3.11.4                                      |
 | GHSA-232p-vwff-86mp  | High       | github.com/docker/docker@v20.10.17+incompatible, github.com/docker/docker@v20.10.21+incompatible |
 | GHSA-462w-v97r-4m45  | High       | Jinja2@2.10                                        |
 | GHSA-6528-wvf6-f6qg  | High       | pycrypto@2.6.1                                     |
@@ -677,223 +677,223 @@
 
 # Summary: Vulnerability to Services
 
-| Vulnerability            | Sev/Fix      | URL / Scans                                                                      |
-|--------------------------|--------------|----------------------------------------------------|
-| **CVE-2013-7459**        | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2013-7459                                   |
-|                          |      unknown |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2017-18342**       | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2017-18342                                  |
-|                          |      unknown |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-10903**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2018-10903                                  |
-|                          |      unknown |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-12126**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-12126                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-12127**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-12127                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-12130**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-12130                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-12207**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-12207                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-15471**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-15471                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-16864**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-16864                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-16865**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-16865                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2018-20225**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2018-20225                                  |
-|                          |      unknown |   docker/example/service/cluster-run-test-01, kiwigrid/k8s-sidecar               |
-| **CVE-2018-6594**        | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2018-6594                                   |
-|                          |      unknown |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2019-0155**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-0155                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2019-1010022**     | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2019-1010022                                |
-|                          |      unknown |   grafana/grafana                                                                |
-| **CVE-2019-1010023**     | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2019-1010023                                |
-|                          |      unknown |   grafana/grafana                                                                |
-| **CVE-2019-11135**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-11135                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2019-11477**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-11477                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2019-11478**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-11478                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2019-12761**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2019-12761                                  |
-|                          |      unknown |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2019-14835**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-14835                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2019-3462**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2019-3462                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-11884**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-11884                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-12351**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-12351                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-12654**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-12654                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-14386**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-14386                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-16119**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-16119                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-1971**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-1971                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-27170**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-27170                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-27171**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-27171                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-28374**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-28374                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2020-29661**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2020-29661                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-22555**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-22555                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-27365**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-27365                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-29154**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-29154                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-33909**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-33909                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-33910**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-33910                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3449**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3449                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3493**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3493                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3600**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3600                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3609**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3609                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3653**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3653                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3656**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3656                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3711**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3711                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-3715**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-3715                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2021-4002**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-4002                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-0001**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-0001                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-0002**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-0002                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-0492**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-0492                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-0778**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-0778                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-21499**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-21499                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-23960**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-23960                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-24407**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-24407                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-25235**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-25235                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-25236**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-25236                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-2586**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-2586                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-2588**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-2588                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-28391**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2022-28391                                  |
-|                          |      unknown |   prometheus/alertmanager                                                        |
-| **CVE-2022-29581**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-29581                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-32250**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-32250                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-34918**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-34918                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-3515**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-3515                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-3970**        | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3970                      |
-|                          |        fixed |   cilium/hubble-ui                                                               |
-| **CVE-2022-42703**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-42703                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-42896**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-42896                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2022-43945**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-43945                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-0286**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-0286                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-0461**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-0461                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-1281**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-1281                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-1380**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-1380                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-1829**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-1829                      |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-1999**        | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1999                      |
-|                          |        fixed |   cilium/hubble-ui                                                               |
-| **CVE-2023-22743**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2023-22743                                  |
-|                          |      unknown |   rancher/klipper-helm                                                           |
-| **CVE-2023-23914**       | **Critical** | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23914                     |
-|                          |        fixed |   cilium/hubble-ui                                                               |
-| **CVE-2023-27533**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27533                     |
-|                          |        fixed |   cilium/hubble-ui                                                               |
-| **CVE-2023-27534**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27534                     |
-|                          |        fixed |   cilium/hubble-ui                                                               |
-| **CVE-2023-27594**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2023-27594                                  |
-|                          |      unknown |   cilium/hubble-ui-backend                                                       |
-| **CVE-2023-27595**       | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2023-27595                                  |
-|                          |      unknown |   cilium/hubble-ui-backend                                                       |
-| **CVE-2023-28319**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28319                     |
-|                          |        fixed |   cilium/hubble-ui, rancher/klipper-helm                                         |
-| **CVE-2023-2975**        | **Unknown**  | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2975                      |
-|                          |        fixed |   cilium/cilium, cilium/hubble-ui, cilium/hubble-ui-backend, curlimages/curl, grafana/grafana, keelhq/keel, kiwigrid/k8s-sidecar, rancher/klipper-helm, rancher/local-path-provisioner, ubuntu/squid |
-| **CVE-2023-30456**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-30456                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-3138**        | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3138                      |
-|                          |        fixed |   cilium/hubble-ui                                                               |
-| **CVE-2023-31436**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-31436                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-32233**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-32233                     |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **CVE-2023-3446**        | **Unknown**  | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3446                      |
-|                          |        fixed |   cilium/hubble-ui, cilium/hubble-ui-backend, curlimages/curl, grafana/grafana, keelhq/keel, kiwigrid/k8s-sidecar, rancher/klipper-helm, rancher/local-path-provisioner |
-| **CVE-2023-35945**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35945                     |
-|                          |        fixed |   cilium/hubble-ui, grafana/grafana, rancher/klipper-helm                        |
-| **CVE-2023-36632**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2023-36632                                  |
-|                          |      unknown |   kiwigrid/k8s-sidecar                                                           |
-| **GHSA-232p-vwff-86mp**  | **High**     | https://github.com/advisories/GHSA-232p-vwff-86mp                                |
-|                          |        fixed |   keelhq/keel, rancher/klipper-helm                                              |
-| **GHSA-462w-v97r-4m45**  | **High**     | https://github.com/advisories/GHSA-462w-v97r-4m45                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-6528-wvf6-f6qg**  | **High**     | https://github.com/advisories/GHSA-6528-wvf6-f6qg                                |
-|                          |    not-fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-6757-jp84-gxfx**  | **Critical** | https://github.com/advisories/GHSA-6757-jp84-gxfx                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-69ch-w2m2-3vjp**  | **High**     | https://github.com/advisories/GHSA-69ch-w2m2-3vjp                                |
-|                          |        fixed |   brancz/kube-rbac-proxy                                                         |
-| **GHSA-8q59-q68h-6hv4**  | **Critical** | https://github.com/advisories/GHSA-8q59-q68h-6hv4                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-c3h9-896r-86jm**  | **High**     | https://github.com/advisories/GHSA-c3h9-896r-86jm                                |
-|                          |        fixed |   rancher/local-path-provisioner                                                 |
-| **GHSA-cq27-v7xp-c356**  | **Critical** | https://github.com/advisories/GHSA-cq27-v7xp-c356                                |
-|                          |    not-fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-fcf9-3qw3-gxmj**  | **High**     | https://github.com/advisories/GHSA-fcf9-3qw3-gxmj                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-fxg5-wq6x-vr4w**  | **High**     | https://github.com/advisories/GHSA-fxg5-wq6x-vr4w                                |
-|                          |        fixed |   brancz/kube-rbac-proxy                                                         |
-| **GHSA-gpvv-69j7-gwj8**  | **High**     | https://github.com/advisories/GHSA-gpvv-69j7-gwj8                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-gq9m-qvpx-68hc**  | **High**     | https://github.com/advisories/GHSA-gq9m-qvpx-68hc                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-hqxw-f8mx-cpmw**  | **High**     | https://github.com/advisories/GHSA-hqxw-f8mx-cpmw                                |
-|                          |        fixed |   keelhq/keel, prometheus/prometheus, rancher/klipper-helm                       |
-| **GHSA-j544-7q9p-6xp8**  | **High**     | https://github.com/advisories/GHSA-j544-7q9p-6xp8                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-m2qf-hxjv-5gpq**  | **High**     | https://github.com/advisories/GHSA-m2qf-hxjv-5gpq                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-pg5p-wwp8-97g8**  | **High**     | https://github.com/advisories/GHSA-pg5p-wwp8-97g8                                |
-|                          |        fixed |   cilium/hubble-ui-backend                                                       |
-| **GHSA-qwmp-2cf2-g9g6**  | **High**     | https://github.com/advisories/GHSA-qwmp-2cf2-g9g6                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-r6v3-hpxj-r8rv**  | **High**     | https://github.com/advisories/GHSA-r6v3-hpxj-r8rv                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-r9hx-vwmv-q579**  | **High**     | https://github.com/advisories/GHSA-r9hx-vwmv-q579                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-rprw-h62v-c2w7**  | **Critical** | https://github.com/advisories/GHSA-rprw-h62v-c2w7                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-vvpx-j8f3-3w6h**  | **High**     | https://github.com/advisories/GHSA-vvpx-j8f3-3w6h                                |
-|                          |        fixed |   brancz/kube-rbac-proxy, prometheus/alertmanager, rancher/klipper-helm, rancher/mirrored-coredns-coredns |
-| **GHSA-x4qr-2fvf-3mr5**  | **High**     | https://github.com/advisories/GHSA-x4qr-2fvf-3mr5                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
-| **GHSA-xg9f-g7g7-2323**  | **High**     | https://github.com/advisories/GHSA-xg9f-g7g7-2323                                |
-|                          |        fixed |   docker/example/service/cluster-run-test-01                                     |
+| Vulnerability            | Sev/Fix      | URL / Scans                                                                                                                                                                                        |
+|--------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **CVE-2099-5947**        | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2099-5947                                                                                                                                                     |
+|                          |      unknown | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-34812**       | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2099-34812                                                                                                                                                    |
+|                          |      unknown | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-90013**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-90013                                                                                                                                                    |
+|                          |      unknown | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-12216**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-12216                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-12217**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-12217                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-13210**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-13210                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-20217**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-20217                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-47511**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-47511                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-86614**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-86614                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-86615**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-86615                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-22025**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-22025                                                                                                                                                    |
+|                          |      unknown | docker/example/service/example-01, kiwigrid/k8s-sidecar                                                                                                                                            |
+| **CVE-2099-9456**        | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-9456                                                                                                                                                     |
+|                          |      unknown | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-5510**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-5510                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-1001022**     | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2099-1001022                                                                                                                                                  |
+|                          |      unknown | grafana/grafana                                                                                                                                                                                    |
+| **CVE-2099-1001023**     | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-1001023                                                                                                                                                  |
+|                          |      unknown | grafana/grafana                                                                                                                                                                                    |
+| **CVE-2099-13115**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-13115                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-47117**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-47117                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-47118**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-47118                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-76211**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-76211                                                                                                                                                    |
+|                          |      unknown | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-83415**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-83415                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-6243**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-6243                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-88114**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-88114                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-35211**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-35211                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-65214**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-65214                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-38416**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-38416                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-11619**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-11619                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-7191**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-7191                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-17720**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-17720                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-17721**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-17721                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-37824**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-37824                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-66921**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-66921                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-55225**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-55225                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-36725**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-36725                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-15924**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-15924                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-90339**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-90339                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-91330**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-91330                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-4943**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-4943                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-9343**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-9343                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-0063**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-0063                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-0963**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-0963                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-5363**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-5363                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-5663**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-5663                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-1173**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-1173                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-1573**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-1573                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-0204**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-0204                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-0100**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-0100                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-0200**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-0200                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-9240**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-9240                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-7870**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-7870                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-49129**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-49129                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-96320**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-96320                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-40427**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-40427                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-23525**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-23525                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-23526**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-23526                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-8652**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-8652                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-8852**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-8852                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-39821**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-39821                                                                                                                                                    |
+|                          |      unknown | prometheus/alertmanager                                                                                                                                                                            |
+| **CVE-2099-58921**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-58921                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-25230**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-25230                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-91438**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-91438                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-1553**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-1553                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-7093**        | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-7093                                                                                                                                        |
+|                          |        fixed | cilium/hubble-ui                                                                                                                                                                                   |
+| **CVE-2099-70243**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-70243                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-89246**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-89246                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-94345**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-94345                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-8620**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-8620                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-6140**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-6140                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-8121**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-8121                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-8031**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-8031                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-2981**        | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-2981                                                                                                                                        |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-9991**        | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-9991                                                                                                                                        |
+|                          |        fixed | cilium/hubble-ui                                                                                                                                                                                   |
+| **CVE-2099-74223**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-74223                                                                                                                                                    |
+|                          |      unknown | rancher/klipper-helm                                                                                                                                                                               |
+| **CVE-2099-91324**       | **Critical** | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-91324                                                                                                                                       |
+|                          |        fixed | cilium/hubble-ui                                                                                                                                                                                   |
+| **CVE-2099-53723**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-53723                                                                                                                                       |
+|                          |        fixed | cilium/hubble-ui                                                                                                                                                                                   |
+| **CVE-2099-53724**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-53724                                                                                                                                       |
+|                          |        fixed | cilium/hubble-ui                                                                                                                                                                                   |
+| **CVE-2099-59724**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-59724                                                                                                                                                    |
+|                          |      unknown | cilium/hubble-ui-backend                                                                                                                                                                           |
+| **CVE-2099-59725**       | **Critical** | https://nvd.nist.gov/vuln/detail/CVE-2099-59725                                                                                                                                                    |
+|                          |      unknown | cilium/hubble-ui-backend                                                                                                                                                                           |
+| **CVE-2099-31829**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-31829                                                                                                                                       |
+|                          |        fixed | cilium/hubble-ui, rancher/klipper-helm                                                                                                                                                             |
+| **CVE-2099-7592**        | **Unknown**  | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-7592                                                                                                                                        |
+|                          |        fixed | cilium/cilium, cilium/hubble-ui, cilium/hubble-ui-backend, curlimages/curl, grafana/grafana, keelhq/keel, kiwigrid/k8s-sidecar, rancher/klipper-helm, rancher/local-path-provisioner, ubuntu/squid |
+| **CVE-2099-45036**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-45036                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-3813**        | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-3813                                                                                                                                        |
+|                          |        fixed | cilium/hubble-ui                                                                                                                                                                                   |
+| **CVE-2099-43136**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-43136                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-23233**       | **High**     | http://people.ubuntu.com/~ubuntu-security/cve/CVE-2099-23233                                                                                                                                       |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **CVE-2099-4643**        | **Unknown**  | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-4643                                                                                                                                        |
+|                          |        fixed | cilium/hubble-ui, cilium/hubble-ui-backend, curlimages/curl, grafana/grafana, keelhq/keel, kiwigrid/k8s-sidecar, rancher/klipper-helm, rancher/local-path-provisioner                              |
+| **CVE-2099-94535**       | **High**     | http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2099-94535                                                                                                                                       |
+|                          |        fixed | cilium/hubble-ui, grafana/grafana, rancher/klipper-helm                                                                                                                                            |
+| **CVE-2099-63632**       | **High**     | https://nvd.nist.gov/vuln/detail/CVE-2099-63632                                                                                                                                                    |
+|                          |      unknown | kiwigrid/k8s-sidecar                                                                                                                                                                               |
+| **GHSA-232p-vwff-86mp**  | **High**     | https://github.com/advisories/GHSA-232p-vwff-86mp                                                                                                                                                  |
+|                          |        fixed | keelhq/keel, rancher/klipper-helm                                                                                                                                                                  |
+| **GHSA-462w-v97r-4m45**  | **High**     | https://github.com/advisories/GHSA-462w-v97r-4m45                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-6528-wvf6-f6qg**  | **High**     | https://github.com/advisories/GHSA-6528-wvf6-f6qg                                                                                                                                                  |
+|                          |    not-fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-6757-jp84-gxfx**  | **Critical** | https://github.com/advisories/GHSA-6757-jp84-gxfx                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-69ch-w2m2-3vjp**  | **High**     | https://github.com/advisories/GHSA-69ch-w2m2-3vjp                                                                                                                                                  |
+|                          |        fixed | brancz/kube-rbac-proxy                                                                                                                                                                             |
+| **GHSA-8q59-q68h-6hv4**  | **Critical** | https://github.com/advisories/GHSA-8q59-q68h-6hv4                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-c3h9-896r-86jm**  | **High**     | https://github.com/advisories/GHSA-c3h9-896r-86jm                                                                                                                                                  |
+|                          |        fixed | rancher/local-path-provisioner                                                                                                                                                                     |
+| **GHSA-cq27-v7xp-c356**  | **Critical** | https://github.com/advisories/GHSA-cq27-v7xp-c356                                                                                                                                                  |
+|                          |    not-fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-fcf9-3qw3-gxmj**  | **High**     | https://github.com/advisories/GHSA-fcf9-3qw3-gxmj                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-fxg5-wq6x-vr4w**  | **High**     | https://github.com/advisories/GHSA-fxg5-wq6x-vr4w                                                                                                                                                  |
+|                          |        fixed | brancz/kube-rbac-proxy                                                                                                                                                                             |
+| **GHSA-gpvv-69j7-gwj8**  | **High**     | https://github.com/advisories/GHSA-gpvv-69j7-gwj8                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-gq9m-qvpx-68hc**  | **High**     | https://github.com/advisories/GHSA-gq9m-qvpx-68hc                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-hqxw-f8mx-cpmw**  | **High**     | https://github.com/advisories/GHSA-hqxw-f8mx-cpmw                                                                                                                                                  |
+|                          |        fixed | keelhq/keel, prometheus/prometheus, rancher/klipper-helm                                                                                                                                           |
+| **GHSA-j544-7q9p-6xp8**  | **High**     | https://github.com/advisories/GHSA-j544-7q9p-6xp8                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-m2qf-hxjv-5gpq**  | **High**     | https://github.com/advisories/GHSA-m2qf-hxjv-5gpq                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-pg5p-wwp8-97g8**  | **High**     | https://github.com/advisories/GHSA-pg5p-wwp8-97g8                                                                                                                                                  |
+|                          |        fixed | cilium/hubble-ui-backend                                                                                                                                                                           |
+| **GHSA-qwmp-2cf2-g9g6**  | **High**     | https://github.com/advisories/GHSA-qwmp-2cf2-g9g6                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-r6v3-hpxj-r8rv**  | **High**     | https://github.com/advisories/GHSA-r6v3-hpxj-r8rv                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-r9hx-vwmv-q579**  | **High**     | https://github.com/advisories/GHSA-r9hx-vwmv-q579                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-rprw-h62v-c2w7**  | **Critical** | https://github.com/advisories/GHSA-rprw-h62v-c2w7                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-vvpx-j8f3-3w6h**  | **High**     | https://github.com/advisories/GHSA-vvpx-j8f3-3w6h                                                                                                                                                  |
+|                          |        fixed | brancz/kube-rbac-proxy, prometheus/alertmanager, rancher/klipper-helm, rancher/mirrored-coredns-coredns                                                                                            |
+| **GHSA-x4qr-2fvf-3mr5**  | **High**     | https://github.com/advisories/GHSA-x4qr-2fvf-3mr5                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |
+| **GHSA-xg9f-g7g7-2323**  | **High**     | https://github.com/advisories/GHSA-xg9f-g7g7-2323                                                                                                                                                  |
+|                          |        fixed | docker/example/service/example-01                                                                                                                                                                  |

@@ -9,7 +9,8 @@ PDFS=\
 	cluster-grype-report-prelong.pdf \
 	cluster-grype-report-basic.pdf \
 	vorwort-basic.pdf \
-	vorwort-long.pdf
+	vorwort-long.pdf \
+	$(patsubst %.md, %-long.pdf, $(wildcard puml-*.md))
 
 
 TARGETS=$(PDFS)
@@ -78,3 +79,4 @@ PANDOC_PRETTY_PDF=\
 
 clean:
 	$(RM) *.pdf *.tex *.log
+	$(RM) -r plantuml-images/
