@@ -74,7 +74,8 @@ RUN tlmgr --verify-repo=none install \
  standalone \
  mathastext \
  pgf \
- pgfplots
+ pgfplots \
+ hyphenat
 
 ### ___ Last tlmgr line. add your additions above ^^^
 RUN tlmgr --verify-repo=none backup --clean --all

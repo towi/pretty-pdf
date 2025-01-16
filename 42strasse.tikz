@@ -3,9 +3,9 @@
 %tikz2pdf-use-package=babel[ngerman]
 %tikz2pdf-use-package=graphicx
 %tikz2pdf-use-package=textpos[overlay]
-%disabled tikz2pdf-use-package=hyphenat
-%disabled tikz2pdf-use-package=mathastext
-%disabled tikz2pdf-use-package=pgfplots
+%tikz2pdf-use-package=hyphenat
+%tikz2pdf-use-package=mathastext
+%tikz2pdf-use-package=pgfplots
 %tikz2pdf-use-tikzlibrary=backgrounds
 %tikz2pdf-use-tikzlibrary=decorations.pathreplacing
 %tikz2pdf-use-tikzlibrary=positioning
