@@ -1,7 +1,5 @@
-# syntax=docker/dockerfile:1
-
 ###   3.1.1.0 is based on TeX Live 2022. We may have to adjust 'tmgr's repository, see below.
-FROM pandoc/latex:3.1.1.0
+FROM pandoc/latex:3.6.0.0
 
 LABEL org.opencontainers.image.source=https://github.com/towi/pandoc-pretty-pdf
 LABEL org.opencontainers.image.description="pandoc-pretty-pdf converts Markdown to _pretty_ PDFs with pandoc and Wandmalfarbe Eisvogel LaTeX template."
@@ -12,7 +10,7 @@ LABEL org.opencontainers.image.licenses=MIT
 ARG PANDOC_PRETTY_PDF=towi/pandoc-pretty-pdf:latest
 ENV PANDOC_PRETTY_PDF=$PANDOC_PRETTY_PDF
 
-ARG PLANTUML_VERSION=1.2023.7
+ARG PLANTUML_VERSION=1.2025.0
 ENV PLANTUML_VERSION=$PLANTUML_VERSION
 
 ENV LANG en_US.UTF-8
@@ -29,7 +27,10 @@ RUN apk --no-cache add --update \
     texmf-dist-fontsextra \
     bash py3-pip \
     curl \
-    graphviz ttf-droid ttf-droid-nonlatin
+    graphviz \
+    ttf-droid
+# not available anymore in new alpine?
+#RUN apk --no-cache add ttf-droid-nonlatin
 
 
 ####################
@@ -37,12 +38,16 @@ RUN apk --no-cache add --update \
 # - this is brittle over time, because tex/tug/texlive changes every year
 
 # The pandoc-image is TeX-Live-2022, tlmgr repo is 2023 today and thus incompatible with it.
-#   Thus we have to use an old repo, see https://tex.stackexchange.com/a/590751
-#   In case you update the 'FROM ...' someday, you have to adjust these ftp urls, too.
-RUN tlmgr repository add ftp://tug.org/historic/systems/texlive/2022/tlnet-final && \
- tlmgr repository list && \
- echo ??? tlmgr repository remove https://ctan.mirror.norbert-ruehl.de/systems/texlive/tlnet && \
- tlmgr option repository ftp://tug.org/historic/systems/texlive/2022/tlnet-final
+#   If we build this image in a year where the TeX-Live is new, we have to adjust the tlmgr repo
+#   with something similkar to the following lines. Or update the 'FROM ...' line, but that
+#   can be tricky, because we rely on the pandoc-latex image :shrug:.
+#   If you have to use an old repo, use something like these lines here,
+#   see https://tex.stackexchange.com/a/590751
+#x# RUN tlmgr repository add ftp://tug.org/historic/systems/texlive/2022/tlnet-final && \
+#x# tlmgr repository list && \
+#x# echo ??? tlmgr repository remove https://ctan.mirror.norbert-ruehl.de/systems/texlive/tlnet && \
+#x# tlmgr option repository ftp://tug.org/historic/systems/texlive/2022/tlnet-final
+
 #RUN tlmgr --verify-repo=none update --self
 ### Yes I know, doing it in one step would be more efficient. But I often have to debug here.
 RUN tlmgr --verify-repo=none install adjustbox babel-german background bidi collectbox csquotes everypage \
@@ -62,6 +67,15 @@ RUN tlmgr --verify-repo=none install adjustbox babel-german background bidi coll
 # new in updated version of eisvogel. added at version 1.5.5 but didnt resolve problem.
 RUN tlmgr --verify-repo=none install koma-script
 
+# for tikz2pdf. and useful anyway.
+RUN tlmgr --verify-repo=none install \
+ preview \
+ textpos \
+ standalone \
+ mathastext \
+ pgf \
+ pgfplots
+
 ### ___ Last tlmgr line. add your additions above ^^^
 RUN tlmgr --verify-repo=none backup --clean --all
 
@@ -74,9 +88,10 @@ RUN fc-cache -fsv
 #############################
 # Python stuff
 
-RUN pip install \
+RUN pip install  --break-system-packages \
     pandoc-plantuml-filter \
     pandoc-include
+
 ### -> mkdocs needs Pillow needs zopfli needs gcc/python3-dev/musl-dev/g++. Kaboom!
 #RUN pip install mkdocs \
 #  mkdocs-with-pdf mkdocs-build-plantuml-plugin
@@ -109,6 +124,7 @@ COPY app /app
 RUN chmod 555 /app/plantuml
 RUN chmod 555 /app/pandoc-pretty-pdf
 RUN chmod 555 /app/helpme
+RUN chmod 555 /app/tikz2pdf
 RUN chmod 555 /app/list-fonts
 #nothing yet:
 #RUN chmod 555 /app/*.py

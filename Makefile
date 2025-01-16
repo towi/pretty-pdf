@@ -2,8 +2,8 @@ all: docker-build
 
 # docker name to create
 IMAGE_NAME:=pandoc-pretty-pdf
-VERSION:=0.9
-PATCH:=1
+VERSION:=0.10
+PATCH:=0
 
 NAMESPACE:=towi
 LOCAL:=$(NAMESPACE)/$(IMAGE_NAME)
@@ -71,6 +71,19 @@ eisvogel_test: eisvogel_test.pdf
 			pandoc-pretty-pdf \
 		-o $@ \
 		$<
+		@echo "___ result file: ___"
+		ls -l $@
+
+%.pdf: %.tikz
+	docker run \
+			--rm \
+			--volume $(shell pwd):/data \
+			--user $(shell id -u):$(shell id -g) \
+		$(LOCAL_LATEST) \
+			tikz2pdf \
+	        -d \
+		$< \
+		-o $@
 		@echo "___ result file: ___"
 		ls -l $@
 

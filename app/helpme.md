@@ -6,6 +6,7 @@
     plantuml                # Text diagrams to graphic
     dot                     # Graphviz, text graph layout
     python3                 # Run python3 scripts
+    tikz2pdf                # Convert TikZ to PDF
 
   Details below.
 
@@ -54,6 +55,10 @@
     dot -Tpng input.dot               # convert .dot to .png
     dot [graphviz-options...]         # anything
     ...and neato, etc if you need it
+
+## tikz2pdf
+
+https://github.com/jeroenjanssens/tikz2pdf/tree/master
 
 ## Python3
   We installed python3 because we needed it anyway.

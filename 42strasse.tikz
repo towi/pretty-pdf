@@ -17,7 +17,7 @@
 %tikz2pdf-use-tikzlibrary=matrix
 
 \begin{tikzpicture}[
-      background rectangle/.style={fill=gpcHintergrund,draw=\gpDraw,line width=\gpLineWidth}, show background rectangle,
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
       every node/.style={align=center, font=\small, minimum height=1.5em, minimum width=1.5cm,node distance=0cm},
         cell/.style = {rectangle, draw, text width=1.3cm,outer sep=0pt, rectangle split, rectangle split horizontal, rectangle split parts=2,
           rectangle split part fill={black!5,white} },

@@ -71,6 +71,18 @@ PANDOC_PRETTY_PDF=\
 		-s -o $@ \
 		$<
 
+# todo:
+
+unicode-test.pdf: unicode-test.md
+	docker run --rm               \
+		--volume $(CURDIR):/data               \
+		-u $(shell id -u):$(shell id -g)               \
+		ghcr.io/towi/pandoc-pretty-pdf             \
+		pandoc-pretty-pdf               \
+		-V fontsize=10pt\
+		-o unicode-test.pdf \
+		unicode-test.md
+
 
 # font
 #    -V 'mainfont=Droid Serif' \
