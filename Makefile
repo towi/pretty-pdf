@@ -58,7 +58,11 @@ docker-check:
 	@echo "   (not a good test yet. please improve it)"
 	-echo '{"meta":{},"blocks":[]}' | docker run --rm -i $(LOCAL_LATEST) python3 -m pandoc_plantuml_filter && echo "\nOK."
 	@echo "====================== Testing Eisvogel Template ============================"
+	$(MAKE) -B tikz2pdf_test
 	$(MAKE) -B eisvogel_test
+
+hello.pdf: hello.tikz
+tikz2pdf_test: hello.pdf
 
 eisvogel_test: eisvogel_test.pdf
 

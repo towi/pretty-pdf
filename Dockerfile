@@ -104,7 +104,7 @@ COPY pandoc_include-main.py /usr/lib/python3.10/site-packages/pandoc_include/mai
 RUN apk --no-cache add openjdk17 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 
 ### well, then we need plantuml too, of course
-RUN curl -L https://sourceforge.net/projects/plantuml/files/plantuml.${PLANTUML_VERSION}.jar/download \
+RUN curl -L https://github.com/plantuml/plantuml/releases/download/v${PLANTUML_VERSION}/plantuml-${PLANTUML_VERSION}.jar \
     -o /app/plantuml.jar
 
 ### and pandoc (or the filter) expects 'plantuml' to be in the PATH

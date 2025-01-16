@@ -7,6 +7,7 @@ set -e  # stop at error
 #
 
 pandoc \
+    --resource-path=/.local/share/pandoc/templates \
     --from markdown+definition_lists+table_captions \
     --template eisvogel \
     --pdf-engine xelatex \
