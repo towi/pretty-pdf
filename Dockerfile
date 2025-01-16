@@ -25,7 +25,7 @@ ENV PYTHONPATH="/app/lib:${PYTHONPATH}"
 
 RUN apk --no-cache add --update \
     texmf-dist-fontsextra \
-    bash py3-pip \
+    bash py3-pip util-linux \
     curl \
     graphviz \
     ttf-droid
@@ -75,7 +75,8 @@ RUN tlmgr --verify-repo=none install \
  mathastext \
  pgf \
  pgfplots \
- hyphenat
+ hyphenat \
+ sansmath
 
 ### ___ Last tlmgr line. add your additions above ^^^
 RUN tlmgr --verify-repo=none backup --clean --all

@@ -222,7 +222,7 @@ class TikZ2PDF(object):
         arguments.update(command_line_arguments)
         # Default values in case they're not set
         arguments['number'] = arguments.get('number', 1)
-        arguments['bin'] = arguments.get('bin', 'pdflatex')
+        arguments['bin'] = arguments.get('bin', 'xelatex')
         return arguments
 
 
@@ -278,21 +278,24 @@ def mk_usetikzlibrary(lib_spec: bytes) -> bytes:
 def main():
     parser = argparse.ArgumentParser(description="tikz2pdf - compile TikZ to PDF", argument_default=argparse.SUPPRESS)
     parser.add_argument('tikz_files', nargs='*', type=argparse.FileType('rb'), default=sys.stdin, help="TikZ file(s)", metavar="TIKZ")
-    parser.add_argument('-b', '--bin', type=str, help="binary to use for compiling (default: pdflatex)")
-    parser.add_argument('-d', '--debug', action='store_true', default=False, help="print debug information")
-    parser.add_argument('-e', '--edit', action='store_true', default=False, help="open TikZ file in default editor")
-    parser.add_argument('-i', '--interactive', action='store_true', default=False, help="start interactive session (same as -evw)")
+    # engine
+    parser.add_argument('-b', '--bin', type=str, help="binary to use for compiling (default: xelatex)")
+    parser.add_argument('-x', '--xelatex', action='store_const', const='xelatex', dest='bin', help="use xelatex as compiler")
+    parser.add_argument('-p', '--pdflatex', action='store_const', const='pdflatex', dest='bin', help="use pdflatex as compiler")
+    parser.add_argument('--dry-run', action='store_true', default=False, help="dry run, do not execute latex")
     parser.add_argument('-c', '--include-dir', action='append', help="additional directory to add to TEXINPUTS")
     parser.add_argument('-n', '--number', type=int, help="number of iterations to compile (default: 1)", metavar="N")
+    # more
     parser.add_argument('-o', '--output', nargs='*', type=str, help="output PDF file or directory (with trailing slash)", metavar="PDF")
-    parser.add_argument('-p', '--pdflatex', action='store_const', const='pdflatex', dest='bin', help="use pdflatex as compiler")
     parser.add_argument('-q', '--quiet', action='store_true', default=False, help="suppress compiler output")
-    parser.add_argument('-t', '--template', type=argparse.FileType('rb'), help="LaTeX file to use as template", metavar="TEX")
+    parser.add_argument('-d', '--debug', action='store_true', default=False, help="print debug information")
+    # deprecated
     parser.add_argument('-v', '--view', action='store_true', default=False, help="open PDF file in default viewer")
     parser.add_argument('-w', '--watch', action='store_true', default=False, help="recompile when TikZ file or template has changed")
-    parser.add_argument('-x', '--xelatex', action='store_const', const='xelatex', dest='bin', help="use xelatex as compiler")
-    parser.add_argument('--dry-run', action='store_true', default=False, help="dry run, do not execute latex")
-    # LaTeX configuration
+    parser.add_argument('-e', '--edit', action='store_true', default=False, help="open TikZ file in default editor")
+    parser.add_argument('-i', '--interactive', action='store_true', default=False, help="start interactive session (same as -evw)")
+    # styling
+    parser.add_argument('-t', '--template', type=argparse.FileType('rb'), help="LaTeX file to use as template", metavar="TEX")
     parser.add_argument('-U', '--use-package', action="append", help="add PACKAGE with \\usepackage, example 'bla' or 'bla[arg1,arg2]'. You can include a line '%tikz2pdf-use-package=yyy[zzz]' in yout tikz-file, too.", metavar="PACKAGE")
     parser.add_argument('-T', '--use-tikzlibrary', action="append", help="add LIBRARY with \\usetikzlibrary, example 'bla' or 'bla[arg1,arg2]'. You can include a line '%tikz2pdf-use-tikzlibrary=yyy[zzz]' in yout tikz-file, too.", metavar="LIBRARY")
 

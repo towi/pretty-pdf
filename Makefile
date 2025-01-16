@@ -54,11 +54,14 @@ docker-check:
 	docker run --rm $(LOCAL_LATEST) plantuml -h
 	@echo "====================== Testing Pandoc ============================"
 	docker run --rm $(LOCAL_LATEST) pandoc -h
+	@echo "====================== Testing Fonts ============================"
+	docker run --rm $(LOCAL_LATEST) list-fonts
 	@echo "====================== Testing Plantuml Filter for Pandoc ============================"
 	@echo "   (not a good test yet. please improve it)"
 	-echo '{"meta":{},"blocks":[]}' | docker run --rm -i $(LOCAL_LATEST) python3 -m pandoc_plantuml_filter && echo "\nOK."
 	@echo "====================== Testing Eisvogel Template ============================"
 	$(MAKE) -B tikz2pdf_test
+	@echo "====================== Testing TikZ to PDF ============================"
 	$(MAKE) -B eisvogel_test
 
 hello.pdf: hello.tikz
