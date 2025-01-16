@@ -1,0 +1,55 @@
+%disabled tikz2pdf-use-package=standalone
+%tikz2pdf-use-package=geometry
+%tikz2pdf-use-package=babel[ngerman]
+%tikz2pdf-use-package=graphicx
+%tikz2pdf-use-package=textpos[overlay]
+%disabled tikz2pdf-use-package=hyphenat
+%disabled tikz2pdf-use-package=mathastext
+%disabled tikz2pdf-use-package=pgfplots
+%tikz2pdf-use-tikzlibrary=backgrounds
+%tikz2pdf-use-tikzlibrary=decorations.pathreplacing
+%tikz2pdf-use-tikzlibrary=positioning
+%tikz2pdf-use-tikzlibrary=shapes
+%tikz2pdf-use-tikzlibrary=shapes.multipart
+%tikz2pdf-use-tikzlibrary=trees
+%tikz2pdf-use-tikzlibrary=arrows
+%tikz2pdf-use-tikzlibrary=chains
+%tikz2pdf-use-tikzlibrary=matrix
+
+\begin{tikzpicture}[
+      background rectangle/.style={fill=gpcHintergrund,draw=\gpDraw,line width=\gpLineWidth}, show background rectangle,
+      every node/.style={align=center, font=\small, minimum height=1.5em, minimum width=1.5cm,node distance=0cm},
+        cell/.style = {rectangle, draw, text width=1.3cm,outer sep=0pt, rectangle split, rectangle split horizontal, rectangle split parts=2,
+          rectangle split part fill={black!5,white} },
+        capx/.style = {rectangle, draw, text width=1.3cm, color=black!40,outer sep=0pt, rectangle split, rectangle split horizontal, rectangle split parts=2},
+        clabel/.style = {font=\footnotesize,text=black!60},
+      scale=1.0,
+      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+    %  every node/.append style={draw},
+        ]
+
+\tikzstyle{key}= [text width=1.3cm]
+\tikzstyle{val}= [text width=1.3cm]
+
+       \node at(0,0) [capx] (n0) { \nodepart[key]{one} \nodepart[val]{two} };
+       \node[below=of n0,capx] (n1) { \nodepart[key]{one} \nodepart[val]{two} };
+
+       \node[below=of n1,cell] (n2) { \nodepart[key]{one} pValue \nodepart[val]{two} \footnotesize 0xab04 };    
+       \node[below=of n2,cell] (n3) { \nodepart[key]{one} value \nodepart[val]{two} 42};
+          \draw [draw=black,arrows={-triangle 45}] ([xshift=-0.15cm]n2.east) -- ([xshift=3ex]n2.east) -- ([xshift=3ex]n3.east) -- (n3.east);
+       \node[below=of n3,cell] (n4) { \nodepart[key]{one} \nodepart[val]{two} };
+       \node[below=of n4,cell] (n5) { \nodepart[key]{one} \nodepart[val]{two} };
+       \node[below=of n5,cell] (n6) { \nodepart[key]{one} \nodepart[val]{two} };
+
+       \node[below=of n6,xshift=-1em] (dtop) {\ldots};
+       \node[above=of n0,xshift=-1em] (dbot) {\ldots};
+
+	\node[left=of n0,clabel] (m0) {0xaafe};
+	\node[left=of n1,clabel] (m1) {0xab00};
+	\node[left=of n2,clabel] (m2) {0xab02};
+	\node[left=of n3,clabel] (m3) {0xab04};
+	\node[left=of n4,clabel] (m4) {0xab08};
+	\node[left=of n5,clabel] (m5) {0xab0a};
+	\node[left=of n6,clabel] (m6) {0xab0c};
+     
+\end{tikzpicture}

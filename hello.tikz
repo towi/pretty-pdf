@@ -1,0 +1,4 @@
+%tikz2pdf-use-package=amsmath
+\begin{tikzpicture}
+\node[circle, draw=blue, dashed, thick, rotate=30, font=\Large] {Hello World!};
+\end{tikzpicture}
