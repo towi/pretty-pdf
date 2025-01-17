@@ -1,0 +1,68 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      inner frame xsep=1.1cm,
+      inner frame ysep=1.1cm,
+]
+
+\tikzstyle{fancytitle} =[draw, very thick, text=black!50, rectangle, inner xsep=6pt,yshift=7.2pt,right=0pt, minimum width=3cm]
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=6pt]
+\tikzstyle{cpp} =[fill=black!0, draw=black!100, thick]
+
+  \node at (0,0) (derived) [modul,cpp,minimum width=5cm,anchor=south west] {%
+	\begin{minipage}{4.5cm}
+      \vskip26pt J \\ \\ \\ \\ \\ \\
+      $\circ$ g()
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=3.0cm,fill=black!5,rotate=270,xshift=2ex] at (derived.north east) (derived2) {
+	\begin{minipage}{2.0cm}
+      Derived\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (0,2.8cm) (base1) [modul,cpp,minimum width=3.5cm,anchor=south west] {%
+	\begin{minipage}{3.0cm}
+      $\circ$ f1() \\
+     \\
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=black!5,rotate=270,anchor=west,xshift=2ex] at (base1.north east) (vw) {
+	\begin{minipage}{1.0cm}
+      Base1\phantom{g}
+    \end{minipage}%
+  };
+
+
+  \node at (0,1.0cm) (base2) [modul,cpp,minimum width=3.5cm,anchor=south west] {%
+	\begin{minipage}{3.0cm}
+      $\circ$ f2() \\
+     \\
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=black!5,rotate=270,anchor=west,xshift=2ex] at (base2.north east) (vw) {
+	\begin{minipage}{1.0cm}
+      Base2\phantom{g}
+    \end{minipage}%
+  };
+
+
+\node [cpp] at ([xshift=-1cm,yshift=-2pt]derived.north west) (pd) {pd};
+\node [cpp] at ([xshift=-2cm,yshift=-2pt]derived.north west) (pb1) {pb1};
+\node [cpp] at ([xshift=-1cm,yshift=1pt]base2.north west) (pb2) {pb2};
+
+\draw [->,thick] (pd) -- ([yshift=-2pt]derived.north west);
+\draw [->,thick] (pb2) -- ([yshift=1pt]base2.north west);
+\draw [thick] (pb1) -- (pd);
+
+
+
+\end{tikzpicture}
+%} % resizebox

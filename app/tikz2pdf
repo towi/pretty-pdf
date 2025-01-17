@@ -13,6 +13,17 @@ import subprocess
 from time import sleep
 from tempfile import mkdtemp
 
+USE_TIKZLIBRARY_DEFAULT = [
+    "backgrounds",
+    "decorations.pathreplacing",
+    "positioning",
+    "shapes",
+    "shapes.multipart",
+    "trees",
+    "chains",
+    "matrix",
+]
+
 class TikZ2PDF(object):
 
     def __init__(self, tikz_file, pdf_filename, **command_line_arguments):
@@ -99,7 +110,7 @@ class TikZ2PDF(object):
             _up  = b"\n".join([mk_usepackage(p) for p in _ps])
             final_tex = final_tex.replace(b'%tikz2pdf-usepackages', _up)
             # - handle usetikzlibraries
-            _ps = [] + [ p.encode() for p in self.arguments.get('use_tikzlibrary', []) ]
+            _ps = [] + [ p.encode() for p in self.arguments.get('use_tikzlibrary', USE_TIKZLIBRARY_DEFAULT) ]
             _up  = b"\n".join([mk_usetikzlibrary(p) for p in _ps])
             final_tex = final_tex.replace(b'%tikz2pdf-usetikzlibraries', _up)
         # Write final tex file

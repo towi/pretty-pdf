@@ -1,0 +1,27 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=6pt]
+\tikzstyle{cpp} =[fill=black!0, draw=black!100, thick]
+
+\fill[color=white] (0,0) circle (2);
+\draw[color=black,thick] (0,0) circle (2);
+  \node at (-2,2.5) (auto) [modul,cpp] { Cars };
+  \draw[cpp] (auto.south east) -- (-1,1);
+
+\fill[color=black!10] (0.5,0.2) circle (1.2);
+\draw[color=black,thick] (0.5,0.2) circle (1.2);
+  \node at (2,2.5) (bulli) [modul,cpp] { VW Buses };
+  \draw[cpp] (bulli.south west) -- (1,0.8);
+
+\end{tikzpicture}
+%} % resizebox

@@ -1,0 +1,57 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{back}
+\pgfsetlayers{background,back,main}
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{mybox} = [draw, fill=black!0, very thick,
+    rectangle, inner sep=8pt, inner ysep=16pt]
+\tikzstyle{fancytitle} =[fill=black!0, draw, very thick, text=black!100, rectangle, inner xsep=6pt,yshift=7.2pt,right=0pt]
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=6pt,font=\footnotesize]
+\tikzstyle{cpp} =[fill=black!0, draw=black!30, thick]
+\tikzstyle{hpp} =[fill=black!0, draw, thick]
+
+
+  \node at (0,0) (teil1hpp) [modul,hpp] {%
+	\begin{minipage}{0.46\textwidth}\tt
+	  \#ifndef PERSON\_HPP \\
+	  \#define PERSON\_HPP \\
+      \#include <string> \\
+      \#include <iostream> // ostream \\
+      struct Person \{ \\
+        \phantom{x}std::string name\_; \\
+        \phantom{x}int age\_; \\
+        \phantom{x}std::string city\_; \\
+        \phantom{x}std::ostream\& 
+          print(std::ostream\& os); \\
+      \}; \\
+	  \#endif // PERSON\_HPP
+    \end{minipage}%
+  };
+  \node[fancytitle,hpp] at (teil1hpp.north west) (a1) {person.hpp};
+
+  \node [right=of teil1hpp.north east, anchor=north west,xshift=-5ex] (teil1cpp) [modul,cpp] {%
+	\begin{minipage}{0.46\textwidth}\tt
+      \#include "person.hpp" \\
+      \#include <format> \\
+      using std::ostream; using std::format;\\ 
+	  ostream\& Person::print(ostream\& os) \{ \\
+      \phantom{x}return os <{}< format("\{\} (\{\}) from \{\}\textbackslash n",\\
+      \phantom{xx}name\_, age\_,  city\_); \\
+      \};
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at (teil1cpp.north west){person.cpp\phantom{h}};
+
+
+\end{tikzpicture}%
+}

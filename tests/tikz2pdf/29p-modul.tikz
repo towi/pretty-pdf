@@ -1,0 +1,129 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{back}
+\pgfsetlayers{background,back,main}
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{mybox} = [draw, fill=black!0, very thick,
+    rectangle, inner sep=8pt, inner ysep=16pt]
+\tikzstyle{fancytitle} =[fill=black!0, draw, very thick, text=black!100, rectangle, inner xsep=6pt,yshift=7.2pt,right=0pt]
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=6pt]
+\tikzstyle{cpp} =[fill=black!0, draw=black!30, thick]
+\tikzstyle{code} =[cpp,font=\tt]
+\tikzstyle{hpp} =[fill=black!0, draw, thick]
+\tikzstyle{hcode} =[hpp,font=\tt]
+
+
+  \node at (0,0) (main) [modul,code] {%
+	\begin{minipage}{0.30\textwidth}
+      \#include "part1.hpp" \\
+      \#include "part2.hpp" \\
+      \#include "const.hpp" \\ 
+	  int main() \{ ... \} 
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at (main.north west) {main.cpp};
+
+  \node [below=of main.south east,xshift=-8ex] (teil1hpp) [modul,hcode] {%
+	\begin{minipage}{0.30\textwidth}
+	  int func1(); \\
+      static const int M=10;
+    \end{minipage}%
+  };
+  \node[fancytitle,hpp] at (teil1hpp.north west) (a1) {part1.hpp};
+
+  \node [right=of teil1hpp.north east, anchor=north west] (teil1cpp) [modul,code] {%
+	\begin{minipage}{0.30\textwidth}
+      \#include "part1.hpp" \\
+      \#include "{}util.hpp" \\ 
+	  int func1() \{ ... \};
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at (teil1cpp.north west){part1.cpp};
+
+
+  \node [below=of teil1hpp,yshift=-12pt] (teil2hpp) [modul,hcode] {%
+	\begin{minipage}{0.30\textwidth}
+      \#include "{}util.hpp" \\ 
+      \#include "const.hpp" \\ 
+	  int func2(); \\
+          int data[Z];
+    \end{minipage}%
+  };
+  \node[fancytitle,hpp] at (teil2hpp.north west) {part2.hpp};
+
+  \node [right=of teil2hpp.north east, anchor=north west] (teil2cpp) [modul,code] {%
+      \begin{minipage}{0.38\textwidth}
+      \#include "part2.hpp" \\
+      \#include "part1.hpp" \\
+      int func2() \{ func1();... \}; \\
+      int data[Z] = \{\};
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at (teil2cpp.north west) {part2.cpp};
+
+
+  \node [below=of teil2hpp] (utilhpp) [modul,hcode] {%
+	\begin{minipage}{0.30\textwidth}
+	  int calcLen();
+    \end{minipage}%
+  };
+  \node[fancytitle,hpp] at (utilhpp.north west) (a2) {util.hpp};
+
+  \node [right=of utilhpp.north east, anchor=north west] (utilcpp) [modul,code] {%
+	\begin{minipage}{0.30\textwidth}
+      \#include "{}util.hpp" \\ 
+      \#include "const.hpp" \\ 
+	  int calcLen() \{ ... \};
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at (utilcpp.north west) {util.cpp};
+
+  \node [right=of utilcpp.north east, anchor=north west] (consthpp) [modul,hcode] {%
+	\begin{minipage}{0.30\textwidth}
+	  static const int X=1; \\
+	  static const int Y=2; \\
+	  static const int Z=3;
+    \end{minipage}%
+  };
+  \node[fancytitle,hpp] at (consthpp.north west) {const.hpp};
+
+\begin{pgfonlayer}{back}
+
+ \path (main.south west) -- (a1.north west) node[midway] (aa) {};
+ \path (main.south west)[xshift=-3ex] |- (aa) node[midway] (aaa) {};
+   \draw[ultra thick,draw=black!20] (aaa) -- ([xshift=3ex]aaa -| consthpp.north east);
+
+ \path (teil2hpp.south west) -- (a2.north west) node[midway] (bb) {};
+   \draw[ultra thick,draw=black!20] (aaa |- bb) -- ([xshift=3ex]bb -| consthpp.north east);
+
+\begin{scope}[->,thick,black!50]
+ \draw[arrows={-triangle 45}]	(main.south west) |- (teil1hpp.west);
+ \draw[arrows={-triangle 45}]   (main.south west) |- (teil2hpp)  ;
+ \draw[arrows={-triangle 45}]   (main.east) -| ([xshift=1cm]consthpp.north);
+ \draw[arrows={-triangle 45}]  	(teil1cpp.south west)  -- (utilhpp.north east);
+ \draw[arrows={-triangle 45}]  	([yshift=1.1cm]teil2cpp.west)  -- (teil1hpp);
+ \draw[arrows={-triangle 45}]  	(teil2hpp) edge [out=-23] ([yshift=-1ex]consthpp.north west); 
+ \draw[arrows={-triangle 45}]  	(utilcpp) -- (consthpp);
+\end{scope}
+
+\begin{scope}
+ \draw[thick,dashed,black!50] 	(teil1cpp.north west) -- (teil1hpp.north east);
+ \draw[thick,dashed,black!50] 	(teil2cpp.north west) -- (teil2hpp.north east);
+ \draw[thick,dashed,black!50] 	(utilcpp.north west) -- (utilhpp.north east);
+\end{scope}
+\end{pgfonlayer}
+
+
+
+\end{tikzpicture}%
+}

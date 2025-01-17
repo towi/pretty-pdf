@@ -1,0 +1,79 @@
+
+% Usage: \tcolorlet{colorName}{bwColor}{colorColor}
+% then define 'tPicColor' to have tikz pictures in color (if they use it).
+%%\def\tPicColor{}
+\newcommand{\tcolorlet}[3]{%
+\ifdefined\tPicColor%
+\colorlet{#1}{#3}%
+\else%
+\colorlet{#1}{#2}%
+\fi%
+}
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tcolorlet{fillBase}{black!00}{yellow!50}
+\tcolorlet{fillStream}{black!5}{green!50}
+\tcolorlet{fillFile}{black!10}{yellow!20}
+\tcolorlet{fillString}{black!20}{green!20}
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=4pt,
+	minimum width=2.8cm, minimum height=7mm,
+	draw=black!100, thick];
+\tikzstyle{m} =[xshift=5mm];
+\tikzstyle{n} =[xshift=-5mm];
+
+
+\node at (0cm,0cm) (iosBase) [modul,fill=fillBase] {ios\_base};
+\node [below of=iosBase] (ios) [modul,fill=fillBase] {ios};
+
+\node [below of=ios] (iostream) [modul,fill=fillStream] {iostream};
+\node [left=5mm of iostream] (istream) [modul,fill=fillStream] {istream};
+\node [right=5mm of iostream] (ostream) [modul,fill=fillStream] {ostream};
+\node [right=5mm of ostream] (streambuf) [modul,fill=fillStream] {streambuf};
+
+\node [below of=iostream] (fstream) [modul,m,fill=fillFile] {fstream};
+\node [left=5mm of fstream] (ifstream) [modul,fill=fillFile] {ifstream};
+\node [right=5mm of fstream] (ofstream) [modul,fill=fillFile] {ofstream};
+\node [right=5mm of ofstream] (filebuf) [modul,fill=fillFile] {filebuf};
+
+\node [below of=fstream] (stringstream) [modul,n,fill=fillString] {stringstream};
+\node [left=5mm of stringstream] (istringstream) [modul,fill=fillString] {istringstream};
+\node [right=5mm of stringstream] (ostringstream) [modul,fill=fillString] {ostringstream};
+\node [right=5mm of ostringstream] (stringbuf) [modul,fill=fillString] {stringbuf};
+
+
+\draw [->,thick] (iosBase) -- (ios);
+\draw [->,thick] (ios) -- (istream);
+\draw [->,thick] (ios) -- (ostream);
+
+\draw [->,thick] (istream) -- (iostream);
+\draw [->,thick] (ostream) -- (iostream);
+
+\draw [->,thick] ([xshift=2mm]istream.south west) -- ([xshift=2mm]istringstream.north west);
+\draw [->,thick] ([xshift=2mm]iostream.south west) -- ([xshift=2mm]stringstream.north west);
+\draw [->,thick] ([xshift=2mm]ostream.south west) -- ([xshift=2mm]ostringstream.north west);
+
+\draw [->,thick] (istream.south) -- ([xshift=-5mm]ifstream.north);
+\draw [->,thick] (iostream.south) -- ([xshift=-5mm]fstream.north);
+\draw [->,thick] (ostream.south) -- ([xshift=-5mm]ofstream.north);
+\draw [->,thick] (streambuf.south) -- ([xshift=-5mm]filebuf.north);
+
+\draw [->,thick] ([xshift=-5mm]ifstream.south) -- (istringstream.north);
+\draw [->,thick] ([xshift=-5mm]fstream.south) -- (stringstream.north);
+\draw [->,thick] ([xshift=-5mm]ofstream.south) -- (ostringstream.north);
+\draw [->,thick] ([xshift=-5mm]filebuf.south) -- (stringbuf.north);
+
+\node [above=9mm of istream,anchor=north east,color=black!60,font=\footnotesize] 
+  (cin) {cin};
+\node [above=9mm of ostream,anchor=north west,color=black!60,font=\footnotesize] 
+  (cout) {cout, cerr, clog};
+
+\draw [thick,draw=black!40] ([xshift=-5mm]cin) -- (istream);
+\draw [thick,draw=black!40] ([xshift=3mm]cout.south west) -- ([xshift=3mm]ostream.north);
+
+
+\end{tikzpicture}
+} % resizebox

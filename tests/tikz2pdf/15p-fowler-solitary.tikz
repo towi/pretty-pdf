@@ -1,0 +1,62 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric}
+
+\pgfdeclarelayer{back}
+\pgfdeclarelayer{box}
+\pgfsetlayers{background,box,back,main}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{ntest}= [fill=black!40,draw=black,diamond, aspect=2]
+\tikzstyle{ncode}= [fill=black!10,draw=black]
+\tikzstyle{earr}= [black,->]
+\tikzstyle{eline}= [black,thick]
+
+% solitary
+\node [ntest] at (1.0,1.0) (ta) { \phantom{.} };
+
+\node [ncode] at (2.7,1.0) (ca) { \phantom{c} };
+\node [ncode] at (4.0,1.5) (cb) { \phantom{c} };
+\node [ncode] at (4.0,0.5) (cc) { \phantom{c} };
+
+% social
+\node [ntest] at (6.0,1.0) (ua) { \phantom{.} };
+
+\node [ncode] at (7.7,1.0) (da) { \phantom{c} };
+\node [ncode,dashed,fill=white] at (9.0,1.5) (db) { \phantom{c} };
+\node [ncode,dashed,fill=white] at (9.0,0.5) (dc) { \phantom{c} };
+\node [ncode] at (10.,1.5) (db1) { \phantom{c} };
+\node [ncode] at (10.,0.5) (dc1) { \phantom{c} };
+
+
+
+\begin{pgfonlayer}{box}
+    % solitary
+    \draw[draw=black,dashed]   ([xshift=-2,yshift=2pt]ca.north west) node (cfg) {} rectangle ([xshift=2,yshift=-2pt]ca.south east);
+    \node[] at (2.3,2.3) {\small social tests};
+    % social
+    \draw[draw=black,dashed]   ([xshift=-2,yshift=2pt]da.north west) node (cfg) {} rectangle ([xshift=2,yshift=-2pt]da.south east);
+    \node[] at (8.0,2.3) {\small solitary Tests};
+\end{pgfonlayer}
+
+\tikzset{>=latex}
+\begin{pgfonlayer}{back}
+  % solitary
+  \draw [earr] (ta.east) -- (2.4,1.0);
+  \draw [eline] (ca) -- (cb.west);
+  \draw [eline] (ca) -- (cc.west);
+  % social
+  \draw [earr] (ua.east) -- (7.4,1.0);
+  \draw [eline] (da) -- (db.west);
+  \draw [eline] (da) -- (dc.west);
+\end{pgfonlayer}
+
+\end{tikzpicture}
+%} %resizebox

@@ -1,0 +1,46 @@
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+%\scalebox {0.75} {
+\begin{tikzpicture}[
+	  node distance=6ex,
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=left},
+      scale=1.0,
+    %  every node/.append style={draw},
+    ]
+
+\tikzstyle{box} = [rectangle,
+	text centered, 
+	draw=black, line width=1pt,
+	fill=white,
+	text=black,
+];
+
+\tikzstyle{class} = [box,rectangle,fill=black!10,
+	minimum width=3.5cm, 
+	minimum height=0.9cm, 
+];
+\tikzstyle{cclass} = [class,fill=white];
+
+\tikzstyle{arr}= [angle 60-angle 60,
+		draw=black, line width=1pt,
+		font=\normalsize,
+		text=black
+];
+
+  \pgftransformxscale{2.5} 
+
+  \node [cclass] at (1,2) (C) {Container};
+  \node [cclass] at (3,2) (I) {Iterators/Range};
+  \node [cclass] at (5,2) (A) {Algorithm/View};
+    \node [cclass] at (3,0.5) (F) {Functor};
+    
+\draw[arr] (C) -- (I);
+\draw[arr] (I) -- (A);
+\draw[arr] (C) |- (F);
+\draw[arr] (F) -| (A);
+
+
+\end{tikzpicture}
+}%resizebox

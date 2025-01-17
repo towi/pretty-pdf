@@ -1,0 +1,29 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{arrows}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[node distance=0ex,
+    background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+
+\tikzstyle{box} =[text=black!100, rectangle, inner sep=6pt, fill=black!0, draw=black!30, thick]
+\tikzstyle{box1} = [box, text=black!100, fill=black!20]
+\tikzstyle{sign} = [text width=1em]
+\tikzstyle{exp} = [text width=6.4em]
+\tikzstyle{frac} = [text width=14em]
+\tikzstyle{dez} = [text width=2em]
+
+\node {1234};
+
+  \node (sign1) [box,sign] {0\phantom(};
+  \node [right=of sign1]  (exp1) [box,exp] {\phantom{01111111} \phantom(}; 
+  \node [right=of exp1] (frac1) [box,frac] {\phantom{00000000000000000000} \phantom(};
+
+  \node [above=of sign1] (sign0) [box,sign] {V\phantom(};
+  \node [above=of exp1]  (exp0) [box,exp] {Exp. [8 Bits]\phantom(};
+  \node [above=of frac1] (frac0) [box,frac] {Significand (S) [23 Bits] \phantom(};
+
+
+\end{tikzpicture}%
+%} %resizebox

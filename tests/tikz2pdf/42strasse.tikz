@@ -1,32 +1,6 @@
-%disabled tikz2pdf-use-package=standalone
-%tikz2pdf-use-package=geometry
-%tikz2pdf-use-package=babel[ngerman]
-%tikz2pdf-use-package=graphicx
-%disabled tikz2pdf-use-package=textpos[overlay]
-%tikz2pdf-use-package=hyphenat
-%disabled tikz2pdf-use-package=mathastext
-%tikz2pdf-use-package=pgfplots
-%disabled tikz2pdf-use-package=sansmath
-%tikz2pdf-use-package=fontspec
-
-%tikz2pdf-use-tikzlibrary=backgrounds
-%tikz2pdf-use-tikzlibrary=decorations.pathreplacing
-%tikz2pdf-use-tikzlibrary=positioning
-%tikz2pdf-use-tikzlibrary=shapes
-%tikz2pdf-use-tikzlibrary=shapes.multipart
-%tikz2pdf-use-tikzlibrary=trees
-%tikz2pdf-use-tikzlibrary=arrows
-%tikz2pdf-use-tikzlibrary=chains
-%tikz2pdf-use-tikzlibrary=matrix
-
-%\fontspec[Path=/usr/share/texmf-dist/fonts/truetype/paratype/ptsans/,BoldFont=PTN77F.ttf]{PTN57F.ttf}
-\fontspec[
-        Path=/usr/share/texmf-dist/fonts/opentype/public/atkinson/,
-        BoldFont=Atkinson-Hyperlegible-Bold-102.otf,
-        ItalicFont=Atkinson-Hyperlegible-Italic-102.otf,
-        BoldItalicFont=Atkinson-Hyperlegible-BoldItalic-102.otf
-        ]{Atkinson-Hyperlegible-Regular-102.otf}
-
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+    
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
 \begin{tikzpicture}[
       background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
       every node/.style={align=center, font=\small, minimum height=1.5em, minimum width=1.5cm,node distance=0cm},
@@ -38,7 +12,7 @@
       every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
     %  every node/.append style={draw},
         ]
-
+    
 \tikzstyle{key}= [text width=1.3cm]
 \tikzstyle{val}= [text width=1.3cm]
 
@@ -64,3 +38,4 @@
 	\node[left=of n6,clabel] (m6) {0xab0c};
      
 \end{tikzpicture}
+%}%resizebox

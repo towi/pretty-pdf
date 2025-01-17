@@ -1,0 +1,60 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+
+\hspace*{-2ex}
+\begin{tikzpicture}[
+      background rectangle/.style={}, show background rectangle,
+]
+\tikzstyle{mybox} = [draw, fill=black!0, very thick,
+    rectangle, inner sep=8pt, inner ysep=16pt]
+\tikzstyle{fancytitle} =[fill=black!0, draw, very thick, text=black!100, rectangle, inner sep=5pt]
+\tikzstyle{modul} =[fill=black!0, draw, thick, text=black!100, rectangle, ]
+
+
+  \node at (0,0) (main) [modul] {%
+	\begin{minipage}{0.30\textwidth}
+	  \bf main.obj \\
+	  part1.obj \\
+	  part2.obj
+    \end{minipage}%
+  };
+
+  \node [below=of main,yshift=12pt] (libc) [modul] {%
+	\begin{minipage}{0.30\textwidth}
+	  standard-c.lib \\
+	  standard-c++.lib
+    \end{minipage}%
+  };
+
+  \node [right=of main,xshift=-2ex] (win) [modul,dashed] {%
+	\begin{minipage}{0.30\textwidth}
+	  Windows.dll \\
+      WinGrafik.dll \\
+      WinSound.dll
+    \end{minipage}%
+  };
+
+  \node [below=of win,yshift=12pt] (spiel) [modul] {%
+	\begin{minipage}{0.30\textwidth}
+      GameEngine.lib
+    \end{minipage}%
+  };
+
+
+  \begin{pgfonlayer}{background}
+   \path (main.west |- main.north)+(-1,1) [yshift=18pt] node (aa) {};
+   \path (libc.south -| spiel.east)+(+1,-1) [yshift=-6pt] node (bb) {};
+   \path[fill=white, rectangle] (aa) rectangle (bb);
+
+        \path (aa)+(0.6,-0.6) [yshift=-9pt] node (a) {};
+        \path (bb)+(-0.6,0.6) node (b) {};
+        \path[fill=black!20,rectangle, draw=black, very thick]
+            (a) rectangle (b);
+
+    \node[fancytitle, right=10pt,yshift=-4pt] at (a.north west) {program.exe};
+  
+  \end{pgfonlayer}
+
+\end{tikzpicture}%

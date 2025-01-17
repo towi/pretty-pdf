@@ -1,0 +1,266 @@
+%tikz2pdf-use-package=adjustbox
+
+%\ifcsname containerPre\endcsname
+%  \expandafter\endinput
+%\fi
+%\expandafter\gdef\csname containerPre\endcsname{loaded}
+
+\makeatletter
+
+% Shape 'rectangle with diagonal fill'
+%
+% Inherits everything from rectangle except the behind background path.
+%
+\pgfdeclareshape{rectangle with diagonal fill}
+{
+    % This bit from \pgflibarayshapes.code.tex
+    \inheritsavedanchors[from=rectangle]
+    \inheritanchorborder[from=rectangle]
+    \inheritanchor[from=rectangle]{north}
+    \inheritanchor[from=rectangle]{north west}
+    \inheritanchor[from=rectangle]{north east}
+    \inheritanchor[from=rectangle]{center}
+    \inheritanchor[from=rectangle]{west}
+    \inheritanchor[from=rectangle]{east}
+    \inheritanchor[from=rectangle]{mid}
+    \inheritanchor[from=rectangle]{mid west}
+    \inheritanchor[from=rectangle]{mid east}
+    \inheritanchor[from=rectangle]{base}
+    \inheritanchor[from=rectangle]{base west}
+    \inheritanchor[from=rectangle]{base east}
+    \inheritanchor[from=rectangle]{south}
+    \inheritanchor[from=rectangle]{south west}
+    \inheritanchor[from=rectangle]{south east}
+
+    \inheritbackgroundpath[from=rectangle]
+    \inheritbeforebackgroundpath[from=rectangle]
+    \inheritbehindforegroundpath[from=rectangle]
+    \inheritforegroundpath[from=rectangle]
+    \inheritbeforeforegroundpath[from=rectangle]
+
+   % Now do the background filling.
+    \behindbackgroundpath{%
+        % \southwest and \northeast defined by rectangle, but
+        % (somewhat annoyingly) not \southeast and \northwest
+        % so use this workaround.
+        \pgfextractx{\pgf@xa}{\southwest}%
+        \pgfextracty{\pgf@ya}{\southwest}%
+        \pgfextractx{\pgf@xb}{\northeast}%
+        \pgfextracty{\pgf@yb}{\northeast}%
+        \ifpgf@diagonal@lefttoright
+            \def\pgf@diagonal@point@a{\pgfpoint{\pgf@xa}{\pgf@yb}}%
+            \def\pgf@diagonal@point@b{\pgfpoint{\pgf@xb}{\pgf@ya}}%
+        \else
+            \def\pgf@diagonal@point@a{\southwest}%
+            \def\pgf@diagonal@point@b{\northeast}%
+        \fi
+        \pgfpathmoveto{\pgf@diagonal@point@a}%
+        \pgfpathlineto{\northeast}%
+        \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@ya}}%
+        \pgfpathclose
+        \ifpgf@diagonal@lefttoright
+            \color{\pgf@diagonal@top@color}%
+        \else
+            \color{\pgf@diagonal@bottom@color}%
+        \fi
+        \pgfusepath{fill}%
+        \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@yb}}%
+        \pgfpathlineto{\southwest}%
+        \pgfpathlineto{\pgf@diagonal@point@b}%
+        \pgfpathclose
+        \ifpgf@diagonal@lefttoright
+            \color{\pgf@diagonal@bottom@color}%
+        \else
+            \color{\pgf@diagonal@top@color}%
+        \fi
+        \pgfusepath{fill}%
+    }
+}
+
+\newif\ifpgf@diagonal@lefttoright
+\def\pgf@diagonal@top@color{white}
+\def\pgf@diagonal@bottom@color{gray!30}
+
+% Use these with PGF
+\def\pgfsetdiagonaltopcolor#1{\def\pgf@diagonal@top@color{#1}}%
+\def\pgfsetdiagonalbottomcolor#1{\def\pgf@diagonal@bottom@color{#1}}%
+\def\pgfsetdiagonallefttoright{\pgf@diagonal@lefttorighttrue}%
+\def\pgfsetdiagonalrighttoleft{\pgf@diagonal@lefttorightfalse}%
+
+% Use these with TikZ
+\tikzoption{diagonal top color}{\pgfsetdiagonaltopcolor{#1}}
+\tikzoption{diagonal bottom color}{\pgfsetdiagonalbottomcolor{#1}}
+\tikzoption{diagonal from left to right}[]{\pgfsetdiagonallefttoright}
+\tikzoption{diagonal from right to left}[]{\pgfsetdiagonalrighttoleft}
+\makeatother
+
+%%% 1
+
+
+
+\definecolor{nlogn}{RGB}{230,180,180} % 230,180,180
+\definecolor{lin}{RGB}{255,200,200}
+\definecolor{log}{RGB}{255,255,120}
+\definecolor{con}{RGB}{200,255,180} % 200,255,180
+\definecolor{sp}{RGB}{100,255,255}
+
+\newcommand{\x}{\phantom{x}\relax}
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{patterns}
+
+%\input{container.pre}
+
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white}, show background rectangle,
+      scale=1.0,
+        ]
+\tikzstyle{hash}=[rectangle with diagonal fill,
+        diagonal top color=con,
+        diagonal bottom color=lin]
+\tikzstyle{hint}=[rectangle with diagonal fill,
+        diagonal top color=con,
+        diagonal bottom color=log]
+\tikzstyle{nlogn}=[fill=nlogn]
+\tikzstyle{lin}=[fill=lin,draw,pattern=crosshatch]
+\tikzstyle{log}=[fill=log,draw,pattern=crosshatch dots]
+\tikzstyle{con}=[fill=con]
+\tikzstyle{alg}=[fill=black!5,text=black!50]
+
+    \matrix(dict)[matrix of nodes,
+        nodes={
+                align=center,
+                anchor=base,
+                text width=1.2cm,
+                     text depth=0.2pt, text height=2.8pt,
+                rectangle,
+                     % draw, % debug
+                font=\sffamily\tiny }, % footnotesize, tiny, scriptsize
+        nodes in empty cells,
+        row sep=-\pgflinewidth,
+        row 1/.style={anchor=south,nodes={fill=black!20,minimum height=1.2cm}},
+        column 1/.style={nodes={text width=1.2cm,align=right,fill=black!20}}
+    ]{
+        Operation
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}array\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}vector\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}deque\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}forward\_list\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}list\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}set\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}multiset\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}map\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}multimap\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}\hspace*{-2.8ex}\begin{tabular}{l}unordered\_\\set\end{tabular}\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}\hspace*{-2.8ex}\begin{tabular}{l}unordered\_\\multiset\end{tabular}\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}\hspace*{-2.8ex}\begin{tabular}{l}unordered\_\\map\end{tabular}\end{minipage}}
+          & \vfill\adjustbox{angle=90,bgcolor=black!20,vspace=-0.65cm 0ex}{\begin{minipage}[c][3em]{1.1cm}\hspace*{-2.8ex}\begin{tabular}{l}unordered\_\\multimap\end{tabular}\end{minipage}}
+         \\
+        {\textcolor{black!30}c}begin/{\textcolor{black!30}c}end & $*$ & $*$ & $*$ & $\rightarrow$ & $\leftrightarrow$ & $\leftrightarrow$ & $\leftrightarrow$ & $\leftrightarrow$ & $\leftrightarrow$ & $\rightarrow$ & $\rightarrow$ & $\rightarrow$ & $\rightarrow$ \\
+        {\textcolor{black!30}c}rbegin/{\textcolor{black!30}c}rend & $*$ & $*$ & $*$ &   & $\leftrightarrow$ & $\leftrightarrow$ & $\leftrightarrow$ & $\leftrightarrow$ & $\leftrightarrow$ &   &   &   &   \\
+        assign &  &|[lin]|assign & |[lin]|assign & |[lin]|assign & |[lin]|assign & \x  & \x  & \x  & \x  & \x  & \x  & \x  & \x  \\
+        at  & |[con]|at & |[con]|at & |[con]|at & &
+               & & & |[log]|at   &
+               & & & |[hash]|at &  \x \\
+        operator$[]$  & |[con]|operator$[]$ & |[con]|operator$[]$ & |[con]|operator$[]$ & &
+               & & & |[log]|operator$[]$   &
+               & & & |[hash]|operator$[]$ &  \x \\
+        front & |[con]|front & |[con]|front & |[con]|front & |[con]|front & |[con]|front
+               & & & &
+               & & & & \x \\
+        back & |[con]|back & |[con]|back & |[con]|back &  & |[con]|back
+               & & & &
+               & & & & \x \\
+        empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty & |[con]|empty \\
+        size  & |[con]|size & |[con]|size & |[con]|size &  & |[con]|size & |[con]|size & |[con]|size & |[con]|size & |[con]|size & |[con]|size & |[con]|size & |[con]|size & |[con]|size \\
+        max\_size  & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size & |[con]|max\_size \\
+        resize &  &|[lin]|resize & |[lin]|resize & |[lin]|resize & |[lin]|resize & \x  & \x  & \x  & \x  & \x  & \x  & \x  & \x  \\
+        capacity & \x & |[con]|capacity & \x & \x & \x & \x & \x & \x & \x & \x & \x & \x & \x \\
+        reserve & \x & |[lin]|reserve & \x & \x & \x
+                & \x & \x & \x & \x
+                & |[lin]|reserve & |[lin]|reserve & |[lin]|reserve & |[lin]|reserve \\
+        shrink\_to\_fit & & |[lin]|shrink\_to\_fit & |[lin]|shrink\_to\_fit & &  & & & &  &  &  &   &  \\
+        clear & \x & |[lin]|clear & |[lin]|clear & |[lin]|clear & |[lin]|clear
+                & |[lin]|clear & |[lin]|clear & |[lin]|clear & |[lin]|clear
+                & |[lin]|clear & |[lin]|clear & |[lin]|clear & |[lin]|clear  \\
+        insert & \x & |[lin]|insert & |[lin]|insert & |[con]|insert\_after & |[con]|insert
+                & |[log]|insert & |[log]|insert & |[log]|insert & |[log]|insert
+                & |[hash]|insert & |[hash]|insert & |[hash]|insert & |[hash]|insert  \\
+        emplace & \x & |[lin]|emplace & |[lin]|emplace & |[con]|emplace\_after & |[con]|emplace
+                & |[log]|emplace & |[log]|emplace & |[log]|emplace & |[log]|emplace
+                & |[hash]|emplace & |[hash]|emplace & |[hash]|emplace & |[hash]|emplace  \\
+        emplace\_hint & \x &  & &  &
+                & |[hint]|emplace\_hint & |[hint]|emplace\_hint & |[hint]|emplace\_hint & |[hint]|emplace\_hint
+                & |[hash]|emplace\_hint & |[hash]|emplace\_hint & |[hash]|emplace\_hint & |[hash]|emplace\_hint  \\
+        erase & \x & |[lin]|erase & |[lin]|erase & |[con]|erase\_after & |[con]|erase
+                & |[log]|erase & |[log]|erase & |[log]|erase & |[log]|erase
+                & |[hash]|erase & |[hash]|erase & |[hash]|erase & |[hash]|erase  \\
+        push\_front & & & |[con]|push\_front & |[con]|push\_front & |[con]|push\_front \\
+        emplace\_front & & & |[con]|emplace\_front & |[con]|emplace\_front & |[con]|emplace\_front \\
+        pop\_front & & & |[con]|pop\_front & |[con]|pop\_front & |[con]|pop\_front \\
+        push\_back &  & |[con]|push\_back & |[con]|push\_back & & |[con]|push\_back \\
+        emplace\_back & & |[con]|emplace\_back & |[con]|emplace\_back & \x & |[con]|emplace\_back & \x & \x & \x & \x & \x & \x & \x & \x \\
+        pop\_back & & |[con]|pop\_back & |[con]|pop\_back & \x & |[con]|pop\_back & \x & \x & \x & \x & \x & \x & \x & \x \\
+        swap & |[lin]|swap & |[con]|swap & |[con]|swap & |[con]|swap & |[con]|swap
+                & |[con]|swap & |[con]|swap & |[con]|swap & |[con]|swap
+                & |[con]|swap & |[con]|swap & |[con]|swap & |[con]|swap  \\
+        merge & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[lin]|merge & |[lin]|merge
+                & |[alg]|<algo>${}^3$ & |[alg]|<algo>${}^3$ & |[alg]|<algo>${}^3$ & |[alg]|<algo>${}^3$
+                & \x & \x & \x & \x \\
+        splice & \x & \x & \x & |[con]|splice\_after${}^1$ & |[con]|splice & \x & \x & \x & \x & \x & \x & \x & \x \\
+        remove & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[lin]|remove & |[lin]|remove \\
+        remove\_if  & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[lin]|remove\_if & |[lin]|remove\_if \\
+        reverse & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[lin]|reverse & |[lin]|reverse \\
+        unique & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[lin]|unique & |[lin]|unique
+                & &  & &
+                & & & & \\
+        sort & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[nlogn]|sort & |[nlogn]|sort
+                & |[alg]|(sortiert) & |[alg]|(sortiert) & |[alg]|(sortiert) & |[alg]|(sortiert)
+                & \x & \x & \x & \x \\
+        count & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo>
+                & |[log]|count & |[log]|count & |[log]|count & |[log]|count
+                & |[hash]|count & |[hash]|count & |[hash]|count & |[hash]|count \\
+        find & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo> & |[alg]|<algo>
+                & |[log]|find & |[log]|find & |[log]|find & |[log]|find
+                & |[hash]|find & |[hash]|find & |[hash]|find & |[hash]|find \\
+        lower\_bound & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$
+                & |[log]|lower\_bound & |[log]|lower\_bound & |[log]|lower\_bound & |[log]|lower\_bound
+                &  &  &  &  \\
+        upper\_bound & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$
+                & |[log]|upper\_bound & |[log]|upper\_bound & |[log]|upper\_bound & |[log]|upper\_bound
+                &  &  &  &  \\
+        equal\_range & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$ & |[alg]|<algo>${}^2$
+                & |[log]|equal\_range & |[log]|equal\_range & |[log]|equal\_range & |[log]|equal\_range
+                & |[hash]|equal\_range & |[hash]|equal\_range & |[hash]|equal\_range & |[hash]|equal\_range \\
+    };
+
+    \node (legende) [fill=black!0,text width=6cm,align=left,draw,below=of dict-39-1,anchor=west,yshift=18pt,font=\sffamily\tiny,draw=none]
+      { ${}^1$varying complexity, ${}^2$must be sorted, ${}^3$as source } ;
+    \node (ncon) [con,text width=1cm,align=left,draw,right=of legende,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]
+      { $O(1)$ } ;
+    \node (nlog) [log,text width=1cm,align=left,draw,right=of ncon,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]
+      { $O(\log n)$ } ;
+    \node (nlin) [lin,text width=1cm,align=left,draw,right=of nlog,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]
+      { $O(n)$ } ;
+    \node (nnlog) [nlogn,text width=1cm,align=left,draw,right=of nlin,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]
+      { $O(n\log n)$ } ;
+    \node (nhash) [hash,text width=1.5cm,align=left,draw,right=of nnlog,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]
+      { $O(1)$ oder $O(n)$ } ;
+    \node (nhint) [hint,text width=1.5cm,align=left,draw,right=of nhash,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]
+      { $O(1)$ oder $O(\log n)$ } ;
+
+    \draw(dict-1-1.north east)--(dict-39-1.south east); % neben HEADCOL
+    \draw(dict-1-6.north east)--(dict-39-6.south east);
+    \draw(dict-1-10.north east)--(dict-39-10.south east);
+
+    \draw(dict-1-1.south west)--(dict-1-14.south east); % unter HEADROW
+    \draw(dict-3-1.south west)--(dict-3-14.south east); % unter rbegin
+    \draw(dict-4-1.south west)--(dict-4-14.south east); % unter assign
+    \draw(dict-8-1.south west)--(dict-8-14.south east);  % unter back
+    \draw(dict-16-1.north west)--(dict-16-14.north east); % unter shrink
+    \draw(dict-28-1.north west)--(dict-28-14.north east); % unter swap
+    \draw(dict-35-1.north west)--(dict-35-14.north east); % unter sort
+
+    \draw(dict-1-1.north east)--(dict-15-1.south east);
+
+\end{tikzpicture}

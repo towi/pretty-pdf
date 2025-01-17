@@ -1,0 +1,62 @@
+\usetikzlibrary{decorations.pathmorphing}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+%      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+%      scale=0.95,
+    ]
+
+\tikzstyle{inst}= [rectangle split, rectangle split horizontal=false,
+                              rectangle split parts=4,
+                              rectangle split part fill={black!20,white,white,white},
+                              text width=4cm, anchor=north west,
+%                              draw=black,
+]
+
+\node[inst] (anna)   {
+	\nodepart{one} anna
+	\nodepart{two} \tt\relax[0]: name\_ = :Anna:
+	\nodepart{three} \tt\relax[1]: age\_ = 33
+	\nodepart{four} \tt\relax[2]: city\_ = :Eek:
+} ;
+
+\node[inst,below=of anna] (nina)   {
+	\nodepart{one} nina
+	\nodepart{two} \tt\relax[0]: name\_ = :Nina:
+	\nodepart{three} \tt\relax[1]: age\_ = 22
+	\nodepart{four} \tt\relax[2]: city\_ = :Ojo:
+} ;
+
+
+\tikzstyle{prog}= [rectangle split, rectangle split horizontal=false,
+                              rectangle split parts=8,
+                              rectangle split part fill={white},
+                              text width=4cm, anchor=north west,
+%                              draw=black,
+	]
+\tikzstyle{cpp}=[color=black!60]
+\tikzstyle{asm}=[color=black!100]
+
+\node[prog,right=of anna.north east,anchor=north west,yshift=-6pt,font=\tt] (prog) {
+  \nodepart[cpp]{one}anna.greeting()
+  \nodepart[asm]{two}\hskip3ex this
+  \nodepart[asm]{three}\hskip3ex name\_ : this+0
+  \nodepart[asm]{four}\hskip3ex city\_ : this+2
+  \nodepart[cpp]{five}nina.greeting()
+  \nodepart[asm]{six}\hskip3ex this
+  \nodepart[asm]{seven}\hskip3ex  name\_ : this+0
+  \nodepart[asm]{eight}\hskip3ex city\_ : this+2
+};
+
+\draw[->,>=latex] ([xshift=2ex,yshift=4pt]prog.two) -- ++(-5ex,0) |- ([yshift=-6pt]anna.one east);
+\draw[->,>=latex] ([xshift=2ex,yshift=4pt]prog.six) -- ++(-5ex,0) |- ([yshift=-6pt]nina.one east);
+
+\draw [->,decorate,decoration={snake,amplitude=.4mm,segment length=4mm,post length=0.5mm},
+	draw=black!30,ultra thick, 
+]
+([yshift=6pt]prog.north west) -- ([yshift=-18pt]prog.south west) 
+   ++(0cm,8pt) node[anchor=west,color=black!60] {program flow};
+
+\end{tikzpicture}
+%}%resizebox

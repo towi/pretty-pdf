@@ -1,0 +1,73 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+
+\usetikzlibrary{matrix}
+
+
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=center, font=\normalsize},
+        line/.style={ draw, line width=3pt },
+        cell/.style = {rectangle, fill=white, draw, text width=1.3cm,outer sep=0pt},
+        every node/.style={anchor=base,yshift=-4pt},
+      scale=0.6,
+        ]
+
+\tikzstyle{arr}=[font=\footnotesize,color=black!50];
+\tikzstyle{arr1}=[font=\normalsize,color=black!50];
+\tikzstyle{num}=[font=\tiny,color=black!70];
+
+% 447888596
+% 1ab23cd4
+% 1a b2 3c d4
+
+\node (dez) at (4,7) {${}_{\mbox{\scriptsize 10}}$447888596};
+\node (hex) at (4,5) {0x1ab23cd4};
+\node (sep) at (4,3) {1a b2 3c d4};
+
+  \draw[->,thick] (dez) --  node[arr,right,pos=0.2] {maschine representation}  (hex);
+  \draw[->,thick] (hex) --  node[arr,right,pos=0.2] {split into bytes} (sep);
+
+
+\filldraw [fill=black!05,draw=black] (-0.5,0.5) rectangle (3.5,1.5);
+  \node (big1) [color=black!99] at (0,1) {1a};
+  \node[color=black!80] at (1,1) {b2};
+  \node[color=black!60] at (2,1) {3c};
+  \node[color=black!40] at (3,1) {d4};
+
+  \node[num] at (-0.2,0.4) {8};
+  \node[num] at (0.2,0.4) {7};
+  \node[num] at (0.8,0.4) {6};
+  \node[num] at (1.2,0.4) {5};
+  \node[num] at (1.8,0.4) {4};
+  \node[num] at (2.2,0.4) {3};
+  \node[num] at (2.8,0.4) {2};
+  \node[num] at (3.2,0.4) {1};
+
+\node [arr] (msb) at (-1,-0.5) {msb};
+  \draw[->,thick,shorten <=-0.5ex,shorten >=0.07cm,color=black!50] (msb) |- (big1);
+
+
+\filldraw[fill=black!05,draw=black] (4.5,0.5) rectangle (8.5,1.5);
+  \node (lit1) [color=black!40] at (5,1) {d4};
+  \node[color=black!60] at (6,1) {3c};
+  \node[color=black!80] at (7,1) {b2};
+  \node[color=black!99] at (8,1) {1a};
+
+\node [arr] (lsb) at (4,-0.5) {lsb};
+  \draw[->,thick,shorten <=-0.5ex,shorten >=0.03cm,color=black!50] (lsb) |- (lit1);
+
+  \node[num] at (4.8,0.4) {2};
+  \node[num] at (5.2,0.4) {1};
+  \node[num] at (5.8,0.4) {4};
+  \node[num] at (6.2,0.4) {3};
+  \node[num] at (6.8,0.4) {6};
+  \node[num] at (7.2,0.4) {5};
+  \node[num] at (7.8,0.4) {8};
+  \node[num] at (8.2,0.4) {7};
+
+\draw[->,thick,shorten >=0.05cm] (sep) --  node[arr1,left,pos=0.2,xshift=-3ex] {Big Endian}  (1.5,1.5);
+\draw[->,thick,shorten >=0.05cm] (sep) --  node[arr1,right,pos=0.2,xshift=3ex] {Little Endian}  (6.5,1.5);
+
+
+\end{tikzpicture}

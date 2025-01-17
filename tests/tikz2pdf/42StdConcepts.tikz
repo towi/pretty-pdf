@@ -1,0 +1,98 @@
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+%\scalebox {0.75} {
+\begin{tikzpicture}[
+	  node distance=6ex,
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=center},
+      scale=-2.0,xscale=-2.4,
+      every node/.append style={draw},
+    ]
+
+\tikzstyle{box} = [rectangle,
+	text centered, 
+	draw=black, line width=1pt,
+	fill=white,
+	text=black,
+];
+\tikzstyle{class} = [box,rectangle,fill=black!10,
+	minimum width=4.3cm, 
+	minimum height=1.2cm, 
+];
+\tikzstyle{cclass} = [class,fill=white];
+
+\tikzstyle{arr}= [-angle 60,
+		draw=black, line width=1pt,
+		font=\normalsize,
+		text=black
+];
+
+  \node (indirectly_readable) at (2,2) [cclass] {indirectly\_readable\\ \scriptsize ... = *it };
+  \node (indirectly_writable) at (4,2) [cclass] {indirectly\_writable\\ \scriptsize *it = ... };
+  \node (weakly_incrementable) at (3,1) [cclass] {weakly\_incrementable\\ \scriptsize ++it, one pass};
+  \node (incrementable) at (2,1) [cclass] {incrementable\\ \scriptsize ++it, multi pass};
+  \node (input_or_output_iterator) at (3,2) [cclass] {input\_or\_output\_iterator\\ \scriptsize *it};
+  \node (sentinel_for) at (3,3) [cclass] {sentinel\_for\\ \scriptsize for(x : ...)};
+  \node (sized_sentinel_for) at (3,5) [cclass] {sized\_sentinel\_for\\ \scriptsize for(... i$<$sz ...)};
+  \node (input_iterator) at (2,3) [cclass] {input\_iterator\\ \scriptsize ... = *it++ };
+  \node (output_iterator) at (4,3) [cclass] {output\_iterator\\ \scriptsize *it++ = ...};
+  \node (forward_iterator) at (2,4) [cclass] {forward\_iterator\\ \scriptsize };
+  \node (bidirectional_iterator) at (2,5) [cclass] {bidirectional\_iterator\\ \scriptsize -{}-it};
+  \node (random_access_iterator) at (2,6) [cclass] {random\_access\_iterator\\ \scriptsize it+=n, it-=n, it[n]};
+  \node (contiguous_iterator) at (2,7) [cclass] {contiguous\_iterator\\ \scriptsize it $\equiv$ pointer};
+
+  \draw [arr] (incrementable) -- (weakly_incrementable);
+  \draw [arr] (input_or_output_iterator) -- (weakly_incrementable);
+  \draw [arr] (sentinel_for) -- (input_or_output_iterator);
+  \draw [arr] (sized_sentinel_for) -- (sentinel_for);
+  \draw [arr] (input_iterator) -- (indirectly_readable);
+  \draw [arr] (input_iterator) -- (input_or_output_iterator);
+  \draw [arr] (output_iterator) -- (indirectly_writable);
+  \draw [arr] (output_iterator) -- (input_or_output_iterator);
+  \draw [arr] (forward_iterator) -- (sentinel_for);
+  \draw [arr] (forward_iterator) -- (input_iterator);
+  \draw [arr] (forward_iterator) -- (1.4,4) -- (1.4,1) -- (incrementable);
+  \draw [arr] (bidirectional_iterator) -- (forward_iterator);
+  \draw [arr] (random_access_iterator) -- (bidirectional_iterator);
+  \draw [arr] (random_access_iterator) -- (sized_sentinel_for);
+  \draw [arr] (contiguous_iterator) -- (random_access_iterator);
+
+\tikzstyle{conc} = [class,fill=black!10];
+
+  \node (totally_ordered) at (0.8,5) [conc] {totally\_ordered\\ \scriptsize $ <, <=, >, >=$ };
+    \draw [arr] (random_access_iterator) -- (totally_ordered);
+  \node (regular) at (0.8,4) [conc] {regular\\ \scriptsize };
+    \draw [arr] (totally_ordered) -- (regular);
+  \node (semiregular) at (0.8,3) [conc] {semiregular\\ \scriptsize };
+    \draw [arr] (regular) -- (semiregular);
+  \node (copyable) at (0.8,2) [conc] {copyable\\ \scriptsize T(const T\&)};
+    \draw [arr] (semiregular) -- (copyable);
+  \node (movable) at (0.8,1) [conc] {movable\\ \scriptsize move()};
+    \draw [arr] (copyable) -- (movable);
+
+  \node (move_constructable) at (-0.2,0) [conc] {move\_constructable\\ \scriptsize T(T\&\&)};
+  \node (swappable) at (0.8,0) [conc] {swappable\\ \scriptsize swap()};
+  \node (assignable_from) at (-0.2,1) [conc] {assignable\_from\\ \scriptsize =};
+    \draw [arr] (movable) -- (move_constructable);
+    \draw [arr] (movable) -- (swappable);
+    \draw [arr] (movable) -- (assignable_from);
+
+  \node (default_initializable) at (-0.2,3) [conc] {default\_initializable\\ \scriptsize T\{\}};
+    \draw [arr] (semiregular) -- (default_initializable);
+
+  \node (equality_comparable) at (-0.2,4) [conc] {equality\_comparable\\ \scriptsize $==$};
+    \draw [arr] (regular) -- (equality_comparable);
+    \draw [arr] (totally_ordered) -- (equality_comparable);
+
+    \draw [arr,color=black!40] (incrementable) -- (2,0.5) -- (1.34,0.5) -- (1.34,4) -- (regular);
+
+    \draw [arr,color=black!40] (weakly_incrementable) -- (3,0.4) -- (1.2,0.4) -- (movable);
+
+
+  \node (key) at (0.2,7) [conc,fill=none,draw=none] {Standard-Concepts\\ \scriptsize Auszug aus der Hierarchie};
+
+
+\end{tikzpicture}
+}%resizebox
+

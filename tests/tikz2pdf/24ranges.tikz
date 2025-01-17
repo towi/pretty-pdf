@@ -1,0 +1,90 @@
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+	  node distance=6ex,
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=left},
+      scale=0.8,
+      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+    %  every node/.append style={draw},
+    ]
+%\draw[help lines] (-2,0) grid (5,-9);
+
+\tikzstyle{box} = [rectangle,
+	text centered, 
+	draw=black, line width=1pt,
+	fill=white,
+	text=black,
+];
+
+\tikzstyle{process} = [box,rectangle,
+	minimum width=2.5cm, 
+	minimum height=1cm, 
+];
+
+\tikzstyle{decision} = [box,signal,
+	minimum width=3.5cm,
+	minimum height=1cm,
+];
+
+
+\tikzstyle{opt} = [text=black!60,draw=black!60,dotted,fill=none
+];
+\tikzstyle{note} = [text=black!60,draw=none,fill=none,font=\footnotesize
+];
+
+
+\tikzstyle{tarr}= [->,-triangle 45,
+		draw=black, line width=1pt,
+		font=\normalsize,
+		text=black
+];
+
+
+  \node [process,opt] at (-2,6.5) (pView) {View};
+  \node [process,opt] at (-2,5) (pCont) {Container};
+  \node [process,opt] at (-2,3.5) (pOther) {...};
+  \node [process] at (2,5) (pRange) {Range};
+
+  \draw[decoration={brace,mirror},decorate,color=black!100]
+  (pRange.west) ++(-0.5cm,-2cm) -- node[] { } ++(0,4cm);
+
+
+    \node [right=of pRange,draw=none] (x1) {};
+
+    \node [decision,right=of x1] (dAdapt) {Adapter};
+    \node [decision,above=of dAdapt,yshift=-0.2cm] (dView) {View-Constructor};
+    \node [decision,below=of dAdapt,yshift=0.2cm] (dConv) {Converter};
+    \node [decision,below=of dConv,yshift=0.2cm] (dCons) {Consumer};
+
+      \node [note,below=of dAdapt.west,yshift=0.5cm,anchor=north west] (s1) {take(10)};
+      \node [note,below=of dView.west,yshift=0.5cm,anchor=north west] (s2) {take\_view(..., 10)};
+      \node [note,below=of dConv.west,yshift=0.5cm,anchor=north west] (s3) {to$<$list$>$()};
+      \node [note,below=of dCons.west,yshift=0.5cm,anchor=north west] (s4) {for(...), $*it$, ++it};
+
+
+    \node [process,right=of dAdapt,xshift=1cm,yshift=0.75cm] (oView) {View};
+    \node [process,right=of dConv,xshift=1cm] (oCont) {Container};
+
+
+\draw[tarr]  (pRange) -- (x1.center) |- (dView);
+\draw[tarr]  (pRange) -- (x1.center) |- (dAdapt);
+\draw[tarr]  (pRange) -- (x1.center) |- (dConv);
+\draw[tarr]  (pRange) -- (x1.center) |- (dCons);
+
+\draw[tarr]  (dView.east) --  ++(1cm,0cm)   |- (oView);
+\draw[tarr]  (dAdapt.east) --  ++(1cm,0cm)   |- (oView);
+\draw[tarr]  (dConv.east) -- (oCont);
+\draw[tarr,-|]  (dCons.east) --  ++(1cm,0cm)  -- ++(0cm,-1cm)  ;
+
+
+\draw[tarr,dashed]  (oView.east) --  ++(0.75cm,0cm)
+  --  ++(0cm,3cm) 
+  -- ++(-4cm,0cm) node[yshift=-0.4cm] {Input for next pipeline stage}
+  -|  (pView) 
+;
+
+
+\end{tikzpicture}
+%}%resizebox

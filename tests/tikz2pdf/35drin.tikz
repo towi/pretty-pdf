@@ -1,0 +1,47 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{fancytitle} =[draw, very thick, text=black!50, rectangle, inner xsep=6pt,yshift=7.2pt,right=0pt, minimum width=3cm]
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=6pt]
+\tikzstyle{cpp} =[fill=black!0, draw=black!100, thick]
+
+  \node at (0,0) (autoAttr) [modul,cpp,minimum width=5cm,anchor=south west] {%
+	\begin{minipage}{4.5cm}
+      \vskip40pt J \\ \\
+      $\circ$ Flowers \\
+      $\circ$ \textit{camping}
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=3.0cm,fill=black!5,rotate=270,xshift=2ex] at (autoAttr.north east) (auto) {
+	\begin{minipage}{2.5cm}
+      VwBus\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (0,1.3cm) (vwAttr) [modul,cpp,minimum width=3.5cm,anchor=south west] {%
+	\begin{minipage}{3.0cm}
+      $\circ$ Windscreen  \\
+      $\circ$ Tires[4] \\
+      $\circ$ \textit{drive} \\
+      $\circ$ \textit{refuel}
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=black!5,rotate=270,anchor=west,xshift=2ex] at (vwAttr.north east) (vw) {
+	\begin{minipage}{1.5cm}
+      Car\phantom{g}
+    \end{minipage}%
+  };
+
+
+
+\end{tikzpicture}
+%} % resizebox

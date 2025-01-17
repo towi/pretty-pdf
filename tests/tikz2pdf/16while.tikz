@@ -1,0 +1,61 @@
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+	  node distance=6ex,
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=left},
+      scale=1.2,
+      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+    %  every node/.append style={draw},
+    ]
+
+\tikzstyle{box} = [rectangle,
+	text centered, 
+	draw=black, line width=1pt,
+	fill=white,
+	text=black,
+];
+
+\tikzstyle{process} = [box,rectangle,
+	minimum width=3cm, 
+	minimum height=1cm, 
+];
+
+\tikzstyle{decision} = [box,diamond,
+	minimum width=3cm,
+	minimum height=1cm,
+];
+
+\tikzstyle{opt} = [text=black!50,draw=black!50,
+];
+
+\tikzstyle{tarr}= [->,-triangle 45,
+		draw=black, line width=1pt,
+		font=\normalsize,
+		text=black
+];
+
+
+    \node [] at (0,0) (start) {};
+    \node [left=of start] (start2) {};
+    \node [decision,below=of start] (aif) {condition};
+    \node [process,below=of aif] (athen) {statement};
+    \node [right=of athen] (aelse) {};
+    \node [below=of athen] (end) {};
+    \node [left=of end] (end2) {};
+    \node [left=of aif] (loop) {};
+
+%\node [below=of aelse.east,font=\scriptsize,text=black!50,anchor=east,yshift=1.8ex] (opt) {optional};
+
+\draw[tarr]  (start2) -- (start.center) -- (aif);
+\draw[tarr]  (aif) -- node[left,pos=0.2] {true}  (athen);
+
+\draw[tarr]  (aif) -|  node[above,pos=0.2] {false}  (aelse.center)
+ |- (end.center) -- (end2.center);
+
+\draw[tarr]  (athen.west) -| (loop.center) -- (aif.west);
+
+
+\end{tikzpicture}
+%}%resizebox

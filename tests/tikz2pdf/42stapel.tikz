@@ -1,0 +1,106 @@
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+
+\newcommand{\va}[1]{\vphantom{ig}#1}    %% variable with unified vertical height
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[ 
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=center, font=\small, node distance=0cm},
+        row/.style = {rectangle, draw, outer sep=0pt, rectangle split, rectangle split horizontal, rectangle split parts=2,
+          rectangle split part fill={black!100,white}, anchor=north west, minimum height=26pt,
+	     % rectangle split draw splits=false,thick
+      },
+      scale=1.0,
+      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+    %  every node/.append style={draw},
+        ]
+
+\tikzstyle{rowx0}= [rectangle split part fill={black!100,black!10}]
+\tikzstyle{rowx2}= [rectangle split part fill={black!100,black!5,black!5,white}]
+    
+\tikzstyle{key}= [text width=0.5cm,white]
+\tikzstyle{val}= [text width=0.9cm]
+\tikzstyle{chg}= [font=\bfseries]
+\tikzstyle{hid}= [color=black!40]
+
+  \node at(0,0) [row,rectangle split parts=1] (row0)
+    { \nodepart[key]{one} 0:  \nodepart[val]{two}  };
+
+  \node [below=of row0.south west] [row,rectangle split parts=2] (row1)
+    { \nodepart[key]{one} 1:  \nodepart[val,chg]{two} \va{ival}\\10  };
+
+  \node [below=of row1.south west] [row,rectangle split parts=2] (row2)
+    { \nodepart[key]{one} 2:  \nodepart[val]{two} \va{ival}\\10  };
+
+  \node [below=of row2.south west] [row,rectangle split parts=3] (row3)
+    { \nodepart[key]{one} 3:  \nodepart[val]{two} \va{ival}\\10 \nodepart[val,chg]{three} \va{x}\\20  };
+
+  \node [below=of row3.south west] [row,rowx2,rectangle split parts=4] (row4)
+    { \nodepart[key]{one} 4:  \nodepart[val,hid]{two} \va{ival}\\10 \nodepart[val,hid]{three} \va{x}\\20 \nodepart[val,chg]{four} \va{arg}\\20  };
+
+  \node [below=of row4.south west] [row,rowx2,rectangle split parts=5] (row5)
+    { \nodepart[key]{one} 5:  \nodepart[val,hid]{two} \va{ival}\\10 \nodepart[val,hid]{three} \va{x}\\20 \nodepart[val]{four} \va{arg}\\20 \nodepart[val,chg]{five} \va{res} \\21 };
+
+  \node [below=of row5.south west] [row,rowx2,rectangle split parts=4] (row6)
+    { \nodepart[key]{one} 6:  \nodepart[val,hid]{two} \va{ival}\\10 \nodepart[val,hid]{three} \va{x}\\20 \nodepart[val,chg]{four} \va{return} \\21 };
+
+  \node [below=of row6.south west] [row,rectangle split parts=3] (row7)
+    { \nodepart[key]{one} 7:  \nodepart[val,chg]{two} \va{ival}\\21 \nodepart[val]{three} \va{x}\\20 };
+
+  \node [below=of row7.south west] [row,rectangle split parts=2] (row8)
+    { \nodepart[key]{one} 8:  \nodepart[val]{two} \va{ival}\\21 };
+
+  \node [below=of row8.south west] [row,rectangle split parts=3] (row9)
+    { \nodepart[key]{one} 9:  \nodepart[val]{two} \va{ival}\\21  \nodepart[val,chg]{three} \va{total} \\7 };
+
+  \node [below=of row9.south west] [row,rectangle split parts=1] (row10)
+    { \nodepart[key]{one} 10: };
+     
+ \draw [->,very thick,arrows={-triangle 45},black!70,color=black!70] (1,0) -- (5,0);
+ \node at (1,0)  [anchor=north west,color=black!70,font=\footnotesize] {Stack};
+
+ \draw [->,very thick,arrows={-triangle 45},black!70,color=black!70] (-0.6,0) -- (-0.6,-5);
+ \node at (-0.6,0)  [anchor=south west,color=black!70,font=\footnotesize,rotate=270] {Program Flow};
+
+\begin{scope}[scale=1.2]
+
+\tikzstyle{code}= [anchor=west,font=\footnotesize\tt] % I'd like to have about \normalsize; with scope:scale
+\tikzstyle{cline}= [color=black!70]
+\tikzstyle{cnode}= [font=\tiny,fill=black!70,text=white,xshift=-4ex] % % I'd like to have about \scriptsize; with scope:scale
+
+  \node at (-4.5,-1.5) [code] (c05) { ~~int main() \{ };
+  \node at (-4.5,-2.0) [code] (c06) { ~~~~int ival = 10; };
+  \node at (-4.5,-2.5) [code] (c07) { ~~~~\{ };
+  \node at (-4.5,-3.0) [code] (c08) { ~~~~~~int x = ival * 2; };
+  \node at (-4.5,-3.5) [code] (c09) { ~~~~~~ival = func(x); };
+  \node at (-4.5,-4.0) [code] (c10) { ~~~~\} };
+  \node at (-4.5,-4.5) [code] (c11) { ~~~~int total = ival / 3; };
+  \node at (-4.5,-5.0) [code] (c12) { ~~\} };
+  \node at (-4.5,-5.0) [code] (c04) { ~~ };
+  \node at (-4.5,-6.0) [code] (c00) { ~~int func(int arg) \{ };
+  \node at (-4.5,-6.5) [code] (c01) { ~~~~int res = arg + 1; };
+  \node at (-4.5,-7.0) [code] (c02) { ~~~~return res; };
+  \node at (-4.5,-7.5) [code] (c03) { ~~\} };
+
+
+  \path [cline] (c00.west) -- (c01.west) node [midway,cnode] (afunc) {4:};
+  \path [cline] (c01.west) -- (c02.west) node [midway,cnode] {5:};
+  \path [cline] (c02.west) -- (c03.west) node [midway,cnode] (bfunc) {6:};
+
+  \path [cline] (c05.west) -- (c06.west) node [midway,cnode] (main0) {0:};
+  \path [cline] (c06.west) -- (c07.west) node [midway,cnode] {1:};
+    \path [cline] ([xshift=1ex]c07.west) -- ([xshift=1ex]c08.west) node [midway,cnode] {2:};
+    \path [cline] ([xshift=1ex]c08.west) -- ([xshift=1ex]c09.west) node [midway,cnode] (amain) {3:};
+    \path [cline] ([xshift=1ex]c09.west) -- ([xshift=1ex]c10.west) node [midway,cnode] (bmain) {7:};
+  \path [cline] (c10.west) -- (c11.west) node [midway,cnode] {8:};
+  \path [cline] (c11.west) -- (c12.west) node [midway,cnode] {9:};
+
+  \draw [->,black!70,arrows={-triangle 45}] (amain.south west) -- ([xshift=-3ex]amain.south west) -- ([xshift=-2ex]afunc.north west) -- (afunc.north west);
+  \draw [->,black!70,arrows={-triangle 45}] (bfunc.south east) -- ([xshift=3ex]bfunc.south east) -- ([xshift=2ex]bmain.north east) -- (bmain.north east);
+  \draw [->,black!70,arrows={-triangle 45}] ([yshift=3ex]main0.north) -- (main0.north);
+
+\end{scope}
+
+
+\end{tikzpicture}
+}%resizebox

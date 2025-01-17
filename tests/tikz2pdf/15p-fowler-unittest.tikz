@@ -1,0 +1,59 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric}
+
+\pgfdeclarelayer{back}
+\pgfdeclarelayer{box}
+\pgfsetlayers{background,box,back,main}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{ntest}= [fill=black!40,draw=black,diamond, aspect=2]
+\tikzstyle{ncode}= [fill=black!10,draw=black]
+\tikzstyle{earr}= [black,->]
+
+\node [ntest] at (1,2.8) (ta) { \phantom{.} };
+\node [ntest] at (1.7,1) (tb) { \phantom{.} };
+\node [ntest] at (1.1,1.6) (tc) { \phantom{.} };
+\node [ntest] at (1.5,0.2) (td) { \phantom{.} };
+\node [ntest] at (0.7,0.8) (te) { \phantom{.} };
+\node [ntest] at (0.5,2.1) (tf) { \phantom{.} };
+\node [ntest] at (1.8,2.3) (tg) { \phantom{.} };
+
+\node [ncode] at (5.7,0.4) (cx) { \phantom{c} };
+\node [ncode] at (5.0,0.0) (ca) { \phantom{c} };
+\node [ncode] at (4.3,0.9) (cb) { \phantom{c} };
+\node [ncode] at (6.1,1.4) (cc) { \phantom{c} };
+\node [ncode] at (5.1,1.3) (cd) { \phantom{c} };
+\node [ncode] at (4.3,2.1) (ce) { \phantom{c} };
+\node [ncode] at (4.9,2.1) (cf) { \phantom{c} };
+\node [ncode] at (5.6,2.8) (cg) { \phantom{c} };
+
+
+\begin{pgfonlayer}{box}
+    \draw[draw=black,fill=white]     (-0.3,-0.4) rectangle (2.6,3.9);
+    \draw[draw=black,fill=white]     (3.7,-0.4) rectangle (6.6,3.9);
+    \draw[draw=black,dashed,fill=white]   ([xshift=-2,yshift=2pt]ce.north west) node (cfg) {} rectangle ([xshift=2,yshift=-2pt]cf.south east);
+    \node[] at (1.15,3.5) {\small unit tests };
+    \node[] at (5.15,3.5) {\small production code };
+\end{pgfonlayer}
+
+\tikzset{>=latex}
+\begin{pgfonlayer}{back}
+  \draw [earr] (ta.east) -- (cg.west);
+  \draw [earr] (tb.east) -- (cb.west);
+  \draw [earr] (tg.east) -- (cfg.south);
+  \draw [earr] (tc.east) -- (cd.west);
+  \draw [earr] (tf.east) -- (cc.north west);
+  \draw [earr] (te.east) -- (cx.west);
+  \draw [earr] (td.east) -- (ca.west);
+\end{pgfonlayer}
+
+\end{tikzpicture}
+%} %resizebox

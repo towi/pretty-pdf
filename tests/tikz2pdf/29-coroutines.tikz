@@ -1,0 +1,93 @@
+\usetikzlibrary{decorations.pathmorphing}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+%      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+%      scale=0.95,
+    ]
+
+\tikzstyle{inst}= [rectangle split, rectangle split horizontal=false,
+                              rectangle split parts=4,
+                              rectangle split part fill={black!20,white,white,white},
+                              text width=2cm, anchor=north west,
+]
+\tikzstyle{prog}= [rectangle split, rectangle split horizontal=false,
+                              rectangle split parts=8,
+							  rectangle split part fill={black!20,white,white,white},
+                              text width=2cm, anchor=north west,
+]
+
+\node[inst,rectangle split parts=10] (anna)   {
+	\nodepart{one} Caller
+	\nodepart{two} \phantom{ly}
+	\nodepart{three}\phantom{ly}
+	\nodepart{four} \phantom{ly}
+	\nodepart{five} \phantom{ly}
+	\nodepart{six} \phantom{yl}
+	\nodepart{seven} \phantom{ly}
+	\nodepart{eight} \phantom{ly}
+	\nodepart{nine} \phantom{ly}
+	\nodepart{ten} \phantom{yl}
+} ;
+
+\node[prog,right=of anna.north east,anchor=north west,xshift=2em,yshift=-3.73ex] (prog) {
+  \nodepart{one}Coroutine
+  \nodepart{two}\phantom{yl}
+  \nodepart{three}\phantom{ly}
+  \nodepart{four}\phantom{yl}
+  \nodepart{five}\phantom{yl}
+  \nodepart{six}\phantom{yl}
+  \nodepart{seven}\phantom{ly}
+  \nodepart{eight}\phantom{ly}
+};
+
+\draw[->,>=latex] ([xshift=2.9em,yshift=1ex]anna.two) -- ([xshift=2.9em]anna.three)
+     -- ([xshift=3.1em]prog.two)          node[midway,yshift=1ex]{\footnotesize call}
+     -- ([xshift=3.1em]prog.four)
+ -- ([xshift=2.9em]anna.five)         node[midway,yshift=1ex]{\footnotesize suspend}
+ -- ([xshift=2.9em]anna.seven)
+ -- ++(6.2em,0)   node[xshift=0.1em,yshift=-1ex]{\footnotesize resume}
+ |-     ([xshift=3.1em,yshift=-1ex]prog.four)
+ --    ([xshift=3.1em]prog.eight)
+ -- ([xshift=2.9em]anna.nine)       node[midway,yshift=1ex]{\footnotesize return}
+ -- ([xshift=2.9em]anna.ten)
+;
+
+% ==================================
+
+\node[inst,rectangle split parts=10,left=of anna.north east,anchor=north west,xshift=-28em] (main)   {
+	\nodepart{one} Caller
+	\nodepart{two} \phantom{ly}
+	\nodepart{three}\phantom{ly}
+	\nodepart{four} \phantom{ly}
+	\nodepart{five} \phantom{ly}
+	\nodepart{six} \phantom{yl}
+	\nodepart{seven} \phantom{ly}
+	\nodepart{eight} \phantom{ly}
+	\nodepart{nine} \phantom{ly}
+	\nodepart{ten} \phantom{yl}
+} ;
+
+\node[prog,right=of main.north east,anchor=north west,xshift=2em,yshift=-3.73ex] (func) {
+  \nodepart{one}Function
+  \nodepart{two}\phantom{yl}
+  \nodepart{three}\phantom{ly}
+  \nodepart{four}\phantom{yl}
+  \nodepart{five}\phantom{yl}
+  \nodepart{six}\phantom{yl}
+  \nodepart{seven}\phantom{ly}
+  \nodepart{eight}\phantom{ly}
+};
+
+\draw[->,>=latex] ([xshift=2.9em,yshift=1ex]main.two) -- ([xshift=2.9em]main.three)
+     -- ([xshift=3.1em]func.two)          node[midway,yshift=1ex]{\footnotesize call}
+ --    ([xshift=3.1em]func.eight)
+ -- ([xshift=2.9em]main.nine)       node[midway,yshift=1ex]{\footnotesize return}
+ -- ([xshift=2.9em]main.ten)
+;
+
+
+
+\end{tikzpicture}
+%}%resizebox

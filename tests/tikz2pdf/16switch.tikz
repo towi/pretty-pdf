@@ -1,0 +1,96 @@
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+	  node distance=6ex,
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=left},
+      scale=1.1,
+      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+    %  every node/.append style={draw},
+    ]
+
+\tikzstyle{box} = [rectangle,
+	text centered, 
+	draw=black, line width=1pt,
+	fill=white,
+	text=black,
+];
+
+\tikzstyle{process} = [box,rectangle,
+	minimum width=3cm, 
+	minimum height=1cm, 
+];
+
+\tikzstyle{decision} = [box,diamond,
+	minimum width=3cm,
+	minimum height=1cm,
+];
+
+\tikzstyle{opt} = [text=black,draw=black,dashed
+];
+\tikzstyle{optbox} = [text=black!50,draw=black!50,
+];
+
+\tikzstyle{tarr}= [->,-triangle 45,
+		draw=black, line width=1pt,
+		font=\normalsize,
+		text=black
+];
+\tikzstyle{tgrey}= [
+		text=black,
+		font=\scriptsize
+];
+\tikzstyle{oarr}= [draw=black,dashed
+];
+
+    \node [] at (0,0) (start) {};
+    \node [left=of start] (start2) {};
+    \node [process,below=of start,optbox] (ainit) {initialisization};
+      \node [below=of ainit.east,font=\scriptsize,text=black!50,anchor=east,yshift=1.8ex] (opt) {optional};
+      \node [below=of ainit.west,font=\scriptsize,text=black!50,anchor=west,yshift=1.8ex] (opt) {C++17};
+    \node [process,right=of ainit] (aexpr) {expression};
+    \node [decision,right=of aexpr] (aif1) {case$_{\mbox{\scriptsize 1}}$};
+    \node [decision,below=of aif1] (aif2) {case$_{\mbox{\scriptsize 2}}$};
+    \node [decision,below=of aif2] (aif3) {\phantom{F}...\phantom{$_3$}};
+    \node [process,right=of aif1] (anw1) {statements$_{\mbox{\scriptsize 1}}$...};
+    \node [process,right=of aif2] (anw2) {statements$_{\mbox{\scriptsize 2}}$...};
+    \node [process,right=of aif3] (anw3) {\phantom{F$_{\mbox{\scriptsize 3}}$}...\phantom{$F_{\mbox{\scriptsize 3}}$}};
+
+    \node [below=of aif3] (aelse) {};
+    \node [below=of aelse] (end) {};
+    \node [xshift=-8cm][left=of end] (end2) {};
+    \node [right=of anw1] (break1) {};
+    \node [right=of anw2] (break2) {};
+    \node [right=of anw3] (break3) {};
+    
+    \node [xshift=-0.7cm,right=of break3] (dummy1) {}; %% dummy node, um rechts breiter zu machen
+
+%\node [below=of aelse.east,tgrey,anchor=east,yshift=1.8ex] (opt) {optional};
+
+\draw[tarr,oarr,-]  (anw1) -- node[tgrey]{if\\break} (break1.center) |- (end.center);
+\draw[tarr,oarr,-]  (anw2) -- node[tgrey]{if\\break} (break2.center) ;
+\draw[tarr,oarr,-]  (anw3) -- node[tgrey]{if\\break} (break3.center) ;
+
+
+\draw[tarr]  (start2) -- (start.center) -- (ainit);
+\draw[tarr]  (ainit) -- (aexpr);
+\draw[tarr]  (aexpr) -- (aif1);
+
+\draw[tarr]  (aif1) -- node[above,pos=0.4]{matches} (anw1);
+\draw[tarr]  (aif1) -- node[left,pos=0.3,xshift=-1ex]{does not\\match} (aif2);
+\draw[tarr]  (anw1) -- node[tgrey,right,pos=0.25]{if no\\break} (anw2);
+
+\draw[tarr]  (aif2) -- node[above,pos=0.4]{matches} (anw2);
+\draw[tarr]  (aif2) -- node[left,pos=0.3,xshift=-1ex]{does not\\match} (aif3);
+\draw[tarr]  (anw2) -- node[right,pos=0.25,tgrey]{if no\\break} (anw3);
+
+\draw[tarr]  (aif3) -- node[above,pos=0.4]{matches} (anw3);
+\draw[tarr]  (aif3) -- node[left,pos=0.3,xshift=-1ex]{does not\\match} (aelse.center)
+  |- (end.center) -- (end2.center);
+
+\draw[tarr]  (anw3) |- node[right,pos=0.1,tgrey,yshift=-3pt]{if no\\break} (aelse.center)
+  |- (end.center) -- (end2.center);
+
+\end{tikzpicture}
+}%resizebox

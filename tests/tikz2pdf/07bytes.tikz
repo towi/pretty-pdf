@@ -1,0 +1,152 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{matrix}
+
+
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=center, font=\normalsize},
+        line/.style={ draw, line width=3pt },
+        cell/.style = {rectangle, fill=white, draw, text width=1.3cm,outer sep=0pt},
+        every node/.style={anchor=base,yshift=-4pt},
+      scale=0.6,
+        ]
+
+\tikzstyle{gr}= [color=black!50];
+
+\draw[step=1,gray,very thin,shift={(0.5,0.5)}] (-1,-1) grid (15,3);
+
+
+
+\filldraw[fill=black!05,draw=black] (-0.5,2.5) rectangle (3.5,3.5);
+  \node at (0,3) {07};
+  \node at (1,3) {5b};
+  \node at (2,3) {cd};
+  \node at (3,3) {15};
+\node at (1.5,5) {${}_{\mbox{\scriptsize 10}}$123456789}
+  edge[->,thick] node[auto] {\scriptsize int32} (1.5,3.5);
+
+\filldraw[fill=black!05,draw=black] (3.5,2.5) rectangle (7.5,3.5);
+  \node at (4,3) {1a};
+  \node at (5,3) {b2};
+  \node at (6,3) {3d};
+  \node at (7,3) {e4};
+\node at (5.5,5) {${}_{\mbox{\scriptsize 10}}$447888868}
+  edge[->,thick] node[auto] {\scriptsize int32} (5.5,3.5);
+
+%\node at (5,5) (x) {$123 456 789_{int32\_t}$};
+%  \path[draw,->,thick] (x) -- (5,3.5);
+
+  \node[gr] at (8,3) {08};
+  \node[gr] at (9,3) {09};
+  \node[gr] at (10,3) {0a};
+  \node[gr] at (11,3) {0b};
+  \node[gr] at (12,3) {0c};
+  \node[gr] at (13,3) {0d};
+  \node[gr] at (14,3) {0e};
+  \node[gr] at (15,3) {0f};
+
+\filldraw[fill=black!05,draw=black] (9.5,2.5) rectangle (11.5,3.5);
+  \node at (10,3) {e8};
+  \node at (11,3) {9a};
+\node at (10.5,5) {${}_{\mbox{\scriptsize 10}}$59546}
+  edge[->,thick] node[auto] {\scriptsize uint16} (10.5,3.5);
+
+\filldraw[fill=black!05,draw=black] (13.5,2.5) rectangle (15.5,3.5);
+  \node at (14,3) {e8};
+  \node at (15,3) {9a};
+\node at (14.5,5) {${}_{\mbox{\scriptsize 10}}$-5990}
+  edge[->,thick] node[auto] {\scriptsize int16} (14.5,3.5);
+
+  \node[gr] at (0,2) {10};
+  \node[gr] at (1,2) {11};
+  \node[gr] at (2,2) {12};
+  \node[gr] at (3,2) {13};
+  \node[gr] at (4,2) {14};
+  \node[gr] at (5,2) {15};
+  \node[gr] at (6,2) {16};
+  \node[gr] at (7,2) {17};
+  \node[gr] at (8,2) {18};
+  \node[gr] at (9,2) {19};
+  \node[gr] at (10,2) {1a};
+  \node[gr] at (11,2) {1b};
+  \node[gr] at (12,2) {1c};
+  \node[gr] at (13,2) {1d};
+  \node[gr] at (14,2) {1e};
+  \node[gr] at (15,2) {1f};
+
+  \node[gr] at (0,1) {20};
+  \node[gr] at (1,1) {21};
+  \node[gr] at (2,1) {22};
+  \node[gr] at (3,1) {23};
+  \node[gr] at (4,1) {24};
+  \node[gr] at (5,1) {25};
+  \node[gr] at (6,1) {26};
+  \node[gr] at (7,1) {27};
+  \node[gr] at (8,1) {28};
+  \node[gr] at (9,1) {29};
+  \node[gr] at (10,1) {2a};
+  \node[gr] at (11,1) {2b};
+  \node[gr] at (12,1) {2c};
+  \node[gr] at (13,1) {2d};
+  \node[gr] at (14,1) {2e};
+  \node[gr] at (15,1) {2f};
+
+  \node[gr] at (0,0) {30};
+  \node[gr] at (1,0) {31};
+  \node[gr] at (2,0) {32};
+  \node[gr] at (3,0) {33};
+  \node[gr] at (4,0) {34};
+  \node[gr] at (5,0) {35};
+  \node[gr] at (6,0) {36};
+  \node[gr] at (7,0) {37};
+  \node[gr] at (8,0) {38};
+  \node[gr] at (9,0) {39};
+  \node[gr] at (10,0) {3a};
+  \node[gr] at (11,0) {3b};
+  \node[gr] at (12,0) {3c};
+  \node[gr] at (13,0) {3d};
+  \node[gr] at (14,0) {3e};
+  \node[gr] at (15,0) {3f};
+
+% 0x 40 46 B9 99 99 99 99 9A
+\filldraw[fill=black!05,draw=black] (-0.5,0.5) rectangle (7.5,-0.5);
+  \node at (0,0) {40};
+  \node at (1,0) {46};
+  \node at (2,0) {b9};
+  \node at (3,0) {99};
+  \node at (4,0) {99};
+  \node at (5,0) {99};
+  \node at (6,0) {99};
+  \node at (7,0) {9a};
+\node at (3.5,-2) {${}_{\mbox{\scriptsize 10}}$45,45}
+  edge[->,thick] node[yshift=7pt,auto] {\scriptsize double} (3.5,-0.5);
+
+% 0x 42 35 CC CD
+\filldraw[fill=black!05,draw=black] (7.5,0.5) rectangle (11.5,-0.5);
+  \node at (8,0) {42};
+  \node at (9,0) {35};
+  \node at (10,0) {cc};
+  \node at (11,0) {cd};
+\node at (9.5,-2) {${}_{\mbox{\scriptsize 10}}$45,45}
+  edge[->,thick] node[yshift=7pt,auto] {\scriptsize float} (9.5,-0.5);
+
+% "Manual\0"       4d 61 6e 75 61 6c
+% was "Handbuch\0" 48 61 6e 64 62 75 63 68
+\filldraw[fill=black!05,draw=black] (-0.5,1.5) rectangle (6.5,0.5);
+  \node at (0,1) {4d};
+  \node at (1,1) {61};
+  \node at (2,1) {6e};
+  \node at (3,1) {75};
+  \node at (4,1) {61};
+  \node at (5,1) {6c};
+  \node at (6,1) {00};
+\node at (-1.5,-2) (x) {${}_{\mbox{\scriptsize ascii}}$:Manual:};
+\draw[->,thick]
+    (x) |- 
+    node[yshift=2pt,xshift=3pt,auto] {\scriptsize char*} (-0.5,1.0)
+  ;
+
+
+
+\end{tikzpicture}

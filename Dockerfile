@@ -132,6 +132,10 @@ RUN chmod 555 /app/list-fonts
 #RUN chmod 555 /app/*.py
 
 
+# to analyze where files are searched:
+#RUN apk --no-cache add --update strace
+
+
 # "USER pandoccy" was needed because:
 # - the home-dir of any user is "/", home-dir of root is "/root"
 # - when called "docker run towi/pandoc-pretty-pdf" the stuff is executed as user root (if 'USER pandoccy' is not here)
@@ -144,11 +148,11 @@ RUN chmod 555 /app/list-fonts
 RUN addgroup -g 1000 pandoccy && \
     adduser -u 1000 -G pandoccy -D -H -h / pandoccy
 USER pandoccy
+ENV XDG_DATA_HOME /.local/share
 
 ### You can use this template for converting Markdown to _pretty_ PDFs with pandoc
 ### - this must go into the home-dir of the "USER pandoccy", see below.
-COPY eisvogel.tex /.local/share/pandoc/templates/eisvogel.latex
-
+COPY thirdParty/Eisvogel-3.0.0/eisvogel.* /.local/share/pandoc/templates/
 
 CMD ["helpme"]
 ### Drop pandoc's entrypoint. We have so much more now.

@@ -1,22 +1,31 @@
 # -*- Makefile -*-
 
+TIKZ=$(shell find tikz2pdf -name '*.tikz')
 PDFS=\
 	formate-basic.pdf \
 	listings-basic.pdf \
-	mdtest-markdown_id-basic.pdf \
 	mdtest-mxstbr-basic.pdf \
 	mdtest-typemill-basic.pdf \
 	cluster-grype-report-prelong.pdf \
 	cluster-grype-report-basic.pdf \
 	vorwort-basic.pdf \
 	vorwort-long.pdf \
-	$(patsubst %.md, %-long.pdf, $(wildcard puml-*.md))
+	$(patsubst %.md, %-long.pdf, $(wildcard puml-*.md)) \
+	$(patsubst %.tikz, %.pdf, $(TIKZ))
+
+
+# FAILS currently:
+#	mdtest-markdown_id-basic.pdf \
 
 
 TARGETS=$(PDFS)
 
 all: $(PDFS)
 
+# Print the expansions
+debug:
+	@echo "tikz: $(TIKZ)"
+	@echo "Full PDF list: $(PDFS)"
 
 ##################################################
 
@@ -32,6 +41,14 @@ PANDOC_PRETTY_PDF=\
         --volume $(shell pwd):/data \
     $(LOCAL) \
     pandoc-pretty-pdf
+
+TIKZ2PDF=\
+    docker run \
+        --rm \
+        --volume $(shell pwd):/data \
+	--user $(shell id -u):$(shell id -g) \
+    $(LOCAL) \
+    tikz2pdf
 
 #################################################
 
@@ -71,13 +88,20 @@ PANDOC_PRETTY_PDF=\
 		-s -o $@ \
 		$<
 
-# todo:
+
+%.pdf: %.tikz
+	$(TIKZ2PDF) \
+	        -d \
+		$< \
+		-o $@
+	ls -l $@
+
 
 unicode-test.pdf: unicode-test.md
 	docker run --rm               \
 		--volume $(CURDIR):/data               \
 		-u $(shell id -u):$(shell id -g)               \
-		ghcr.io/towi/pandoc-pretty-pdf             \
+		$(LOCAL)             \
 		pandoc-pretty-pdf               \
 		-V fontsize=10pt\
 		-o unicode-test.pdf \

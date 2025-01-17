@@ -1,0 +1,50 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{arrows}
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[node distance=0ex,
+    background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{box} =[text=black!100, rectangle, inner sep=6pt, fill=black!0, draw=black!30, thick]
+\tikzstyle{box1} = [box, text=black!100, fill=black!20]
+\tikzstyle{sign} = [text width=1em]
+\tikzstyle{exp} = [text width=6.4em]
+\tikzstyle{frac} = [text width=29em]
+\tikzstyle{dez} = [text width=5em]
+
+
+  \node (sign1) [box,sign] {0\phantom(};
+  \node [right=of sign1]  (exp1) [box,exp] {01111111111\phantom(};
+  \node [right=of exp1] (frac1) [box,frac] {0000000000000000000000000000000000000000000000000000\phantom(};
+  \node [right=of frac1] (dez1) [box1,dez] {1.0\phantom(};
+
+  \node [above=of sign1] (sign0) [box,sign] {V\phantom(};
+  \node [above=of exp1]  (exp0) [box,exp] {Exponent (E)\phantom(};
+  \node [above=of frac1] (frac0) [box,frac] {Significand (S) [52 Bits] \phantom(};
+  \node [above=of dez1] (dez0) [box1,dez] {Value\phantom(};
+
+  \node [below=of sign1] (sign2) [box,sign] {0\phantom(};
+  \node [below=of exp1]  (exp2) [box,exp] {01111111101\phantom(};
+  \node [below=of frac1] (frac2) [box,frac] {0101010101010101010101010101010101010101010101010101\phantom(};
+  \node [below=of dez1] (dez2) [box1,dez] {1/3\phantom(};
+
+  \node [below=of sign2] (sign3) [box,sign] {0\phantom(};
+  \node [below=of exp2]  (exp3) [box,exp] {10000000111\phantom(};
+  \node [below=of frac2] (frac3) [box,frac] {1001000000000001000001100010010011011101001011110010\phantom(};
+  \node [below=of dez2] (dez3) [box1,dez] {400.004\phantom(};
+
+  \node [below=of sign3] (sign4) [box,sign] {1\phantom(};
+  \node [below=of exp3]  (exp4) [box,exp] {01111010010\phantom(};
+  \node [below=of frac3] (frac4) [box,frac] {0000111000110111010010100100111110001110000010110100\phantom(};
+  \node [below=of dez3] (dez4) [box1,dez] {--0.000003\phantom(};
+
+  \node [below=of sign4] (sign5) [box,sign] {0\phantom(};
+  \node [below=of exp4]  (exp5) [box,exp] {10001001101\phantom(};
+  \node [below=of frac4] (frac5) [box,frac] {1111111000010101010011110100010101111110101000010011\phantom(};
+  \node [below=of dez4] (dez5) [box1,dez] {6.022$\times$10$^{\mbox{\scriptsize 23}}$\phantom(};
+
+% http://www.binaryconvert.com/result_double.html?decimal=054046048050050101050051
+
+\end{tikzpicture}%
+} %resizebox

@@ -1,0 +1,107 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tikzstyle{fancytitle} =[fill=black!0, draw, very thick, text=black!100, rectangle, inner xsep=6pt,yshift=7.2pt,right=0pt,, minimum width=3cm]
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=6pt, minimum width=3cm]
+\tikzstyle{cpp} =[fill=black!0, draw=black!100, thick]
+
+  \node at (0,0) (autoAttr) [modul,cpp] {%
+	\begin{minipage}{3.0cm}
+      $\circ$ \textit{startEngine()} \\
+      $\circ$ \textit{accelerate()} \\
+      $\circ$ \textit{break()} \\
+      $\circ$ \textit{signal(Direction)}
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at ([yshift=1.5ex]autoAttr.north west) (auto) {
+	\begin{minipage}{3.0cm}
+      \center
+      {\footnotesize $\langle\langle$interface$\rangle\rangle$ } \\
+      Vehicle H\phantom{g}
+    \end{minipage}%
+  };
+
+
+  \node at (0,-4.5cm) (autoAttr2) [modul,cpp] {%
+	\begin{minipage}{3.0cm}
+      $\circ$ \textit{accelarate()} \\
+      $\circ$ \textit{break()} \\
+      $\circ$ \textit{lightsOn()} \\
+      $\circ$ \textit{signal(Direction)} \\
+      $\circ$ \textit{shift(Gear)} \\
+      $\circ$ \textit{payToll()}
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at ([yshift=1.5ex]autoAttr2.north west) (auto2) {
+	\begin{minipage}{3.0cm}
+      \center
+      {\footnotesize $\langle\langle$interface$\rangle\rangle$ } \\
+      Vehicle M\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (0,-9.0cm) (autoAttr3) [modul,cpp] {%
+	\begin{minipage}{3.0cm}
+      $\circ$ \textit{startEngine()} \\
+      $\circ$ \textit{accelerate()} \\
+      $\circ$ \textit{break()} \\
+      $\circ$ \textit{ticket()}
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp] at ([yshift=1.5ex]autoAttr3.north west) (auto3) {
+	\begin{minipage}{3.0cm}
+      \center
+      {\footnotesize $\langle\langle$interface$\rangle\rangle$ } \\
+      Vehicle P\phantom{g}
+    \end{minipage}%
+  };
+
+
+
+
+
+
+  \node[fancytitle,cpp] at (3.5cm,0.0cm) (obj1) {
+	\begin{minipage}{3.0cm}
+      \center
+      BusStop\phantom{g}
+    \end{minipage}%
+  };
+
+  \node[fancytitle,cpp] at (3.5cm,-4.2cm) (obj2) {
+	\begin{minipage}{3.0cm}
+      \center
+      TollRoad\phantom{g}
+    \end{minipage}%
+  };
+
+  \node[fancytitle,cpp] at (3.5cm,-8.7cm) (obj3) {
+	\begin{minipage}{3.0cm}
+      \center
+      ParkingLot\phantom{g}
+    \end{minipage}%
+  };
+
+
+%\tikzstyle{impl} =[thick,-diamond];
+%\tikzstyle{comp} =[dashed,thick,-open triangle 45];
+\tikzstyle{impl} =[thick,-angle 45];
+\tikzstyle{comp} =[thick,-angle 45]
+
+\path[draw] (obj1.west) --  (auto.east |- obj1) [impl] ;
+\path[draw] (obj2.west) --  (auto.east |- obj2) [impl] ;
+\path[draw] (obj3.west) --  (auto.east |- obj3) [impl] ;
+
+
+
+\end{tikzpicture}
+%} % resizebox

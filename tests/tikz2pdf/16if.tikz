@@ -1,0 +1,64 @@
+\usetikzlibrary{arrows} % deprecated. use: arrows.meta
+
+\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+	  node distance=6ex,
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+      every node/.style={align=left},
+      scale=1.2,
+      every node/.append style={transform shape},   % (1) scale here first approx. lines stay.
+    %  every node/.append style={draw},
+    ]
+%\draw[help lines] (-2,0) grid (5,-9);
+
+\tikzstyle{box} = [rectangle,
+	text centered, 
+	draw=black, line width=1pt,
+	fill=white,
+	text=black,
+];
+
+\tikzstyle{process} = [box,rectangle,
+	minimum width=3cm, 
+	minimum height=1cm, 
+];
+
+\tikzstyle{decision} = [box,diamond,
+	minimum width=3cm,
+	minimum height=1cm,
+];
+
+\tikzstyle{opt} = [text=black!50,draw=black!50,
+];
+
+\tikzstyle{tarr}= [->,-triangle 45,
+		draw=black, line width=1pt,
+		font=\normalsize,
+		text=black
+];
+
+
+    \node [] at (0,0) (start) {};
+    \node [left=of start] (start2) {};
+    \node [process,below=of start,opt] (ainit) {initialization};
+      \node [below=of ainit.east,font=\scriptsize,text=black!50,anchor=east,yshift=1.8ex] (opti) {optional};
+      \node [below=of ainit.west,font=\scriptsize,text=black!50,anchor=west,yshift=1.8ex] (cpp) {C++17};
+    \node [decision,right=of ainit] (aif) {condition};
+    \node [process,below=of aif] (athen) {statement$_{\mbox{\scriptsize 1}}$};
+    \node [process,right=of athen,opt] (aelse) {statement$_{\mbox{\scriptsize 2}}$};
+      \node [below=of aelse.east,font=\scriptsize,text=black!50,anchor=east,yshift=1.8ex] (opta) {optional};
+      \node [below=of opta,font=\scriptsize,text=black!50,anchor=east,xshift=0.8cm] (dummy1) {};  %% dummy fuer rechts breiter
+    \node [below=of athen] (end) {};
+    \node [xshift=-4cm,left=of end] (end2) {};
+
+
+\draw[tarr]  (start2) -- (start.center) -- (ainit);
+\draw[tarr]  (ainit) -- (aif);
+\draw[tarr]  (aif) -|  node[above,pos=0.2] {false}  (aelse);
+\draw[tarr]  (aif) -- node[left,pos=0.2] {true}  (athen);
+\draw[tarr]  (athen) -- (end.center) -- (end2.center);
+\draw[tarr]  (aelse) |- (end.center) -- (end2.center);
+
+
+\end{tikzpicture}
+}%resizebox

@@ -1,0 +1,35 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{trees}
+
+\begin{tikzpicture}[
+  background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+  grow via three points={one child at (0.7,-1.0) and
+  two children at (0.5,-1.1) and (0.5,-2.3)},
+  edge from parent path={[-triangle 45,thick]([xshift=1em]\tikzparentnode.south west) |- (\tikzchildnode.west)}
+]
+\tikzstyle{every node}=[
+    draw=black, thick,
+    anchor=west,
+    anchor=west,
+    text width=2.5cm,
+    rectangle split, rectangle split parts=2,
+    rectangle split part fill={black!5,white},
+  ]
+\tikzstyle{method}= [font=\scriptsize,fill=black!5]
+
+  \node [rectangle split,rectangle split parts=2] {Component\nodepart[method]{second}\tt getColor()}
+    child { node [yshift=2pt]{Window}
+      child { node [yshift=-2pt]{MainWindow}}
+      child { node [yshift=-2pt]{Dialog}}
+    }
+    child [missing] {}				
+    child [missing] {}				
+    child { node {TextInput}}
+    child { node [yshift=-6pt,rectangle split,rectangle split parts=2]{Button\nodepart[method]{second}\tt getColor()}}
+  ;
+\end{tikzpicture}
+

@@ -1,0 +1,173 @@
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+
+% Usage: \tcolorlet{colorName}{bwColor}{colorColor}
+% then define 'tPicColor' to have tikz pictures in color (if they use it).
+\newcommand{\tcolorlet}[3]{%
+\ifdefined\tPicColor%
+\colorlet{#1}{#3}%
+\else%
+\colorlet{#1}{#2}%
+\fi%
+}
+
+%\resizebox {\columnwidth} {!} {    % (2) scale to exact column width
+\begin{tikzpicture}[
+      background rectangle/.style={fill=white,draw=black,line width=1pt}, show background rectangle,
+]
+
+\tcolorlet{fillTestcasetitle}{black!10}{yellow!50}
+\tcolorlet{fillTesttitle}{black!5}{green!50}
+\tcolorlet{fillTestcase}{black!5}{yellow!20}
+\tcolorlet{fillTest}{black!0}{green!20}
+\tcolorlet{fillTestsuite}{black!0}{brown!40}
+\tikzstyle{fancytitle} =[draw, very thick, text=black!80, rectangle, inner xsep=6pt,yshift=7.2pt,right=0pt, minimum width=3cm]
+\tikzstyle{modul} =[text=black!100, rectangle, inner sep=6pt]
+\tikzstyle{cpp} =[fill=black!0, draw=black!100, thick]
+
+
+% testcases layer
+
+  \node at (-0.4cm,-6.3cm) (testcaseU) [modul,cpp,fill=fillTestcase,text=black!05, minimum width=3.5cm,anchor=south west] {%
+        \begin{minipage}{4.0cm}
+      \vskip8.5cm.
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=3.0cm,fill=fillTestcasetitle,xshift=2ex,yshift=-1.5ex] at (testcaseU.north west) (testcaseUtitle) {
+        \begin{minipage}{2.5cm}
+      Testcase U\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (5cm,1.6cm) (testcaseV) [modul,cpp,fill=fillTestcase,minimum width=3.5cm,anchor=south west] {%
+        \begin{minipage}{4.0cm}
+      \vskip0.1cm\hskip3ex$\ddots$
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=3.0cm,fill=fillTestcasetitle,xshift=2ex,yshift=-1.5ex] at (testcaseV.north west) (testcaseVtitle) {
+        \begin{minipage}{2.5cm}
+      Testcase V\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (5cm,-1.0cm) (testcaseW) [modul,cpp,fill=fillTestcase, minimum width=3.5cm,anchor=south west] {%
+        \begin{minipage}{4.0cm}
+      \vskip0.1cm\hskip3ex$\ddots$
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=3.0cm,fill=fillTestcasetitle,xshift=2ex,yshift=-1.5ex] at (testcaseW.north west) (testcaseWtitle) {
+        \begin{minipage}{2.5cm}
+      Testcase W\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (5cm,-3.5cm) (testcaseX) [modul,cpp,fill=fillTestcase, minimum width=3.5cm,anchor=south west] {%
+        \begin{minipage}{4.0cm}
+      \vskip0.1cm\hskip3ex$\ddots$
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=3.0cm,fill=fillTestcasetitle,xshift=2ex,yshift=-1.5ex] at (testcaseX.north west) (testcaseXtitle) {
+        \begin{minipage}{2.5cm}
+      Testcase X\phantom{g}
+    \end{minipage}%
+  };
+
+
+% tests layer
+
+  \node at (0,0cm) (testABody) [modul,cpp,minimum width=3.5cm,fill=fillTest,anchor=south west] {%
+	\begin{minipage}{3.0cm}
+      \vskip8pt
+      $\circ$ Assertion A1 \\
+      $\circ$ Assertion A2 \\
+      $\circ$ ...
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTesttitle,anchor=north west,xshift=2ex] at (testABody.north west) (testATitle) {
+	\begin{minipage}{1.5cm}
+      Test A\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (0,-2.0cm) (testBBody) [modul,cpp,minimum width=3.5cm,fill=fillTest,anchor=south west] {%
+	\begin{minipage}{3.0cm}
+      \vskip8pt
+      $\circ$ Assertion B1 \\
+      $\circ$ ...
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTesttitle,anchor=north west,xshift=2ex] at (testBBody.north west) (testBTitle) {
+	\begin{minipage}{1.5cm}
+      Test B\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (0,-4.0cm) (testCBody) [modul,cpp,minimum width=3.5cm,fill=fillTest,anchor=south west] {%
+	\begin{minipage}{3.0cm}
+      \vskip8pt
+      $\circ$ Assertion C1 \\
+      $\circ$ ...
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTesttitle,anchor=north west,xshift=2ex] at (testCBody.north west) (testCTitle) {
+	\begin{minipage}{1.5cm}
+      Test C\phantom{g}
+    \end{minipage}%
+  };
+
+  \node at (0,-6.0cm) (testDBody) [modul,cpp,fill=black!10, draw=black!30,text=black!50, thick,minimum width=3.5cm,anchor=south west] {%
+	\begin{minipage}{3.0cm}
+      \vskip8pt
+      $\circ$ Set-Up U \\
+      $\circ$ Tear-Down U
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=black!10,draw=black!30, text=black!50, anchor=north west,xshift=2ex] at (testDBody.north west) (testDTitle) {
+	\begin{minipage}{1.5cm}
+      Fixture\phantom{g}
+    \end{minipage}%
+  };
+
+
+% testsuites layer
+
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestsuite, xshift=0ex,anchor=west] at (-0.4cm,-7.3cm) (testsuiteMtitle) {
+	\begin{minipage}{2.5cm}
+      Testsuite M\phantom{g} \\
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestcasetitle,anchor=south west,yshift=-1.6ex] at (testsuiteMtitle.south west) (mu) { U };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestcasetitle,anchor=north west,xshift=-1pt,yshift=-0.7pt] at (mu.east) (mx) { X };
+
+
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestsuite, xshift=0ex,anchor=west] at (4.5cm,-6.8cm) (testsuiteNtitle) {
+	\begin{minipage}{2.5cm}
+      Testsuite N\phantom{g} \\
+    \end{minipage}%
+  };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestcasetitle,anchor=south west,yshift=-1.6ex] at (testsuiteNtitle.south west) (nu) { U };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestcasetitle,anchor=north west,xshift=-1pt,yshift=-0.7pt] at (nu.east) (nv) { V };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestcasetitle,anchor=north west,xshift=-1pt,yshift=-0.7pt] at (nv.east) (nw) { W };
+  \node[fancytitle,cpp,minimum width=0.5cm,fill=fillTestcasetitle,anchor=north west,xshift=-1pt,yshift=-0.7	pt] at (nw.east) (nx) { X };
+
+
+%% lines
+
+\begin{scope}[->,dashed,black!50]
+ \draw[arrows={-triangle 45}]   (mu.west) --  (mu.west) -| ([xshift=-0.8cm]testcaseUtitle.north west) -- (testcaseUtitle.north west);
+ \draw[arrows={-triangle 45}]   (mx.east) --  (mx.east) -| ([xshift=1.5cm]testcaseXtitle.north east) -- (testcaseXtitle.north east);
+
+ \draw[arrows={-triangle 45}]   (testsuiteNtitle.north west) -| ([xshift=1.6cm]testcaseUtitle.north east) -- (testcaseUtitle.north east);
+ \draw[arrows={-triangle 45}]   (testsuiteNtitle.north west) -| ([xshift=-0.7cm]testcaseVtitle.north west) -- (testcaseVtitle.north west);
+ \draw[arrows={-triangle 45}]   (testsuiteNtitle.north west) -| ([xshift=-0.7cm]testcaseWtitle.north west) -- (testcaseWtitle.north west);
+ \draw[arrows={-triangle 45}]   (testsuiteNtitle.north west) -| ([xshift=-0.7cm]testcaseXtitle.north west) -- (testcaseXtitle.north west);
+
+\end{scope}
+
+
+\end{tikzpicture}
+%} % resizebox

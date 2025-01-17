@@ -1,3 +1,4 @@
 *.tex
 /reports/
 plantuml-images/
+plantuml-sprites/
