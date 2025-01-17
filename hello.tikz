@@ -1,4 +1,9 @@
 %tikz2pdf-use-package=amsmath
+
+%tikz2pdf-font=PTN57F.ttf:PTN77F.ttf
+% results in:
+% \fontspec[Path=/usr/share/texmf-dist/fonts/truetype/paratype/ptsans/,BoldFont=PTN77F.ttf]{PTN57F.ttf}
+
 \begin{tikzpicture}
 \node[circle, draw=blue, dashed, thick, rotate=30, font=\Large] {Hello World!};
 \end{tikzpicture}

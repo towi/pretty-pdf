@@ -9,6 +9,7 @@ import shutil
 import logging
 import argparse
 import subprocess
+from collections import defaultdict
 
 from time import sleep
 from tempfile import mkdtemp
@@ -23,6 +24,8 @@ USE_TIKZLIBRARY_DEFAULT = [
     "chains",
     "matrix",
 ]
+
+FONT_TO_PATHS = {}
 
 class TikZ2PDF(object):
 
@@ -104,15 +107,19 @@ class TikZ2PDF(object):
             # Load template
             template_tex: bytes = self.get_template()
             # Combine template and tikzfile
-            final_tex: bytes = template_tex.replace(b'%tikz2pdf-tikz', tikz_tex)
+            final_tex: bytes = template_tex.replace(b'%tikz2pdf+tikz', tikz_tex)
             # - handle usepackages
             _ps = [b"tikz"] + [ p.encode() for p in self.arguments.get('use_package', []) ]
             _up  = b"\n".join([mk_usepackage(p) for p in _ps])
-            final_tex = final_tex.replace(b'%tikz2pdf-usepackages', _up)
+            final_tex = final_tex.replace(b'%tikz2pdf+usepackages', _up)
             # - handle usetikzlibraries
             _ps = [] + [ p.encode() for p in self.arguments.get('use_tikzlibrary', USE_TIKZLIBRARY_DEFAULT) ]
             _up  = b"\n".join([mk_usetikzlibrary(p) for p in _ps])
-            final_tex = final_tex.replace(b'%tikz2pdf-usetikzlibraries', _up)
+            final_tex = final_tex.replace(b'%tikz2pdf+usetikzlibraries', _up)
+            # - handle font
+            if self.arguments.get('font', None):
+                f = mk_font(self.arguments['font'].encode(), FONT_TO_PATHS)
+                final_tex = final_tex.replace(b'%tikz2pdf+fonts', f)
         # Write final tex file
         with open(self.tex_filename, mode='wb') as f:
             f.write(final_tex)
@@ -151,17 +158,19 @@ class TikZ2PDF(object):
                 self.log.error("Error: Template does not contain '%tikz2pdf-tikz'")
                 shutil.rmtree(self.work_dir)
                 exit(1)
-        
+
         else:
             template_tex = rb"""\documentclass{article}
-%tikz2pdf-usepackages
-%tikz2pdf-usetikzlibraries
+%tikz2pdf+usepackages
+%tikz2pdf+usetikzlibraries
 \pagestyle{empty}
+\usepackage{fontspec}
 \usepackage[active,tightpage]{preview}
 \PreviewEnvironment[]{tikzpicture}
 \PreviewEnvironment[]{tabular}
 \begin{document}
-%tikz2pdf-tikz
+%tikz2pdf+fonts
+%tikz2pdf+tikz
 \end{document}
 """
             self.log.debug("Using default template")
@@ -208,8 +217,9 @@ class TikZ2PDF(object):
         parser.add_argument('--pdflatex', action='store_const', const='pdflatex', dest='bin')
         parser.add_argument('--preview', action='store_true')
         # LaTeX configuration
-        parser.add_argument('--use-package', action="append", help="add PACKAGE with \\usepackage, example 'bla' or 'bla[arg1,arg2]'", metavar="PACKAGE")
-        parser.add_argument('--use-tikzlibrary', action="append", help="add LIBRARY with \\usetikzlibrary, example 'bla' or 'bla[arg1,arg2]'. You can include a line '%tikz2pdf-use-tikzlibrary=yyy[zzz]' in yout tikz-file, too.", metavar="LIBRARY")
+        parser.add_argument('--use-package', action="append")
+        parser.add_argument('--use-tikzlibrary', action="append")
+        parser.add_argument('--font', type=str)
         self.parser = parser
 
         # Files to look for parameters
@@ -252,7 +262,8 @@ class TikZ2PDF(object):
                             value = os.path.join(os.path.dirname(tikz_file.name), value)
                         arguments.append(value)
                     else:
-                        arguments.extend([v.decode() for v in value.split()])
+                        vs = [v.decode() for v in value.split()]
+                        arguments.extend(vs)
         _vs = vars(self.parser.parse_args(arguments))
         return _vs
 
@@ -286,7 +297,39 @@ def mk_usetikzlibrary(lib_spec: bytes) -> bytes:
         return br"\usetikzlibrary{%s}" % lib_spec
 
 
+def mk_font(font_spec: bytes, font_to_paths) -> bytes:
+    font_spec: str = font_spec.strip().decode()
+    if ":" in font_spec:
+        fonts = font_spec.split(":")
+        fs = font_to_paths[fonts[0]]
+        path = fs[0]  # raises if not found
+        result = [r"\fontspec[Path=%s/" % path]
+        if len(fonts) > 1 and fonts[1]:
+            result.append(r",BoldFont=%s" % fonts[1])
+        if len(fonts) > 2 and fonts[2]:
+            result.append(r",ItalicFont=%s" % fonts[2])
+        if len(fonts) > 3 and fonts[3]:
+            result.append(r",BoldItalicFont=%s" % fonts[3])
+        result.append(r"]{%s}" % fonts[0])
+        return "".join(result).encode()
+    else:
+        fs = font_to_paths[font_spec]
+        path = fs[0]  # raises if not found
+        return (r"\fontspec[Path=%s]{%s}" % (path, font_spec)).encode()
+
+
+def font_to_paths_dict(base_path: str):
+    font_extensions = {".otf", ".ttf", ".pfb", ".ttc", ".otc", ".pk"}
+    result = defaultdict(list)
+    for root, _, files in os.walk(base_path):
+        for file in files:
+            if any(file.lower().endswith(ext) for ext in font_extensions):
+                result[file].append(root)
+    return result
+
+
 def main():
+    global FONT_TO_PATHS
     parser = argparse.ArgumentParser(description="tikz2pdf - compile TikZ to PDF", argument_default=argparse.SUPPRESS)
     parser.add_argument('tikz_files', nargs='*', type=argparse.FileType('rb'), default=sys.stdin, help="TikZ file(s)", metavar="TIKZ")
     # engine
@@ -309,6 +352,8 @@ def main():
     parser.add_argument('-t', '--template', type=argparse.FileType('rb'), help="LaTeX file to use as template", metavar="TEX")
     parser.add_argument('-U', '--use-package', action="append", help="add PACKAGE with \\usepackage, example 'bla' or 'bla[arg1,arg2]'. You can include a line '%tikz2pdf-use-package=yyy[zzz]' in yout tikz-file, too.", metavar="PACKAGE")
     parser.add_argument('-T', '--use-tikzlibrary', action="append", help="add LIBRARY with \\usetikzlibrary, example 'bla' or 'bla[arg1,arg2]'. You can include a line '%tikz2pdf-use-tikzlibrary=yyy[zzz]' in yout tikz-file, too.", metavar="LIBRARY")
+    parser.add_argument('--font-path', default="/usr/share/texmf-dist")
+    parser.add_argument('--font', type=str, help="use FONTFILE[:FONTFILE_BOLD:FONTFILE_ITALIC:FONTFILE_BOLDITALIC] as font, eg 'Erewhon-Regular.otf'. The font is searched with 'find / -name FONTFILE'. If you have the choice between .pdb and .otf/.ttf prefer the latter. '*' to print a list.")
 
     args = vars(parser.parse_args())
     tikz_files = args.pop('tikz_files')
@@ -335,10 +380,18 @@ def main():
     log_format = "tikz2pdf: %(message)s"
     logging.basicConfig(format=log_format, level=logging.INFO)
 
+    # find all files in args.font_path:
+    if True: # make fthis lazy and later. args['font']:
+        FONT_TO_PATHS = font_to_paths_dict(args['font_path'])
+        if args.get('font') == "*":
+            for font, paths in sorted(FONT_TO_PATHS.items()):
+                print(f"  {font:20s} : {', '.join(paths)}")
+            exit(0)
+
     for tikz_file, pdf_filename in zip(tikz_files, pdf_filenames):
         TikZ2PDF(tikz_file, pdf_filename, **args)
 
 
 if __name__ == '__main__':
     exit(main())
-    
+

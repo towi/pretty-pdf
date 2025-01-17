@@ -87,7 +87,7 @@ eisvogel_test: eisvogel_test.pdf
 			--volume $(shell pwd):/data \
 			--user $(shell id -u):$(shell id -g) \
 		$(LOCAL_LATEST) \
-			tikz2pdf \
+			tikz2pdf  \
 	        -d \
 		$< \
 		-o $@
