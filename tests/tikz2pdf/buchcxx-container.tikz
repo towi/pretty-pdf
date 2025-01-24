@@ -1,5 +1,7 @@
 %tikz2pdf-use-package=adjustbox
 
+%tikz2pdf-font=PTN57F.ttf:PTN77F.ttf
+
 %\ifcsname containerPre\endcsname
 %  \expandafter\endinput
 %\fi
@@ -105,11 +107,7 @@
 \definecolor{sp}{RGB}{100,255,255}
 
 \newcommand{\x}{\phantom{x}\relax}
-\usetikzlibrary{backgrounds,positioning}
-\usetikzlibrary{decorations.pathreplacing}
-\usetikzlibrary{patterns}
 
-%\input{container.pre}
 
 \begin{tikzpicture}[
       background rectangle/.style={fill=white}, show background rectangle,
@@ -122,8 +120,8 @@
         diagonal top color=con,
         diagonal bottom color=log]
 \tikzstyle{nlogn}=[fill=nlogn]
-\tikzstyle{lin}=[fill=lin,draw,pattern=crosshatch]
-\tikzstyle{log}=[fill=log,draw,pattern=crosshatch dots]
+\tikzstyle{lin}=[fill=lin]
+\tikzstyle{log}=[fill=log]
 \tikzstyle{con}=[fill=con]
 \tikzstyle{alg}=[fill=black!5,text=black!50]
 
@@ -135,7 +133,7 @@
                      text depth=0.2pt, text height=2.8pt,
                 rectangle,
                      % draw, % debug
-                font=\sffamily\tiny }, % footnotesize, tiny, scriptsize
+                font=\tiny }, % footnotesize, tiny, scriptsize
         nodes in empty cells,
         row sep=-\pgflinewidth,
         row 1/.style={anchor=south,nodes={fill=black!20,minimum height=1.2cm}},
@@ -235,7 +233,7 @@
     };
 
     \node (legende) [fill=black!0,text width=6cm,align=left,draw,below=of dict-39-1,anchor=west,yshift=18pt,font=\sffamily\tiny,draw=none]
-      { ${}^1$varying complexity, ${}^2$must be sorted, ${}^3$as source } ;
+      { ${}^1$unterschiedliche Komplexität, ${}^2$muss sortiert sein, ${}^3$als Quelle } ;
     \node (ncon) [con,text width=1cm,align=left,draw,right=of legende,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]
       { $O(1)$ } ;
     \node (nlog) [log,text width=1cm,align=left,draw,right=of ncon,font=\sffamily\tiny,draw=none,xshift=-5ex,align=center]

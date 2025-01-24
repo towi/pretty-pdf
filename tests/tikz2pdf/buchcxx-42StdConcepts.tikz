@@ -1,3 +1,5 @@
+%tikz2pdf-font=PTN57F.ttf:PTN77F.ttf
+
 \usetikzlibrary{arrows} % deprecated. use: arrows.meta
 
 \resizebox {\columnwidth} {!} {    % (2) scale to exact column width

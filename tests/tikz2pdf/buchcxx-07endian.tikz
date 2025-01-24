@@ -1,3 +1,5 @@
+%tikz2pdf-font=PTN57F.ttf
+
 \usetikzlibrary{backgrounds,positioning}
 \usetikzlibrary{decorations.pathreplacing}
 

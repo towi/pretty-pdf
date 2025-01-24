@@ -1,0 +1,16 @@
+%tikz2pdf-use-package=fontspec,pgf,pgffor
+
+\edef\maxstep{\the\numexpr\XeTeXcountglyphs\font-1\relax}
+
+\typeout{maxstep is \maxstep}
+
+\begin{tikzpicture}
+\foreach \charstep in {0,...,\maxstep}{%
+%TODO it seems that the \iffontchar test is not working as expected
+  \iffontchar\font\charstep
+    \pgfmathsetmacro{\xcoord}{int(\charstep / 32)} % Calculate x-coordinate
+    \pgfmathsetmacro{\ycoord}{mod(\charstep, 32)} % Calculate y-coordinate
+    \node at (\xcoord,\ycoord) {\XeTeXglyph\charstep}; % Place the glyph
+  \fi
+}%
+\end{tikzpicture}

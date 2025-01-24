@@ -91,10 +91,29 @@ TIKZ2PDF=\
 
 %.pdf: %.tikz
 	$(TIKZ2PDF) \
-	        -d \
 		$< \
 		-o $@
 	ls -l $@
+
+
+tmp-fonts.makefile: fonts.txt Makefile
+	echo -n "all: " > $@
+	for font in $$(cat fonts.txt); do \
+		echo -n "tikz2pdf/buchcxx-42StdConcepts-font-$$font.pdf " >> $@ ; \
+		echo -n "tikz2pdf/buchcxx-07endian-font-$$font.pdf " >> $@ ; \
+	done
+	echo "" >> $@
+	for font in $$(cat fonts.txt); do \
+		echo "tikz2pdf/buchcxx-42StdConcepts-font-$$font.pdf: tikz2pdf/buchcxx-42StdConcepts.tikz" >> $@ ; \
+		echo "\t$(TIKZ2PDF) --font $$font tikz2pdf/buchcxx-42StdConcepts.tikz -o tikz2pdf/buchcxx-42StdConcepts-font-$$font.pdf" >> $@ ; \
+		echo "\tls -l tikz2pdf/buchcxx-42StdConcepts-font-$$font.pdf" >> $@ ; \
+		echo "tikz2pdf/buchcxx-07endian-font-$$font.pdf: tikz2pdf/buchcxx-07endian.tikz" >> $@ ; \
+		echo "\t$(TIKZ2PDF) --font $$font tikz2pdf/buchcxx-07endian.tikz -o tikz2pdf/buchcxx-07endian-font-$$font.pdf" >> $@ ; \
+		echo "\tls -l tikz2pdf/buchcxx-07endian-font-$$font.pdf" >> $@ ; \
+	done
+
+fonts: tmp-fonts.makefile
+	$(MAKE) -j 8 -f tmp-fonts.makefile
 
 
 unicode-test.pdf: unicode-test.md
@@ -114,5 +133,5 @@ unicode-test.pdf: unicode-test.md
 ##################################################
 
 clean:
-	$(RM) *.pdf *.tex *.log
+	$(RM) *.pdf *.tex *.log tmp-*
 	$(RM) -r plantuml-images/

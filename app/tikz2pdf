@@ -315,7 +315,7 @@ def mk_font(font_spec: bytes, font_to_paths) -> bytes:
     else:
         fs = font_to_paths[font_spec]
         path = fs[0]  # raises if not found
-        return (r"\fontspec[Path=%s]{%s}" % (path, font_spec)).encode()
+        return (r"\fontspec[Path=%s/]{%s}" % (path, font_spec)).encode()
 
 
 def font_to_paths_dict(base_path: str):
@@ -371,7 +371,7 @@ def main():
         else:
             pdf_filenames = ['out.pdf']
     elif len(output) != len(tikz_files):
-        self.log.error("Error: Number of output files does not match number of input files. Consider specifying a directory with a trailing slash")
+        print("Error: Number of output files does not match number of input files. Consider specifying a directory with a trailing slash", file=sys.stderr)
         exit(1)
     else:
         d = os.path.curdir
