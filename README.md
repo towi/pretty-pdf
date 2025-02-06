@@ -8,6 +8,7 @@ All-in-one documentation conversion solution:
  - Graphviz -- dot language graph layout, needed for some plantumls
  - eisvogel.tex -- a template for pretty pdfs from markdown via pandoc and latex
  - Python3 -- is needed for pandoc et.al.
+ - Tikz2Pdf -- use a LaTeX fragment with just a Tikz graphic to create a PDF (or similar)
 
 See [helpme](app/helpme.md) for a manpage like doc.
 
