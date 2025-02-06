@@ -1,5 +1,5 @@
 """
-Panflute filter to allow file includes
+Pandoc filter to allow file includes
 """
 
 import os
