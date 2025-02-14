@@ -7,6 +7,7 @@
     dot                     # Graphviz, text graph layout
     python3                 # Run python3 scripts
     tikz2pdf                # Convert TikZ to PDF
+    convert                 # ImageMagick. Also identify, mogrify, etc.
 
   Details below.
 
@@ -57,8 +58,12 @@
     ...and neato, etc if you need it
 
 ## tikz2pdf
+  We implemented our own Tikz2Pdf script to convert Tikz graphics to PDF.
+  It is based on [https://github.com/jeroenjanssens/tikz2pdf](jeroenjanssens) script.
 
-https://github.com/jeroenjanssens/tikz2pdf/tree/master
+    tikz2pdf -h                       # show help
+    tikz2pdf input.tikz output.pdf    # convert Tikz to PDF
+    tikz2pdf [tikz2pdf-options...]    # anything
 
 ## Python3
   We installed python3 because we needed it anyway.
@@ -66,6 +71,14 @@ https://github.com/jeroenjanssens/tikz2pdf/tree/master
     python3 [python-options...]
 
   The `PATH` includes `/app` and the `PYTHONPATH` includes `/app/lib`.
+
+## ImageMagick
+  ImageMagick is installed, so you can convert images.
+  Note that we provided the new version, which uses the`magick` 
+  command for everything.
+
+    magick  -h                        # show help
+    magick  input.png output.jpg      # convert image
 
 # Calling via Docker
 
@@ -80,3 +93,14 @@ https://github.com/jeroenjanssens/tikz2pdf/tree/master
     docker run --rm --it --volume $(pwd):/data --user $(id -u):$(id -g) $PANDOCCY sh
 
 ----
+
+
+
+```mermaid
+flowchart
+    participant a
+    participant b
+a --> b
+
+
+```

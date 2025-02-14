@@ -111,6 +111,11 @@ RUN curl -L https://github.com/plantuml/plantuml/releases/download/v${PLANTUML_V
 
 ### and pandoc (or the filter) expects 'plantuml' to be in the PATH
 
+################################
+# More useful stuff
+
+RUN apk --no-cache add imagemagick ghostscript
+
 
 ################################
 # Local Stuff (that has a chance to change often, so it goes to the bottom)
