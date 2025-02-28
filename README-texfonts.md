@@ -16,16 +16,16 @@ or set the `mainfont` variable with `-V`.
       --rm \
       --volume $(pwd):/data \
       --user 1000:1000 \
-      towi/pandoc-pretty-pdf:latest \
-      pandoc-pretty-pdf \
+      towi/pretty-pdf:latest \
+      pretty-pdf \
         -V 'mainfont=Droid Serif' \
         -o eisvogel_test.pdf \
         eisvogel_test.md
 
 The list of available font families you can get with the command `fc-list : familiy` in a shell:
 
-    $ docker run --rm -it towi/pandoc-pretty-pdf:latest sh
-    [pandoc-pretty-pdf] helpme helps (/data)$ fc-list : family
+    $ docker run --rm -it towi/pretty-pdf:latest sh
+    [pretty-pdf] helpme helps (/data)$ fc-list : family
     Droid Sans Mono
     Droid Arabic Kufi
     Droid Sans Ethiopic
@@ -43,7 +43,7 @@ For your convenience you can run the docker image with the `font-list` command.
 We have the fonts from `texlive-extra` included so the list can be rather extensive now,
 so here is an excerpt:
 
-    docker run --rm --volume $(pwd):/data --user 1000:1000 towi/pandoc-pretty-pdf:latest list-fonts \
+    docker run --rm --volume $(pwd):/data --user 1000:1000 towi/pretty-pdf:latest list-fonts \
         | grep -4 QTVagaRound
     QTTheatre
     QTTimeOutline

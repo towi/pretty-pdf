@@ -1,14 +1,13 @@
-###   3.1.1.0 is based on TeX Live 2022. We may have to adjust 'tmgr's repository, see below.
-FROM pandoc/latex:3.6.0.0
+FROM pandoc/latex:3.6.3.0
 
-LABEL org.opencontainers.image.source=https://github.com/towi/pandoc-pretty-pdf
-LABEL org.opencontainers.image.description="pandoc-pretty-pdf converts Markdown to _pretty_ PDFs with pandoc and Wandmalfarbe Eisvogel LaTeX template."
+LABEL org.opencontainers.image.source=https://github.com/towi/pretty-pdf
+LABEL org.opencontainers.image.description="pretty-pdf converts Markdown to _pretty_ PDFs with pandoc and Wandmalfarbe Eisvogel LaTeX template."
 LABEL org.opencontainers.image.licenses=MIT
 
 
-# --build-arg PANDOC_PRETTY_PDF=...
-ARG PANDOC_PRETTY_PDF=towi/pandoc-pretty-pdf:latest
-ENV PANDOC_PRETTY_PDF=$PANDOC_PRETTY_PDF
+# --build-arg PRETTY_PDF=...
+ARG PRETTY_PDF=towi/pretty-pdf:latest
+ENV PRETTY_PDF=$PRETTY_PDF
 
 ARG PLANTUML_VERSION=1.2025.0
 ENV PLANTUML_VERSION=$PLANTUML_VERSION
@@ -47,6 +46,8 @@ RUN apk --no-cache add --update \
 #x# tlmgr repository list && \
 #x# echo ??? tlmgr repository remove https://ctan.mirror.norbert-ruehl.de/systems/texlive/tlnet && \
 #x# tlmgr option repository ftp://tug.org/historic/systems/texlive/2022/tlnet-final
+
+RUN tlmgr update --self
 
 #RUN tlmgr --verify-repo=none update --self
 ### Yes I know, doing it in one step would be more efficient. But I often have to debug here.
@@ -120,7 +121,7 @@ RUN apk --no-cache add imagemagick ghostscript
 ################################
 # Local Stuff (that has a chance to change often, so it goes to the bottom)
 
-ENV PS1 "[pandoc-pretty-pdf] helpme helps (`pwd`)$ "
+ENV PS1 "[pretty-pdf] helpme helps (`pwd`)$ "
 
 # - 'chmod -R 777 /var/cache/fontconfig' fixes the "Fontconfig error: No writable cache directories" nuisance.
 RUN mkdir -p /.local/share/pandoc/templates && \
@@ -129,7 +130,7 @@ RUN mkdir -p /.local/share/pandoc/templates && \
 
 COPY app /app
 RUN chmod 555 /app/plantuml
-RUN chmod 555 /app/pandoc-pretty-pdf
+RUN chmod 555 /app/pretty-pdf
 RUN chmod 555 /app/helpme
 RUN chmod 555 /app/tikz2pdf
 RUN chmod 555 /app/list-fonts
@@ -143,9 +144,9 @@ RUN chmod 555 /app/list-fonts
 
 # "USER pandoccy" was needed because:
 # - the home-dir of any user is "/", home-dir of root is "/root"
-# - when called "docker run towi/pandoc-pretty-pdf" the stuff is executed as user root (if 'USER pandoccy' is not here)
+# - when called "docker run towi/pretty-pdf" the stuff is executed as user root (if 'USER pandoccy' is not here)
 # - that means that the home dir is "/root"
-# - when called "docker run -u $(id -u) towi/pandoc-pretty-pdf" the stuff is executed as some user
+# - when called "docker run -u $(id -u) towi/pretty-pdf" the stuff is executed as some user
 # - that means that the home dir is "/"
 # - and that means that local config files are expected in different places
 # - But: we don't want to run the stuff as root, because sometimes files created

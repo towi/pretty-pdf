@@ -6,8 +6,8 @@ import os
 import contextlib
 
 
-VERBOSE = os.getenv("PANDOCCY_VERBOSE") not in [None, "", "0", "false", "False", "FALSE"]
-QUIET = os.getenv("PANDOCCY_QUIET") not in [None, "", "0", "false", "False", "FALSE"]
+VERBOSE = os.getenv("PRETTY_PDF_VERBOSE") not in [None, "", "0", "false", "False", "FALSE"]
+QUIET = os.getenv("PRETTY_PDF_QUIET") not in [None, "", "0", "false", "False", "FALSE"]
 
 
 def message(msg, *args):

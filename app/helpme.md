@@ -1,13 +1,13 @@
 # Main Commands
 
     pandoc                  # Markdown to pretty
-    pandoc-pretty-pdf       # Simple wrapper to eisvogel pandoc
+    pretty-pdf              # Simple wrapper to eisvogel pandoc
     xelatex                 # LaTeX
     plantuml                # Text diagrams to graphic
     dot                     # Graphviz, text graph layout
     python3                 # Run python3 scripts
     tikz2pdf                # Convert TikZ to PDF
-    convert                 # ImageMagick. Also identify, mogrify, etc.
+    magick                  # ImageMagick. Also identify, mogrify, etc.
 
   Details below.
 
@@ -27,12 +27,12 @@
 
   The template `eisvogel` is installed to make PDFs pretty.
 
-## pandoc-pretty-pdf
+## pretty-pdf
   Simple wrapper script to apply some options for pandoc
   using the Eisvogel template
 
-    pandoc-pretty-pdf -o outfile.pdf infile.md
-    pandoc-pretty-pdf [pandoc-options...]
+    pretty-pdf -o outfile.pdf infile.md
+    pretty-pdf [pandoc-options...]
 
 ## xetex
   XeLaTeX is available mostly as a PDF engine, but you can certainly use it. 
@@ -86,14 +86,13 @@
   you need docker to access to your outside files. Ths you will need
   to mount a local directory to `/data` on command line, probably like this:
 
-    docker run --rm --volume $(pwd):/data --user $(id -u):$(id -g) $PANDOCCY ...
+    docker run --rm --volume $(pwd):/data --user $(id -u):$(id -g) $PRETTY_PDF_IMAGE ...
 
   To look around and be interactive do
 
-    docker run --rm --it --volume $(pwd):/data --user $(id -u):$(id -g) $PANDOCCY sh
+    docker run --rm --it --volume $(pwd):/data --user $(id -u):$(id -g) $PRETTY_PDF_IMAGE sh
 
 ----
-
 
 
 ```mermaid
@@ -101,6 +100,4 @@ flowchart
     participant a
     participant b
 a --> b
-
-
 ```

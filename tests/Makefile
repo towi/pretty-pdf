@@ -21,7 +21,7 @@ PDFS=\
 
 TARGETS=$(PDFS)
 
-all: $(PDFS)
+all: $(PDFS) fonts
 
 # Print the expansions
 debug:
@@ -31,17 +31,17 @@ debug:
 ##################################################
 
 # docker name to create
-IMAGE_NAME:=pandoc-pretty-pdf
+IMAGE_NAME:=pretty-pdf
 
 NAMESPACE:=towi
 LOCAL:=$(NAMESPACE)/$(IMAGE_NAME)
 
-PANDOC_PRETTY_PDF=\
+PRETTY_PDF=\
     docker run \
         --rm \
         --volume $(shell pwd):/data \
     $(LOCAL) \
-    pandoc-pretty-pdf
+    pretty-pdf
 
 TIKZ2PDF=\
     docker run \
@@ -62,13 +62,13 @@ CONVERT=\
 #################################################
 
 %-basic.pdf: %.md
-	$(PANDOC_PRETTY_PDF) \
+	$(PRETTY_PDF) \
 		-o $@ \
 		$<
 
 
 %-long.pdf: %.md
-	$(PANDOC_PRETTY_PDF) \
+	$(PRETTY_PDF) \
 		-V 'footer-center:confidential' \
 		-V geometry:margin=1.5cm \
 		-V fontsize=7pt \
@@ -76,7 +76,7 @@ CONVERT=\
 		$<
 
 %-prelong.pdf: %.md %.md.pre
-	$(PANDOC_PRETTY_PDF) \
+	$(PRETTY_PDF) \
 		-V 'footer-center:confidential' \
 		-V geometry:margin=1.5cm \
 		-V fontsize=7pt \
@@ -85,7 +85,7 @@ CONVERT=\
 
 
 %-landscape.pdf: %.md
-	$(PANDOC_PRETTY_PDF) \
+	$(PRETTY_PDF) \
 		-V geometry:margin=1cm \
 		-V geometry:landscape \
 		-o $@ \
@@ -93,7 +93,7 @@ CONVERT=\
 
 
 %.tex: %.md
-	$(PANDOC_PRETTY_PDF) \
+	$(PRETTY_PDF) \
 		-s -o $@ \
 		$<
 
@@ -139,7 +139,7 @@ unicode-test.pdf: unicode-test.md
 		--volume $(CURDIR):/data               \
 		-u $(shell id -u):$(shell id -g)               \
 		$(LOCAL)             \
-		pandoc-pretty-pdf               \
+		pretty-pdf               \
 		-V fontsize=10pt\
 		-o unicode-test.pdf \
 		unicode-test.md
@@ -151,5 +151,5 @@ unicode-test.pdf: unicode-test.md
 ##################################################
 
 clean:
-	$(RM) *.pdf *.tex *.log tmp-*
+	$(RM) *.pdf *.tex *.log tmp-* tikz2pdf/*.pdf tikz2pdf/*.png
 	$(RM) -r plantuml-images/ tikz2pdf-fonts/

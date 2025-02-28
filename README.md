@@ -1,4 +1,4 @@
-# pandoc-pretty-pdf
+# pretty-pdf
 
 All-in-one documentation conversion solution:
  - LaTeX -- 'nough said
@@ -18,8 +18,16 @@ See [helpme](app/helpme.md) for a manpage like doc.
 To convert `FILE.md` to a pretty `FILE.pdf`:
 
     docker run --rm -v $(pwd):/data \
-        ghcr.io/towi/pandoc-pretty-pdf \
-        pandoc-pretty-pdf -o FILE.pdf FILE.md
+        -u $(id -u):$(id -g) \
+        ghcr.io/towi/pretty-pdf \
+        pretty-pdf -o FILE.pdf FILE.md
+
+It is used similar to how it described in the (Pandoc Docker)[https://hub.docker.com/r/pandoc/latex] description.
+
+A helper script [pretty-pdf.sh](pretty-pdf.sh) is provided for you to
+download and install in your `PATH` to make this easier:
+
+    pretty-pdf -o FILE.pdf FILE.md
 
 
 ## Creating Docker Image
@@ -45,13 +53,13 @@ Add version tags for remote registry and push `:latest` and tagged version there
 
 I have painfully experienced both of the following issues.
 
- * `docker run towi/pandoc-pretty-pdf` requires `--user ...` to be able to write the output file into the hosts directory on some systems (Windows?).
- * `docker build` fails because TeX finds `tlmgr` incompatible with the current *TeX Live* release.
+ * `docker run towi/pretty-pdf` requires `--user ...` to be able to write the output file into the hosts directory on some systems (Windows?).
+ * `docker build` might fail because TeX finds `tlmgr` incompatible with the current *TeX Live* release, and that is removed regularly.
 
 If I read the page https://hub.docker.com/r/pandoc/latex carefully, I would have know what to do.
 So here are the most important excerpts:
 
-**`docker run towi/pandoc-pretty-pdf` requires `--user` flag (on Linux), there is no good way around it:**
+**`docker run towi/pretty-pdf` requires `--user` flag (on Linux), there is no good way around it:**
 
 > Ownership of the output file is determined by the user executing pandoc in the container. This will generally
 > be a user different from the local user. It is hence a good idea to specify for docker the
@@ -91,13 +99,13 @@ a `*.md` file into a `*.pdf` file.
 
     _volume=$(shell pwd):/data
     _uidgid=$(shell id -u):$(shell id -g)
-    PANDOCCY_TAG=towi/pandoc-pretty-pdf:latest
-    PANDOC:=docker run --rm --volume $(_volume) --user $(_uidgid) $(PANDOCCY_TAG) pandoc
+    PRETTY_PDF_TAG=towi/pretty-pdf:latest
+    PANDOC:=docker run --rm --volume $(_volume) --user $(_uidgid) $(PRETTY_PDF_TAG) pandoc
     PANDOC_FROM:=markdown+definition_lists+table_captions
     PANDOC_EISVOGEL_ARGS:=--template eisvogel --pdf-engine xelatex --listings --filter pandoc-plantuml -V "code-block-font-size:\scriptsize" -V "table-use-row-colors:true" -V "footer-center:confidential"
     
     %.pdf: %.md
-        $(PANDOC) --from $(PANDOC_FROM) $(PANDOC_EISVOGEL_ARGS) pandoc-pretty-pdf $< -o $@
+        $(PANDOC) --from $(PANDOC_FROM) $(PANDOC_EISVOGEL_ARGS) pretty-pdf $< -o $@
      
     clean:
         $(RM) *.cf *.xhtml *.pdf *.log
@@ -111,8 +119,8 @@ The simplest way is to set the variable `mainfont` with `-V` on command line:
       --rm \
       --volume $(pwd):/data \
       --user 1000:1000 \
-      towi/pandoc-pretty-pdf:latest \
-      pandoc-pretty-pdf \
+      towi/pretty-pdf:latest \
+      pretty-pdf \
         -V 'mainfont=Droid Serif' \
         -o eisvogel_test.pdf \
         eisvogel_test.md

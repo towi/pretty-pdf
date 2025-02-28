@@ -1,8 +1,8 @@
 all: docker-build
 
 # docker name to create
-IMAGE_NAME:=pandoc-pretty-pdf
-VERSION:=0.10
+IMAGE_NAME:=pretty-pdf
+VERSION:=1.0
 PATCH:=0
 
 NAMESPACE:=towi
@@ -13,14 +13,19 @@ REGISTRY:=ghcr.io
 LATEST:=$(REGISTRY)/$(NAMESPACE)/$(IMAGE_NAME):latest
 TAG:=$(REGISTRY)/$(NAMESPACE)/$(IMAGE_NAME):$(VERSION)
 
+GITHUB_USERNAME=towi
+
 
 docker-login: .$(REGISTRY)-secret.txt
 	cat .$(REGISTRY)-secret.txt | \
-		docker login $(REGISTRY) -u USERNAME --password-stdin
+		docker login $(REGISTRY) --username $(GITHUB_USERNAME) --password-stdin
 
 # just build it for local use
 docker-build: Dockerfile app/plantuml
-	docker build --build-arg PANDOC_PRETTY_PDF=$(TAG) -t $(LOCAL_LATEST) .
+	docker build \
+		--build-arg PRETTY_PDF=$(TAG) \
+ 		-t $(LOCAL_LATEST) \
+		.
 
 # local tagging
 docker-tag:
@@ -75,7 +80,7 @@ eisvogel_test: eisvogel_test.pdf
 			--volume $(shell pwd):/data \
 			--user $(shell id -u):$(shell id -g) \
 		$(LOCAL_LATEST) \
-			pandoc-pretty-pdf \
+			pretty-pdf \
 		-o $@ \
 		$<
 		@echo "___ result file: ___"
@@ -102,7 +107,7 @@ eisvogel_test-hub.pdf: eisvogel_test.md
 			--volume $(shell pwd):/data \
 			--user $(shell id -u):$(shell id -g) \
 		$(LATEST) \
-			pandoc-pretty-pdf \
+			pretty-pdf \
 		-o $@ \
 		$<
 		@echo "___ result file: ___"
@@ -110,5 +115,11 @@ eisvogel_test-hub.pdf: eisvogel_test.md
 
 #####
 
+test: docker-check
+	$(MAKE) -C tests/
+
+#####
+
 clean:
 	$(RM) eisvogel_test.pdf eisvogel_test-hub.pdf
+	$(MAKE) -C tests/ clean
